@@ -31,15 +31,10 @@ img{
 }
 
 #brand-filter{
-	width:20%;
 	height: 30px;
     margin-top: 1%;
 }
-#productdetails-filter{
-		width:20%;
-	height: 50px;
-    margin-top: 1%;
-}
+
 .footer {
 	position: absolute;
 	bottom: 0;

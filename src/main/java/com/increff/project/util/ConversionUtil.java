@@ -7,9 +7,12 @@ import java.util.Map;
 
 import com.increff.project.model.BrandData;
 import com.increff.project.model.BrandForm;
+import com.increff.project.model.InventoryData;
+import com.increff.project.model.InventoryForm;
 import com.increff.project.model.ProductData;
 import com.increff.project.model.ProductForm;
 import com.increff.project.pojo.BrandPojo;
+import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.ProductPojo;
 import com.increff.project.service.ApiException;
 
@@ -46,6 +49,7 @@ public class ConversionUtil {
 	public static ProductData convert(ProductPojo p) {
 		ProductData d = new ProductData();
 		d.setId(p.getId());
+		d.setBarcode(p.getBarcode());
 		d.setBrand(p.getBrandpojo().getBrand());
 		d.setCategory(p.getBrandpojo().getCategory());
 		d.setMrp(p.getMrp());
@@ -73,4 +77,32 @@ public class ConversionUtil {
 		}
 		return list2;
 	}
+	
+	//Convert to Inventory Pojo
+	public static InventoryPojo convert(InventoryForm f, ProductPojo product_pojo) throws ApiException {
+		InventoryPojo p = new InventoryPojo();
+		p.setProductPojo(product_pojo);
+		p.setQuantity(f.getQuantity());
+		return p;
+	}
+
+	//Convert to Inventory Data
+		public static InventoryData convert(InventoryPojo p) {
+			InventoryData d = new InventoryData();
+			d.setId(p.getId());
+			d.setBarcode(p.getProductPojo().getBarcode());
+			d.setName(p.getProductPojo().getName());
+			d.setQuantity(p.getQuantity());
+			return d;
+		}
+		
+		
+		//Convert list of inventory pojos to list of inventory data
+		public static List<InventoryData> convertInventoryList(List<InventoryPojo> list) {
+			List<InventoryData> list2 = new ArrayList<InventoryData>();
+			for (InventoryPojo p : list) {
+				list2.add(convert(p));
+			}
+			return list2;
+		}
 }

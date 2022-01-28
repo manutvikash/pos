@@ -30,6 +30,22 @@ public class ProductService {
 		return p;
 	}
 	
+	@Transactional
+	public ProductPojo get(String barcode) throws ApiException {
+		ProductPojo p = checkbarcode(barcode);
+		return p;
+	}
+	
+	/* Check if product exists with given barcode */
+	@Transactional(rollbackFor = ApiException.class)
+	public ProductPojo checkbarcode(String barcode) throws ApiException {
+		ProductPojo p = productDao.select(barcode);
+		if (p == null) {
+			throw new ApiException("ProductDetails with given barcode does not exist, barcode: " + barcode);
+		}
+		return p;
+	}
+	
 	@Transactional(rollbackFor=ApiException.class)
 	public ProductPojo checkId(int id) throws ApiException{
 		ProductPojo p=productDao.select(id);

@@ -2,13 +2,12 @@ package com.increff.project.model;
 
 public class ProductForm {
 
-	private String barcode;
 	private String brand;
 	private String category;
 	private String name;
 	private double mrp;
 	
-
+	private String barcode;
 	public String getBarcode() {
 		return barcode;
 	}
