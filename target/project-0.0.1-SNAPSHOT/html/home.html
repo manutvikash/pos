@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+
+<head th:replace="snippets.html :: name_head"></head>
+
+<link rel="stylesheet" th:href="@{/static/app.css}">
+
+<body>
+
+
+	<nav class="navbar navbar-expand-lg navbar-light homenav">
+		<div class="container-fluid">
+			<a class="navbar-brand" th:href="@{/}" style="width:30px;"><img
+				src="../static/download.png"></a>
+
+			<h2>Point Of Sale</h2>
+		</div>
+	</nav>
+
+	<div class="container homecontainer">
+		<span><i class="icon-dashboard fa-2x"></i></span>
+		<h1>Dashboard</h1>
+	</div>
+
+	<div class="dashboard">
+		<div class="card cardbrand">
+		<span><i class="fab fa-bimobject icon-4x icoons"></i></span>
+			<div class="card-body">
+				<h4 class="card-title" style="color:black;">Add and edit Brands</h4>
+				<a th:href="@{/ui/brand}" class="btn clickme stretched-link">Brand</a>
+			</div>
+		</div>
+
+		<div class="card">
+		<span><i class="fab fa-product-hunt icon-4x icoons"></i></span>
+			<div class="card-body">
+				<h4 class="card-title" style="color:black;">Product Management</h4>
+				<a th:href="@{/ui/brand}" class="btn clickme stretched-link">Product</a>
+			</div>
+		</div>
+
+		<div class="card">
+			<span><i class="fas fa-warehouse icon-4x icoons"></i></span>
+			<div class="card-body">
+				<h4 class="card-title" style="color:black;">Inventory Managment</h4>
+				<a th:href="@{/ui/brand}" class="btn clickme stretched-link">Inventory</a>
+			</div>
+		</div>
+
+		<div class="card">
+			<span><i class="fa fa-shopping-bag icon-4x icoons" aria-hidden="true"></i></span>
+			<div class="card-body">
+				<h4 class="card-title" style="color:black;">Place Orders</h4>
+				<a th:href="@{/ui/brand}" class="btn clickme stretched-link">Order</a>
+			</div>
+		</div>
+		
+		<div class="card">
+			<span><i class="fa fa-file icon-4x icoons" aria-hidden="true"></i></span>
+			<div class="card-body">
+				<h4 class="card-title" style="color:black;">Sales Report</h4>
+				<a th:href="@{/ui/brand}" class="btn clickme stretched-link">Sales</a>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="snippets.html :: name_footer"></footer>
+
+
+</body>
+
+</html>

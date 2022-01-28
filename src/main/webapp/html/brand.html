@@ -1,0 +1,165 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+<head th:replace="snippets.html :: name_head"></head>
+<link rel="stylesheet" th:href="@{/static/brand.css}">
+
+<body>
+
+<nav th:replace="snippets.html :: name_site_navbar"></nav>
+
+
+
+<div class="container">
+
+<div class="row page-heading">
+    <h2>Brand</h2>
+</div>
+
+
+ <div class="row inputfield" style="display: block;">
+     <input id="brand-filter" type="text" placeholder="Search..">
+		  <button type="button" class="btn btn-warning" id="open-add-brand" style="margin-left: 1%;"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+		  <button type="button" class="btn btn-success" id="refresh-data"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
+		  <button type="button" class="btn btn-info" id="upload-data"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+      <button type="button" class="btn btn-outline-dark" id="brand-report"><i class="fa fa-download" aria-hidden="true"></i> Download Report</button>
+   
+</div>
+
+<div class="row">
+	&nbsp;
+</div>
+<div class="row">
+
+
+ <div class="col-12">
+	<table class="table table-striped" id="brand-table">
+	  <thead>
+	    <tr>
+	      <th scope="col">Brand</th>
+	      <th scope="col">Category</th>
+	      <th scope="col">Actions</th>
+	    </tr>
+	  </thead>
+	  <tbody id="brand-table-body">
+	  </tbody>
+	</table>
+
+</div>
+</div>
+
+
+<div class="modal" id="add-brand-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: 65%;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Brand</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="brand-form">
+          <div class="form-group">
+            <label for="inputBrand" class="col-form-label">Brand</label>
+            <input type="text" class="form-control" id="recipient-name" name="brand" placeholder="Enter brand" style="height:100%">
+          </div>
+          <div class="form-group">
+            <label for="inputCategory" class="col-form-label">Category</label>
+            <input type="text" class="form-control" id="recipient-name" name="category" placeholder="Enter Category" style="height:100%">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="add-brand">Add</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="edit-brand-modal" style="height: 65%;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Brand</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<form id="brand-edit-form">
+			  <div class="form-group">
+			    <label for="inputBrand" class="col-sm-2 col-form-label">Brand</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="brand" placeholder="Enter brand" style="height:100%">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputCategory" class="col-sm-2 col-form-label">Category</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="category" placeholder="Enter category" style="height:100%">
+			    </div>
+			  </div>
+ 	        <input type="hidden" name="id" >
+			</form>
+      </div>
+      <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="update-brand">Update</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="upload-brand-modal" style="height: 50%;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Upload Brand</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+      	<div class="brand-file">
+		  <input type="file" class="custom-file-input" id="brandFile">
+		  <label class="custom-file-label" for="brandFile" id="brandFileName">Choose file</label>
+		</div>
+		<br>
+    Rows: <span id="rowCount">0</span>,
+		Processed: <span id="processCount">0</span>,
+		Errors: <span id="errorCount">0</span>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="process-data"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+        <button type="button" class="btn btn-success" id="download-errors"><i class="fa fa-download" aria-hidden="true"></i> Download Errors</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div>
+<div th:replace="snippets.html :: name_footer"></div>
+<script th:src="@{/static/brand.js}"></script>
+</div>
+
+
+
+
+
+</body>
+
+</html>

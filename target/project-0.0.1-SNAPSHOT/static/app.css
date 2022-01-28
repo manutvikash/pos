@@ -1,0 +1,76 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+img{
+	max-width: 100%;
+}
+
+body {
+	margin-bottom: 60px; /* Margin bottom by footer height */
+	
+}
+.navbar-brand a{
+	
+	margin-left:50px;
+}
+
+.homenav{
+	background-color: #d5f3fe;
+}
+.homecontainer{
+	padding-bottom:0px;
+}
+.homecontainer h1{
+	display:inline-block;
+	font-size: 30px;
+	padding-left: 5px;
+	margin-bottom:0px;
+}
+.navbar>.container-fluid{
+	justify-content: normal;
+}
+
+.container-fluid h2{
+	font-size:30px;
+	color:#0f5298;
+}
+
+.dashboard{
+	margin-left:6%;
+	text-align:center;
+}
+.card{
+	display:inline-block;
+	margin-right:5%;
+	width:20%;
+	margin-top:1%;
+	color:#0f5298;
+	background-color:#d5f3fe;
+}
+.clickme {
+    background-color: #EEEEEE;
+    color:#0f5298;
+    padding: 8px 20px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
+.icoons{
+	margin-top:10%;
+}
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px; /* Set the fixed height of the footer here */
+	line-height: 60px; /* Vertically center the text there */
+	text-align: center;
+	background-color: #f5f5f5;
+}
+
+
+.fas{
+    font-size: 4rem;
+}

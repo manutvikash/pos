@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.service</a> &gt; <span class="el_source">ProductService.java</span></div><h1>ProductService.java</h1><pre class="source lang-java linenums">package com.increff.project.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.increff.project.dao.ProductDao;
+import com.increff.project.pojo.ProductPojo;
+
+@Service
+<span class="nc" id="L15">public class ProductService {</span>
+
+	@Autowired
+	public ProductDao productDao;
+	
+	@Transactional
+	public void add(ProductPojo p) throws ApiException{
+<span class="nc" id="L22">		check(p);</span>
+<span class="nc" id="L23">		normalize(p);</span>
+<span class="nc" id="L24">		productDao.insert(p);</span>
+<span class="nc" id="L25">	}</span>
+	
+	@Transactional
+	public ProductPojo get(int id) throws ApiException{
+<span class="nc" id="L29">		ProductPojo p=checkId(id);</span>
+<span class="nc" id="L30">		return p;</span>
+	}
+	
+	@Transactional(rollbackFor=ApiException.class)
+	public ProductPojo checkId(int id) throws ApiException{
+<span class="nc" id="L35">		ProductPojo p=productDao.select(id);</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">		if(p==null) {</span>
+<span class="nc" id="L37">			throw new ApiException(&quot;Product with the given Id does not exist,id: &quot;+id);</span>
+			
+		}
+<span class="nc" id="L40">		return p;</span>
+	}
+	protected void check(ProductPojo p) throws ApiException{
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		if(p.getName().isEmpty()) {</span>
+<span class="nc" id="L44">			throw new ApiException(&quot;Product name must not be empty&quot;);</span>
+		}
+<span class="nc bnc" id="L46" title="All 2 branches missed.">		if(p.getMrp()&lt;=0) {</span>
+<span class="nc" id="L47">			throw new ApiException(&quot;Mrp Value must be positive&quot;);</span>
+		}
+<span class="nc" id="L49">	}</span>
+	
+	protected void normalize(ProductPojo p) {
+<span class="nc" id="L52">		p.setName(p.getName().toLowerCase());</span>
+<span class="nc" id="L53">	}</span>
+	
+	
+	@Transactional
+	public List&lt;ProductPojo&gt; getAll(){
+<span class="nc" id="L58">		return productDao.selectAll();</span>
+	}
+	
+	/* Mapping of product pojo with barcode as key */
+	@Transactional
+	public Map&lt;String, ProductPojo&gt; getAllProductPojosByBarcode() {
+<span class="nc" id="L64">		List&lt;ProductPojo&gt; product_list = getAll();</span>
+<span class="nc" id="L65">		Map&lt;String, ProductPojo&gt; barcode_product = new HashMap&lt;String, ProductPojo&gt;();</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		for (ProductPojo product : product_list) {</span>
+<span class="nc" id="L67">			barcode_product.put(product.getBarcode(), product);</span>
+<span class="nc" id="L68">		}</span>
+<span class="nc" id="L69">		return barcode_product;</span>
+	}
+	
+	@Transactional(rollbackFor = ApiException.class)
+	public void update(int id, ProductPojo p) throws ApiException {
+<span class="nc" id="L74">		check(p);</span>
+<span class="nc" id="L75">		normalize(p);</span>
+<span class="nc" id="L76">		ProductPojo ex = checkId(id);</span>
+<span class="nc" id="L77">		ex.setBarcode(p.getBarcode());</span>
+<span class="nc" id="L78">		ex.setBrandpojo(p.getBrandpojo());</span>
+<span class="nc" id="L79">		ex.setMrp(p.getMrp());</span>
+<span class="nc" id="L80">		ex.setName(p.getName());</span>
+<span class="nc" id="L81">		productDao.update(p);</span>
+<span class="nc" id="L82">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

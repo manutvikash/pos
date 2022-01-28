@@ -1,0 +1,193 @@
+<!doctype html>
+
+<html lang="en">
+
+
+<head th:replace="snippets.html :: name_head"></head>
+<link rel="stylesheet" th:href="@{/static/brand.css}">
+<body>
+
+<nav th:replace="snippets.html :: name_site_navbar"></nav>
+
+
+<div class="container">
+
+  <div class="row page-heading">
+     <h2>Product</h2>
+  </div>
+
+<!-- Top row with form-->
+ <div class="row">
+	 <div class="col-12">
+        <input id="productdetails-filter" type="text" placeholder="Search..">
+			  <button type="button" class="btn btn-warning" id="open-add-productdetails"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+			  &nbsp;
+			  <button type="button" class="btn btn-success" id="refresh-data-productdetails"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
+        &nbsp;
+			  <button type="button" class="btn btn-info" id="upload-data-productdetails"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+	 </div>
+</div>
+
+<!-- Blank Row -->
+<div class="row">
+	&nbsp;
+</div>
+<div class="row">
+
+ <!-- Table -->
+ <div class="col-12">
+	<table class="table table-striped" id="productdetails-table">
+	  <thead>
+	    <tr>
+	      <th scope="col">Barcode</th>
+	      <th scope="col">Brand</th>
+        <th scope="col">Category</th>
+	      <th scope="col">Name</th>
+	      <th scope="col">MRP</th>
+	      <th scope="col">Actions</th>
+	    </tr>
+	  </thead>
+	  <tbody id="productdetails-table-body">
+	  </tbody>
+	</table>
+
+</div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="add-productdetails-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Product Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ui-front">
+			<form id="productdetails-form">
+			  <div class="form-group">
+			    <label for="inputBrand" class="col-sm-2 col-form-label">Brand</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control brand" name="brand" placeholder="enter brand">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputCategory" class="col-sm-2 col-form-label">Category</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control category" name="category" placeholder="enter category">
+			    </div>
+			  </div>
+        <div class="form-group">
+			    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="name" placeholder="enter name">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputMrp" class="col-sm-2 col-form-label">Mrp</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="mrp" placeholder="enter mrp">
+			    </div>
+			  </div>
+			</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="add-productdetails">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="edit-productdetails-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Product Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ui-front">
+			<form id="productdetails-edit-form">
+			  <div class="form-group">
+			    <label for="inputBrand" class="col-sm-2 col-form-label">Brand</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control brand" name="brand" placeholder="enter brand">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputCategory" class="col-sm-2 col-form-label">Category</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control category" name="category" placeholder="enter category">
+			    </div>
+			  </div>
+        <div class="form-group">
+			    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="name" placeholder="enter name">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputMrp" class="col-sm-2 col-form-label">Mrp</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" name="mrp" placeholder="enter mrp">
+			    </div>
+			  </div>
+ 	        <input type="hidden" name="id" >
+			</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="update-productdetails">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="upload-productdetails-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Upload Product Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+      	<div class="productdetails-file">
+		  <input type="file" class="custom-file-input" id="productdetailsFile">
+		  <label class="custom-file-label" for="productdetailsFile" id="productdetailsFileName">Choose file</label>
+		</div>
+		<br>
+    Rows: <span id="rowCount">0</span>,
+		Processed: <span id="processCount">0</span>,
+		Errors: <span id="errorCount">0</span>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="process-data-productdetails">Upload</button>
+        <button type="button" class="btn btn-success" id="download-errors-productdetails"><i class="inline-icon material-icons">cloud_download</i>Download Errors</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div> <!-- Container end-->
+
+<div>
+<div th:replace="snippets.html :: name_footer"></div>
+<script th:src="@{/static/product.js}"></script>
+</div>
+
+
+
+
+
+</body>
+
+</html>
+

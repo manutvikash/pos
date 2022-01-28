@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConversionUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.util</a> &gt; <span class="el_source">ConversionUtil.java</span></div><h1>ConversionUtil.java</h1><pre class="source lang-java linenums">package com.increff.project.util;
+
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.increff.project.model.BrandData;
+import com.increff.project.model.BrandForm;
+import com.increff.project.model.ProductData;
+import com.increff.project.model.ProductForm;
+import com.increff.project.pojo.BrandPojo;
+import com.increff.project.pojo.ProductPojo;
+import com.increff.project.service.ApiException;
+
+<span class="nc" id="L16">public class ConversionUtil {</span>
+
+	//Convert to BrandPojo
+	public static BrandPojo convert(BrandForm d) {
+<span class="nc" id="L20">		BrandPojo p = new BrandPojo();</span>
+<span class="nc" id="L21">		p.setBrand(d.getBrand());</span>
+<span class="nc" id="L22">		p.setCategory(d.getCategory());</span>
+<span class="nc" id="L23">		return p;</span>
+	}
+
+	//Convert to Brand Data
+	public static BrandData convert(BrandPojo p) {
+<span class="nc" id="L28">		BrandData d = new BrandData();</span>
+<span class="nc" id="L29">		d.setBrand(p.getBrand());</span>
+<span class="nc" id="L30">		d.setCategory(p.getCategory());</span>
+<span class="nc" id="L31">		d.setId(p.getId());</span>
+<span class="nc" id="L32">		return d;</span>
+	}
+
+	//Convert to Product Pojo
+	public static ProductPojo convert(BrandPojo brand_pojo, ProductForm f) throws ApiException {
+<span class="nc" id="L37">		ProductPojo p = new ProductPojo();</span>
+<span class="nc" id="L38">		p.setBarcode(f.getBarcode());</span>
+<span class="nc" id="L39">		p.setName(f.getName());</span>
+<span class="nc" id="L40">		p.setMrp(f.getMrp());</span>
+<span class="nc" id="L41">		p.setBrandpojo(brand_pojo);</span>
+<span class="nc" id="L42">		return p;</span>
+	}
+
+	//Convert to Product Data
+	public static ProductData convert(ProductPojo p) {
+<span class="nc" id="L47">		ProductData d = new ProductData();</span>
+<span class="nc" id="L48">		d.setId(p.getId());</span>
+<span class="nc" id="L49">		d.setBrand(p.getBrandpojo().getBrand());</span>
+<span class="nc" id="L50">		d.setCategory(p.getBrandpojo().getCategory());</span>
+<span class="nc" id="L51">		d.setMrp(p.getMrp());</span>
+<span class="nc" id="L52">		d.setName(p.getName());</span>
+<span class="nc" id="L53">		d.setBarcode(p.getBarcode());</span>
+<span class="nc" id="L54">		return d;</span>
+	}
+
+	
+
+	//Convert list of brand pojos to list of brand data
+	public static List&lt;BrandData&gt; convert(List&lt;BrandPojo&gt; list) {
+<span class="nc" id="L61">		List&lt;BrandData&gt; list2 = new ArrayList&lt;BrandData&gt;();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		for (BrandPojo p : list) {</span>
+<span class="nc" id="L63">			list2.add(convert(p));</span>
+<span class="nc" id="L64">		}</span>
+<span class="nc" id="L65">		return list2;</span>
+	}
+
+	//Convert list of product details pojos to list of product details data
+	public static List&lt;ProductData&gt; convertProductList(List&lt;ProductPojo&gt; list) {
+<span class="nc" id="L70">		List&lt;ProductData&gt; list2 = new ArrayList&lt;ProductData&gt;();</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		for (ProductPojo p : list) {</span>
+<span class="nc" id="L72">			list2.add(convert(p));</span>
+<span class="nc" id="L73">		}</span>
+<span class="nc" id="L74">		return list2;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
