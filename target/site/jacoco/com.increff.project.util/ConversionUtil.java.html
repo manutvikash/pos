@@ -38,70 +38,72 @@ import com.increff.project.service.ApiException;
 	//Convert to Product Pojo
 	public static ProductPojo convert(BrandPojo brand_pojo, ProductForm f) throws ApiException {
 <span class="nc" id="L40">		ProductPojo p = new ProductPojo();</span>
-<span class="nc" id="L41">		p.setName(f.getName());</span>
-<span class="nc" id="L42">		p.setMrp(f.getMrp());</span>
-<span class="nc" id="L43">		p.setBrandpojo(brand_pojo);</span>
-<span class="nc" id="L44">		return p;</span>
+<span class="nc" id="L41">		p.setBarcode(f.getBarcode());</span>
+<span class="nc" id="L42">		p.setName(f.getName());</span>
+<span class="nc" id="L43">		p.setMrp(f.getMrp());</span>
+<span class="nc" id="L44">		p.setBrandpojo(brand_pojo);</span>
+<span class="nc" id="L45">		return p;</span>
 	}
 
 	//Convert to Product Data
 	public static ProductData convert(ProductPojo p) {
-<span class="nc" id="L49">		ProductData d = new ProductData();</span>
-<span class="nc" id="L50">		d.setId(p.getId());</span>
-<span class="nc" id="L51">		d.setBrand(p.getBrandpojo().getBrand());</span>
-<span class="nc" id="L52">		d.setCategory(p.getBrandpojo().getCategory());</span>
-<span class="nc" id="L53">		d.setMrp(p.getMrp());</span>
-<span class="nc" id="L54">		d.setName(p.getName());</span>
-<span class="nc" id="L55">		d.setBarcode(p.getBarcode());</span>
-<span class="nc" id="L56">		return d;</span>
+<span class="nc" id="L50">		ProductData d = new ProductData();</span>
+<span class="nc" id="L51">		d.setId(p.getId());</span>
+<span class="nc" id="L52">		d.setBarcode(p.getBarcode());</span>
+<span class="nc" id="L53">		d.setBrand(p.getBrandpojo().getBrand());</span>
+<span class="nc" id="L54">		d.setCategory(p.getBrandpojo().getCategory());</span>
+<span class="nc" id="L55">		d.setMrp(p.getMrp());</span>
+<span class="nc" id="L56">		d.setName(p.getName());</span>
+<span class="nc" id="L57">		d.setBarcode(p.getBarcode());</span>
+<span class="nc" id="L58">		return d;</span>
 	}
 
 	
 
 	//Convert list of brand pojos to list of brand data
 	public static List&lt;BrandData&gt; convert(List&lt;BrandPojo&gt; list) {
-<span class="nc" id="L63">		List&lt;BrandData&gt; list2 = new ArrayList&lt;BrandData&gt;();</span>
-<span class="nc bnc" id="L64" title="All 2 branches missed.">		for (BrandPojo p : list) {</span>
-<span class="nc" id="L65">			list2.add(convert(p));</span>
-<span class="nc" id="L66">		}</span>
-<span class="nc" id="L67">		return list2;</span>
+<span class="nc" id="L65">		List&lt;BrandData&gt; list2 = new ArrayList&lt;BrandData&gt;();</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		for (BrandPojo p : list) {</span>
+<span class="nc" id="L67">			list2.add(convert(p));</span>
+<span class="nc" id="L68">		}</span>
+<span class="nc" id="L69">		return list2;</span>
 	}
 
 	//Convert list of product details pojos to list of product details data
 	public static List&lt;ProductData&gt; convertProductList(List&lt;ProductPojo&gt; list) {
-<span class="nc" id="L72">		List&lt;ProductData&gt; list2 = new ArrayList&lt;ProductData&gt;();</span>
-<span class="nc bnc" id="L73" title="All 2 branches missed.">		for (ProductPojo p : list) {</span>
-<span class="nc" id="L74">			list2.add(convert(p));</span>
-<span class="nc" id="L75">		}</span>
-<span class="nc" id="L76">		return list2;</span>
+<span class="nc" id="L74">		List&lt;ProductData&gt; list2 = new ArrayList&lt;ProductData&gt;();</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		for (ProductPojo p : list) {</span>
+<span class="nc" id="L76">			list2.add(convert(p));</span>
+<span class="nc" id="L77">		}</span>
+<span class="nc" id="L78">		return list2;</span>
 	}
 	
 	//Convert to Inventory Pojo
 	public static InventoryPojo convert(InventoryForm f, ProductPojo product_pojo) throws ApiException {
-<span class="nc" id="L81">		InventoryPojo p = new InventoryPojo();</span>
-<span class="nc" id="L82">		p.setProductPojo(product_pojo);</span>
-<span class="nc" id="L83">		p.setQuantity(f.getQuantity());</span>
-<span class="nc" id="L84">		return p;</span>
+<span class="nc" id="L83">		InventoryPojo p = new InventoryPojo();</span>
+<span class="nc" id="L84">		p.setProductPojo(product_pojo);</span>
+<span class="nc" id="L85">		p.setQuantity(f.getQuantity());</span>
+<span class="nc" id="L86">		return p;</span>
 	}
 
 	//Convert to Inventory Data
 		public static InventoryData convert(InventoryPojo p) {
-<span class="nc" id="L89">			InventoryData d = new InventoryData();</span>
-<span class="nc" id="L90">			d.setId(p.getId());</span>
-<span class="nc" id="L91">			d.setBarcode(p.getProductPojo().getBarcode());</span>
-<span class="nc" id="L92">			d.setName(p.getProductPojo().getName());</span>
-<span class="nc" id="L93">			d.setQuantity(p.getQuantity());</span>
-<span class="nc" id="L94">			return d;</span>
+<span class="nc" id="L91">			InventoryData d = new InventoryData();</span>
+<span class="nc" id="L92">			d.setId(p.getId());</span>
+<span class="nc" id="L93">			d.setBarcode(p.getProductPojo().getBarcode());</span>
+<span class="nc" id="L94">			d.setName(p.getProductPojo().getName());</span>
+<span class="nc" id="L95">			d.setQuantity(p.getQuantity());</span>
+<span class="nc" id="L96">			return d;</span>
 		}
 		
 		
 		//Convert list of inventory pojos to list of inventory data
 		public static List&lt;InventoryData&gt; convertInventoryList(List&lt;InventoryPojo&gt; list) {
-<span class="nc" id="L100">			List&lt;InventoryData&gt; list2 = new ArrayList&lt;InventoryData&gt;();</span>
-<span class="nc bnc" id="L101" title="All 2 branches missed.">			for (InventoryPojo p : list) {</span>
-<span class="nc" id="L102">				list2.add(convert(p));</span>
-<span class="nc" id="L103">			}</span>
-<span class="nc" id="L104">			return list2;</span>
+<span class="nc" id="L102">			List&lt;InventoryData&gt; list2 = new ArrayList&lt;InventoryData&gt;();</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			for (InventoryPojo p : list) {</span>
+<span class="nc" id="L104">				list2.add(convert(p));</span>
+<span class="nc" id="L105">			}</span>
+<span class="nc" id="L106">			return list2;</span>
 		}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

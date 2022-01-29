@@ -15,16 +15,16 @@
 
 <div class="container">
 
-<div class="row page-heading">
+<div class="row" style="text-align:center; display: block;">
     <h2>Brand</h2>
 </div>
 
 
- <div class="row inputfield" style="display: block;">
+ <div class="row inputfield" style="display: block;text-align:center;">
      <input id="brand-filter" type="text" placeholder="Search..">
 		  <button type="button" class="btn btn-warning" id="open-add-brand" data-toggle="modal" data-target="#add-brand-modal" style="margin-left: 1%;"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
-		  <button type="button" class="btn btn-success" id="refresh-data"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>
-		  <button type="button" class="btn btn-info" id="upload-data" data-toggle="modal" data-target="#upload-brand-modal"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+		  <!--<button type="button" class="btn btn-success" id="refresh-data" ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>-->
+		  <button type="button" class="btn btn-info" id="upload-data"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
       <button type="button" class="btn btn-outline-dark" id="brand-report"><i class="fa fa-download" aria-hidden="true"></i> Download Report</button>
    
 </div>
@@ -35,7 +35,7 @@
 <div class="row">
 
 
- <div class="col-12">
+ <div class="col-8" style="margin-left:17%;">
 	<table class="table table-striped" id="brand-table">
 	  <thead>
 	    <tr>
@@ -62,7 +62,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="brand-form">
+        <form id="brand-form" method="POST" action="/api/brand">
           <div class="form-group">
             <label for="inputBrand" class="col-form-label">Brand</label>
             <input type="text" class="form-control" id="recipient-name" name="brand" placeholder="Enter brand" style="height:100%">
@@ -154,7 +154,6 @@
 <div>
 <div th:replace="snippets.html :: name_footer"></div>
 <script th:src="@{/static/brand.js}"></script>
-<script th:src="@{/static/app.js}"></script>
 </div>
 
 

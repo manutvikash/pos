@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 <span class="nc" id="L9">public class UIController {</span>
 
-	@Value(&quot;${app-baseUrl}&quot;)
+	@Value(&quot;${app.baseUrl}&quot;)
 	private String baseUrl;
 	
 
@@ -33,6 +33,10 @@ import org.springframework.web.servlet.ModelAndView;
 	@RequestMapping(value = &quot;/ui/product&quot;)
 	public ModelAndView product() {
 <span class="nc" id="L35">		return mav(&quot;product.html&quot;);</span>
+	}
+	@RequestMapping(value = &quot;/ui/inventory&quot;)
+	public ModelAndView inventory() {
+<span class="nc" id="L39">		return mav(&quot;inventory.html&quot;);</span>
 	}
 
 }
