@@ -1,0 +1,2 @@
+barcode	brand	category	name	mrp
+#123	hp	laptop	pavillion	200000.45	

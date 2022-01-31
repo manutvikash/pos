@@ -1,4 +1,5 @@
 D:\project\src\main\java\com\increff\project\service\ApiException.java
+D:\project\src\main\java\com\increff\project\service\ReportService.java
 D:\project\src\main\java\com\increff\project\model\ProductData.java
 D:\project\src\main\java\com\increff\project\controller\ProductController.java
 D:\project\src\main\java\com\increff\project\spring\WebInitializer.java
@@ -7,6 +8,7 @@ D:\project\src\main\java\com\increff\project\dao\BrandDao.java
 D:\project\src\main\java\com\increff\project\pojo\ProductPojo.java
 D:\project\src\main\java\com\increff\project\pojo\BrandPojo.java
 D:\project\src\main\java\com\increff\project\spring\ControllerConfig.java
+D:\project\src\main\java\com\increff\project\controller\ReportController.java
 D:\project\src\main\java\com\increff\project\util\ConversionUtil.java
 D:\project\src\main\java\com\increff\project\controller\InventoryController.java
 D:\project\src\main\java\com\increff\project\dao\ProductDao.java

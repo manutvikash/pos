@@ -1,0 +1,2 @@
+barcode	brand	category	name	mrp
+#123	realme	smartphone	pavillion	200000.45	
