@@ -30,7 +30,9 @@ body {
 .navbar>.container-fluid{
 	justify-content: normal;
 }
-
+.active{
+	color:red;
+}
 .container-fluid h2{
 	font-size:30px;
 	color:#0f5298;

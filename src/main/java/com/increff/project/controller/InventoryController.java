@@ -1,5 +1,6 @@
 package com.increff.project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,21 @@ public class InventoryController {
 		inventory_service.update(id, inventory_pojo);
 	}
 
+	@ApiOperation(value="Gets Id of the Barcode")
+	@RequestMapping(path="/api/inventory/barcode",method=RequestMethod.POST)
+	public List<InventoryData> getid(@RequestBody InventoryForm f) throws ApiException{
+		ProductPojo p=product_service.checkbarcode(f.getBarcode());
+		InventoryPojo i=ConversionUtil.convert(f, p);
+		ProductPojo p1=i.getProductPojo();
+		int id=p1.getId();
+		InventoryPojo i2=inventory_service.getByProductId(id);
+		
+		InventoryData arrayData= ConversionUtil.convert(i2);
+		
+		List<InventoryData> list=new ArrayList<InventoryData>();
+		list.add(arrayData);
+		return list;
+	}
 	
 
 }

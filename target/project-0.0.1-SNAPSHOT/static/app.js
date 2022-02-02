@@ -1,3 +1,8 @@
+//Active Link
+/*$('.navl li').click(function(){
+    $('.navl li').removeClass('active');
+    $(this).addClass('active');
+})*/
 
 //HELPER METHOD
 function toJson($form){

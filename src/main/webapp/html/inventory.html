@@ -13,25 +13,29 @@
 	<div class="container">
 
 		<div class="row" style="text-align: center; display: block;">
-			<h2>Inventory</h2>
+			<h2 th:fragment="inventory">Inventory</h2>
 		</div>
 
 		<div class="row inputfield"
-			style="display: block; text-align: center;">
-			<input id="brand-filter" type="text" placeholder="Search..">
-			<button type="button" class="btn btn-warning" id="open-add-inventory"
-				data-toggle="modal" data-target="#add-brand-modal"
-				style="margin-left: 1%;">
+			style="display: block;">
+			<form id="inventory-form" style="display:inline-block; width:50%;margin-bottom:0%;">
+			<input id="inventory-filter" type="text" name="barcode" placeholder="Search.." style="height: 30px; margin-top: 2%; margin-left: 2%;margin-right:1%;">
+			<button type="button" class="btn btn-info" id="search-inventory"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+			</form>
+			
+			<!--<button type="button" class="btn btn-warning" id="open-add-inventory"
+				data-toggle="modal" data-target="#add-inventory-modal"
+				style="margin-left: 40%;">
 				<i class="fa fa-plus" aria-hidden="true"></i> Add
-			</button>
-			<!--<button type="button" class="btn btn-success" id="refresh-data" ><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</button>-->
-			<button type="button" class="btn btn-info" id="upload-data-inventory">
+			</button>-->
+			&nbsp;
+			<button type="button" class="btn btn-info" id="upload-inventory" style="margin-left:23%;">
 				<i class="fa fa-upload" aria-hidden="true"></i> Upload
 			</button>
-			<button type="button" class="btn btn-outline-dark"
+			<!--  <button type="button" class="btn btn-outline-dark"
 				id="inventory-report">
 				<i class="fa fa-download" aria-hidden="true"></i> Download Report
-			</button>
+			</button>-->
 
 		</div>
 
@@ -41,7 +45,7 @@
 
 
 			<div class="col-12">
-				<table class="table table-striped" id="brand-table">
+				<table class="table table-striped" id="inventory-table">
 					<thead>
 						<tr>
 							<th scope="col">Barcode</th>
@@ -57,7 +61,7 @@
 			</div>
 		</div>
 
-		<div class="modal" tabindex="-1" role="dialog"
+		<!-- <div class="modal" tabindex="-1" role="dialog"
 			id="add-inventory-modal">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -74,27 +78,27 @@
 								<label for="inputBarcode" class="col-sm-2 col-form-label">Barcode</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control barcode" name="barcode"
-										placeholder="enter barcode">
+										placeholder="Enter Barcode">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" name="quantity"
-										placeholder="enter quantity">
+									<input type="number" class="form-control" name="quantity"
+										placeholder="Enter Quantity">
 								</div>
 							</div>
 							<input type="hidden" name="id">
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Cancel</button>
 						<button type="button" class="btn btn-primary" id="add-inventory">Add</button>
+						<button type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 
 		<div class="modal" tabindex="-1" role="dialog"
@@ -114,24 +118,24 @@
 								<label for="inputBarcode" class="col-sm-2 col-form-label">Barcode</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control barcode" name="barcode"
-										placeholder="enter barcode" readonly>
+										placeholder="Enter Barcode" readonly>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" name="quantity"
-										placeholder="enter quantity">
+									<input type="number" class="form-control" name="quantity"
+										placeholder="Enter Quantity">
 								</div>
 							</div>
 							<input type="hidden" name="id">
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Cancel</button>
 						<button type="button" class="btn btn-primary"
-							id="update-inventory">Update</button>
+							id="edit-inventory">Edit</button>
+						<button type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -161,21 +165,24 @@
 					</div>
 
 					<div class="modal-footer">
+						<button type="button" class="btn btn-info"
+							id="process-inventory"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+						<button type="button" class="btn btn-danger"
+							id="download-errors-inventory"><i class="fa fa-download" aria-hidden="true"></i> Download Errors
+						</button>
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Cancel</button>
-						<button type="button" class="btn btn-primary"
-							id="process-data-inventory">Upload</button>
-						<button type="button" class="btn btn-success"
-							id="download-errors-inventory">
-							<i class="inline-icon material-icons">cloud_download</i>Download
-							Errors
-						</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
 
+	</div>
+	
+	<div>
+	<div th:replace="snippets.html :: name_footer"></div>
+    <script th:src="@{/static/inventory.js}"></script>
 	</div>
 
 </body>

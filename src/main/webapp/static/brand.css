@@ -36,7 +36,9 @@ img{
 	height: 30px;
     margin-top: 1%;
 }
-
+.active{
+	color: red;
+}
 .footer {
 	position: absolute;
 	bottom: 0;

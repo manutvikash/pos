@@ -3,7 +3,7 @@ function getBrandUrl(){
 	console.log(baseUrl);
 	return baseUrl + "/api/brand";
 }
-var page;
+var page=false;
 function addBrand(event){
 	//Set the values to update
 	var $form = $("#brand-form");
@@ -73,17 +73,12 @@ function updateBrand(event){
 }
 
 function getBrandList(){
-	console.log("Hi");
 	var url = getBrandUrl();
 	$.ajax({
 	   url: url,
 	   type: 'GET',
 	   success: function(data) {
-		console.log("Hi");
 	   		displayBrandList(data);
-              if(!page){
-	          pagination();
-               }  
 	   },
 	   error: handleAjaxError
 	});
@@ -91,7 +86,7 @@ function getBrandList(){
 
 //UI
 function displayBrandList(data){
-	console.log("Hello");
+	
 	var $tbody = $('#brand-table').find('tbody');
 	$tbody.empty();
 	for(var i in data){
@@ -205,7 +200,7 @@ function uploadRows(){
        },	   
 	   success: function(response) {
 	   		uploadRows(); 
-        
+        /*$('#upload-brand-modal').modal('toggle');*/
 	   },
 	   error: function(response){
 	   		row.error=response.responseText
@@ -251,41 +246,47 @@ function updateUploadDialog(){
 
 function updateFileName(){
 	var $file = $('#brandFile');
-	var fileName = $file.val();
+	var path=$file.val();
+	var fileName = path.replace(/^C:\\fakepath\\/, "");
 	$('#brandFileName').html(fileName);
 }
 
-
 function brandFilter() {
-	$("#brand-filter").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
+
+    var value = document.getElementById("brand-filter").value;
+    value = value.trim();
+    value = value.toLowerCase();
+
+    console.log(value);
+
+    if(value === '')
+    {
+        getBrandList();
+
+        return;
+    }
+
     $("#brand-table-body tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > 0);
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
-  });
 }
 
-var numOfVisibleRows = $('tr:visible').length;
-console.log(numOfVisibleRows);
 
 
 function init(){
 	$('#add-brand').click(addBrand);
 	$('#update-brand').click(updateBrand);
+    $('#search-brand').click(brandFilter);
 	$('#upload-data').click(displayUploadData);
-		$('#refresh-data').click(getBrandList);
 	$('#process-data').click(processData);
 	$('#download-errors').click(downloadErrors);
     $('#brandFile').on('change', updateFileName)
 
 }
-$(document).ready(init);
-$(document).ready(getBrandList);
-$(document).ready(brandFilter);
+
 
 function pagination() {  
     $('#brand-table').after ('<div id="nav" style="text-align: center; padding-bottom: 3%; font-size: 16px;"></div>');  
-    page=false;   
  var rowsShown = 8;  
     var rowsTotal = $('#brand-table tbody tr').length;  
     var numPages = rowsTotal/rowsShown;  
@@ -305,5 +306,14 @@ function pagination() {
         $('#brand-table tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).  
         css('display','table-row').animate({opacity:1}, 300);  
     });  
-   page=true;
+   
 } 
+
+$(document).ready(init);
+$(document).ready(getBrandList);
+$(document).ready(pagination);
+
+$('.navl li').click(function(){
+    $('.navl li').removeClass('active');
+    $(this).addClass('active');
+})

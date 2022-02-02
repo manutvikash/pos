@@ -76,7 +76,21 @@ function getProductList(){
 
 //UI
 function displayProductList(data){
-	
+	data=data.sort(function(a,b){
+		if(a.brand===b.brand){
+			if(a.category<b.category){
+				return -1;
+			}else{
+				return 1;
+			}
+		}else{
+		if(a.brand<b.brand){
+			return -1;
+		}else{
+			return 1;
+		}
+		}
+	});
 	var $tbody = $('#product-table').find('tbody');
 	$tbody.empty();
 	for(var i in data){
@@ -184,7 +198,7 @@ function checkHeader(file,header_list,callback) {
 					readFileData(file,callback);
 				}
 				else{
-					alert("Improper or absent headers in file");
+					toastr.error("Wrong file. Please check the head of it");
 				}
 
     }
@@ -222,7 +236,7 @@ function uploadRows(){
         /*$('#upload-brand-modal').modal('toggle');*/
 	   },
 	   error: function(response){
-	   		row.error=response.responseText
+	   		row.error=JSON.parse(response.responseText).message
 	   		errorData.push(row);
 	   		uploadRows();
 	   }
@@ -268,34 +282,31 @@ function updateFileName(){
 }
 
 
-function resetUploadDialogProduct(){
-
-	var $file = $('#productdetailsFile');
-	$file.val('');
-	$('#productdetailsFileName').html("Choose File");
-
-	rowsProcessed = 0;
-	fileData = [];
-	errorData = [];
-	updateUploadDialog();
-}
-
-
 function productFilter() {
-	$("#product-filter").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-console.log("zzzz");
+
+    var value = document.getElementById("product-filter").value;
+    value = value.trim();
+    value = value.toLowerCase();
+
+    console.log(value);
+
+    if(value === '')
+    {
+        getProductList();
+
+        return;
+    }
+
     $("#product-table-body tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > 0);
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
-  });
 }
 
 
 function init(){
 	$('#add-product').click(addProduct);
-	$('#refresh-data-product').click(getProductList);
 	$('#edit-product').click(editProduct);
+	$('#search-product').click(productFilter);
 	$('#upload-data-product').click(displayUploadData);
 	$('#download-errors-product').click(downloadErrors);
 	$('#process-data-product').click(processData);
@@ -305,4 +316,4 @@ function init(){
 
 $(document).ready(init);
 $(document).ready(getProductList);
-$(document).ready(productFilter);
+

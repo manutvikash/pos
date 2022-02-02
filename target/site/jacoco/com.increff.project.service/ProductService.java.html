@@ -55,47 +55,53 @@ import com.increff.project.pojo.ProductPojo;
 		}
 <span class="nc" id="L56">		return p;</span>
 	}
+	
 	protected void check(ProductPojo p) throws ApiException{
-<span class="nc bnc" id="L59" title="All 2 branches missed.">		if(p.getName().isEmpty()) {</span>
-<span class="nc" id="L60">			throw new ApiException(&quot;Product name must not be empty&quot;);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		if(p.getName().isEmpty()) {</span>
+<span class="nc" id="L61">			throw new ApiException(&quot;Product name must not be empty&quot;);</span>
 		}
-<span class="nc bnc" id="L62" title="All 2 branches missed.">		if(p.getMrp()&lt;=0) {</span>
-<span class="nc" id="L63">			throw new ApiException(&quot;Mrp Value must be positive&quot;);</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		if(p.getMrp()&lt;=0) {</span>
+<span class="nc" id="L64">			throw new ApiException(&quot;Mrp Value must be positive&quot;);</span>
 		}
-<span class="nc" id="L65">	}</span>
+<span class="nc" id="L66">		ProductPojo p1=productDao.select(p.getBarcode());</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">		if(p1!=null) {</span>
+<span class="nc" id="L68">			throw new ApiException(&quot;Barcode already exists&quot;);</span>
+		}
+		
+<span class="nc" id="L71">	}</span>
 	
 	protected void normalize(ProductPojo p) {
-<span class="nc" id="L68">		p.setName(p.getName().toLowerCase());</span>
-<span class="nc" id="L69">	}</span>
+<span class="nc" id="L74">		p.setName(p.getName().toLowerCase());</span>
+<span class="nc" id="L75">	}</span>
 	
 	
 	@Transactional
 	public List&lt;ProductPojo&gt; getAll(){
-<span class="nc" id="L74">		return productDao.selectAll();</span>
+<span class="nc" id="L80">		return productDao.selectAll();</span>
 	}
 	
 	/* Mapping of product pojo with barcode as key */
 	@Transactional
 	public Map&lt;String, ProductPojo&gt; getAllProductPojosByBarcode() {
-<span class="nc" id="L80">		List&lt;ProductPojo&gt; product_list = getAll();</span>
-<span class="nc" id="L81">		Map&lt;String, ProductPojo&gt; barcode_product = new HashMap&lt;String, ProductPojo&gt;();</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">		for (ProductPojo product : product_list) {</span>
-<span class="nc" id="L83">			barcode_product.put(product.getBarcode(), product);</span>
-<span class="nc" id="L84">		}</span>
-<span class="nc" id="L85">		return barcode_product;</span>
+<span class="nc" id="L86">		List&lt;ProductPojo&gt; product_list = getAll();</span>
+<span class="nc" id="L87">		Map&lt;String, ProductPojo&gt; barcode_product = new HashMap&lt;String, ProductPojo&gt;();</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		for (ProductPojo product : product_list) {</span>
+<span class="nc" id="L89">			barcode_product.put(product.getBarcode(), product);</span>
+<span class="nc" id="L90">		}</span>
+<span class="nc" id="L91">		return barcode_product;</span>
 	}
 	
 	@Transactional(rollbackFor = ApiException.class)
 	public void update(int id, ProductPojo p) throws ApiException {
-<span class="nc" id="L90">		check(p);</span>
-<span class="nc" id="L91">		normalize(p);</span>
-<span class="nc" id="L92">		ProductPojo ex = checkId(id);</span>
-<span class="nc" id="L93">		ex.setBarcode(p.getBarcode());</span>
-<span class="nc" id="L94">		ex.setBrandpojo(p.getBrandpojo());</span>
-<span class="nc" id="L95">		ex.setMrp(p.getMrp());</span>
-<span class="nc" id="L96">		ex.setName(p.getName());</span>
-<span class="nc" id="L97">		productDao.update(p);</span>
-<span class="nc" id="L98">	}</span>
+<span class="nc" id="L96">		check(p);</span>
+<span class="nc" id="L97">		normalize(p);</span>
+<span class="nc" id="L98">		ProductPojo ex = checkId(id);</span>
+<span class="nc" id="L99">		ex.setBarcode(p.getBarcode());</span>
+<span class="nc" id="L100">		ex.setBrandpojo(p.getBrandpojo());</span>
+<span class="nc" id="L101">		ex.setMrp(p.getMrp());</span>
+<span class="nc" id="L102">		ex.setName(p.getName());</span>
+<span class="nc" id="L103">		productDao.update(p);</span>
+<span class="nc" id="L104">	}</span>
 	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

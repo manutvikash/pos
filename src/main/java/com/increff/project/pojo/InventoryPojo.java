@@ -19,6 +19,7 @@ public class InventoryPojo {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "product_id", nullable = false)
 	private ProductPojo productPojo;
+	
 	private int quantity;
 
 	public int getId() {

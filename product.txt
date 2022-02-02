@@ -1,2 +1,2 @@
 barcode	brand	category	name	mrp
-#123	realme	smartphone	pavillion	200000.45	
+@1#003	puma	shoes	pavillion	200000.45	

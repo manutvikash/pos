@@ -15,8 +15,19 @@
 
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="../static/app.css">
 <script src="https://kit.fontawesome.com/14889d2d63.js" crossorigin="anonymous"></script>
-
+<script>
+     var btnsContainer = document.getElementById("#navigation");
+     var btns=document.getElementsByClassName("nav-link");
+     for(var i=0;i<btns.lenght;i++){
+         btns[i].addEventListener("click",function(){
+             if(btns[i].classList.contains('active')){
+                  btns[i].remove("active");
+             }
+     });
+     }
+</script>
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light" th:fragment="name_site_navbar" id="navigation">
@@ -25,21 +36,21 @@
   </a>
       <ul class="navl navbar-nav mr-auto">
       <li class="nav-item auto">
-        <a class="nav-link" th:href="@{/ui/brand}">Brand</a>
+        <a class="nav-link active" id="brand" th:href="@{/ui/brand}">Brand</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/ui/product}">Product</a>
+        <a class="nav-link active" th:href="@{/ui/product}">Product</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/ui/inventory}">
+        <a class="nav-link active" th:href="@{/ui/inventory}">
           Inventory
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/ui/previous_orders}">Orders</a>
+        <a class="nav-link active" th:href="@{/ui/previous_orders}">Orders</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/ui/reports}">Sales</a>
+        <a class="nav-link active" th:href="@{/ui/reports}">Sales</a>
       </li>
     </ul>
 </nav>
@@ -58,4 +69,5 @@
 </footer>
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
 </body>

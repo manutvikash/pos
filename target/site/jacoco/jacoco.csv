@@ -2,7 +2,7 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 project,com.increff.project.service,InventoryService,108,0,10,0,30,0,14,0,9,0
 project,com.increff.project.service,ApiException,4,0,0,0,2,0,1,0,1,0
 project,com.increff.project.service,BrandService,146,0,10,0,33,0,15,0,10,0
-project,com.increff.project.service,ProductService,155,0,10,0,40,0,16,0,11,0
+project,com.increff.project.service,ProductService,168,0,12,0,43,0,17,0,11,0
 project,com.increff.project.service,ReportService,3,0,0,0,1,0,1,0,1,0
 project,com.increff.project.pojo,InventoryPojo,28,0,0,0,11,0,8,0,8,0
 project,com.increff.project.pojo,ProductPojo,38,0,0,0,16,0,11,0,11,0
@@ -28,5 +28,5 @@ project,com.increff.project.controller,AppRestControllerAdvice,30,0,0,0,7,0,3,0,
 project,com.increff.project.controller,UIController,36,0,0,0,9,0,7,0,7,0
 project,com.increff.project.controller,BrandController,75,0,2,0,21,0,8,0,7,0
 project,com.increff.project.controller,ReportController,3,0,0,0,1,0,1,0,1,0
-project,com.increff.project.controller,ProductController,53,0,0,0,13,0,5,0,5,0
+project,com.increff.project.controller,ProductController,67,0,0,0,17,0,5,0,5,0
 project,com.increff.project.controller,InventoryController,49,0,0,0,13,0,5,0,5,0

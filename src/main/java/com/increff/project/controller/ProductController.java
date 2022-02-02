@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.increff.project.model.ProductData;
 import com.increff.project.model.ProductForm;
 import com.increff.project.pojo.BrandPojo;
+import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.ProductPojo;
 import com.increff.project.service.ApiException;
 import com.increff.project.service.BrandService;
+import com.increff.project.service.InventoryService;
 import com.increff.project.service.ProductService;
 import com.increff.project.util.ConversionUtil;
 
@@ -31,12 +33,20 @@ public class ProductController {
 	@Autowired
 	private BrandService brandService;
 	
+	@Autowired
+	private InventoryService inventoryService;
+	
 	@ApiOperation(value="Add Products")
 	@RequestMapping(path="/api/product",method=RequestMethod.POST)
 	public void add(@RequestBody ProductForm userForm) throws ApiException{
 		BrandPojo brand_pojo = brandService.getByBrandAndCategory(userForm.getBrand(), userForm.getCategory()); 
 		ProductPojo p = ConversionUtil.convert(brand_pojo,userForm);
 		productService.add(p);
+		
+		InventoryPojo inventory=new InventoryPojo();
+		inventory.setQuantity(0);
+		inventory.setProductPojo(p);
+		inventoryService.add(inventory);
 	}
 	
 	@ApiOperation(value="Get Product Details by ID")

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<brands>
+    <brand_item>
+        <brand>nike</brand>
+        <category>shoes</category>
+        <id>2</id>
+    </brand_item>
+    <brand_item>
+        <brand>nike</brand>
+        <category>sneakers</category>
+        <id>3</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand32</brand>
+        <category>category32</category>
+        <id>4</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand3233</brand>
+        <category>category3233</category>
+        <id>7</id>
+    </brand_item>
+    <brand_item>
+        <brand>dress</brand>
+        <category>1234</category>
+        <id>6</id>
+    </brand_item>
+    <brand_item>
+        <brand>dress</brand>
+        <category>1235</category>
+        <id>1</id>
+    </brand_item>
+    <brand_item>
+        <brand>string</brand>
+        <category>long</category>
+        <id>5</id>
+    </brand_item>
+</brands>

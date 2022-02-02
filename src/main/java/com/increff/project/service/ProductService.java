@@ -20,6 +20,7 @@ public class ProductService {
 	@Transactional
 	public void add(ProductPojo p) throws ApiException{
 		check(p);
+		checkbarcode(p);
 		normalize(p);
 		productDao.insert(p);
 	}
@@ -55,6 +56,24 @@ public class ProductService {
 		}
 		return p;
 	}
+	
+	@Transactional(rollbackFor=ApiException.class)
+	public void returnProductPojoCheckBarcode(String newBarcode,String oldBarcode) throws ApiException{
+		ProductPojo p=productDao.select(newBarcode);
+		if(p!=null) {
+			if(!oldBarcode.equals(newBarcode)) {
+				throw new ApiException("New Barcode already exist: "+newBarcode);
+	
+			}						
+		}
+	}
+	
+	protected void checkbarcode(ProductPojo p) throws ApiException{
+		ProductPojo p1=productDao.select(p.getBarcode());
+		if(p1!=null) {
+			throw new ApiException("Barcode already exists");
+		}
+	}
 	protected void check(ProductPojo p) throws ApiException{
 		if(p.getName().isEmpty()) {
 			throw new ApiException("Product name must not be empty");
@@ -62,6 +81,7 @@ public class ProductService {
 		if(p.getMrp()<=0) {
 			throw new ApiException("Mrp Value must be positive");
 		}
+		
 	}
 	
 	protected void normalize(ProductPojo p) {
@@ -89,12 +109,14 @@ public class ProductService {
 	public void update(int id, ProductPojo p) throws ApiException {
 		check(p);
 		normalize(p);
+		
 		ProductPojo ex = checkId(id);
+		returnProductPojoCheckBarcode(p.getBarcode(),ex.getBarcode());
 		ex.setBarcode(p.getBarcode());
 		ex.setBrandpojo(p.getBrandpojo());
 		ex.setMrp(p.getMrp());
 		ex.setName(p.getName());
-		productDao.update(p);
+		productDao.update(ex);
 	}
 	
 }

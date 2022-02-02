@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<head th:replace="snippets.html :: name_head"></head>
+<link rel="stylesheet" th:href="@{/static/brand.css}">
+</head>
+
+<body>
+
+	<nav th:replace="snippets.html :: name_site_navbar"></nav>
+
+	<div class="container">
+
+		<div class="row" style="text-align: center; display: block;">
+			<h2>Inventory</h2>
+		</div>
+
+		<div class="row inputfield"
+			style="display: block;">
+			<input id="inventory-filter" type="text" placeholder="Search.." style="height: 30px; margin-top: 1%; margin-left: 2%">
+			<button type="button" class="btn btn-info" id="search-inventory"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+			<button type="button" class="btn btn-warning" id="open-add-inventory"
+				data-toggle="modal" data-target="#add-inventory-modal"
+				style="margin-left: 40%;">
+				<i class="fa fa-plus" aria-hidden="true"></i> Add
+			</button>
+			&nbsp;
+			<button type="button" class="btn btn-info" id="upload-inventory">
+				<i class="fa fa-upload" aria-hidden="true"></i> Upload
+			</button>
+			<!--  <button type="button" class="btn btn-outline-dark"
+				id="inventory-report">
+				<i class="fa fa-download" aria-hidden="true"></i> Download Report
+			</button>-->
+
+		</div>
+
+		<div class="row">&nbsp;</div>
+
+		<div class="row">
+
+
+			<div class="col-12">
+				<table class="table table-striped" id="inventory-table">
+					<thead>
+						<tr>
+							<th scope="col">Barcode</th>
+							<th scope="col">Name</th>
+							<th scope="col">Quantity</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody id="inventory-table-body">
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+		<div class="modal" tabindex="-1" role="dialog"
+			id="add-inventory-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Add Inventory</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body ui-front">
+						<form id="inventory-form">
+							<div class="form-group">
+								<label for="inputBarcode" class="col-sm-2 col-form-label">Barcode</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control barcode" name="barcode"
+										placeholder="Enter Barcode">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="quantity"
+										placeholder="Enter Quantity">
+								</div>
+							</div>
+							<input type="hidden" name="id">
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="add-inventory">Add</button>
+						<button type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal" tabindex="-1" role="dialog"
+			id="edit-inventory-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Edit Inventory</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body ui-front">
+						<form id="inventory-edit-form">
+							<div class="form-group">
+								<label for="inputBarcode" class="col-sm-2 col-form-label">Barcode</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control barcode" name="barcode"
+										placeholder="Enter Barcode" readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="quantity"
+										placeholder="Enter Quantity">
+								</div>
+							</div>
+							<input type="hidden" name="id">
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							id="edit-inventory">Edit</button>
+						<button type="button" class="btn btn-danger"
+							data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" tabindex="-1" role="dialog"
+			id="upload-inventory-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<h5 class="modal-title">Upload Inventory</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<div class="inventory-file">
+							<input type="file" class="custom-file-input" id="inventoryFile">
+							<label class="custom-file-label" for="inventoryFile"
+								id="inventoryFileName">Choose file</label>
+						</div>
+						<br> Rows: <span id="rowCount">0</span>, Processed: <span
+							id="processCount">0</span>, Errors: <span id="errorCount">0</span>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info"
+							id="process-inventory"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+						<button type="button" class="btn btn-danger"
+							id="download-errors-inventory"><i class="fa fa-download" aria-hidden="true"></i> Download Errors
+						</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	
+	<div>
+	<div th:replace="snippets.html :: name_footer"></div>
+    <script th:src="@{/static/inventory.js}"></script>
+	</div>
+
+</body>
+</html>

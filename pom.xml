@@ -110,7 +110,7 @@
 			<version>${thymeleaf.version}</version>
 		</dependency>
 
-		<!-- Database related stuff -->
+		<!-- Database related ORM Tools -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
