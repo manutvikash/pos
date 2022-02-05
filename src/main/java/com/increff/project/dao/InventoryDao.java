@@ -38,6 +38,11 @@ public class InventoryDao {
 		return query.getResultList();
 	}
 	
+	//Select inventory based on product
+//	public InventoryPojo selectByProductpojo(ProductPojo p) {
+//		return em.find(InventoryPojo.class, p);
+//	}
+	
 	//Select All inventory pojos
 	public List<InventoryPojo> selectAll() {
 		TypedQuery<InventoryPojo> query = getQuery(select_all);

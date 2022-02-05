@@ -81,4 +81,18 @@ public class BrandController {
 		BrandPojo brand_pojo = ConversionUtil.convert(f);
 		brandService.update(brand_pojo,id);
 	}
+	
+	@ApiOperation(value = "Search by Brand and Category")
+	@RequestMapping(path = "/api/brand/search", method = RequestMethod.POST)
+	public List<BrandData> search(@RequestBody BrandForm f) throws ApiException {
+		BrandPojo brand_pojo = ConversionUtil.convert(f);
+		List<BrandPojo> brandList=brandService.search(brand_pojo);
+		List<BrandData> brandDataList=new ArrayList<BrandData>();
+		
+	    for(BrandPojo p1:brandList) {
+			brandDataList.add(ConversionUtil.convert(p1));
+		}
+		return brandDataList;
+	}
+	
 }

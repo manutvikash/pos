@@ -19,34 +19,35 @@ import javax.persistence.ManyToOne;
 	@ManyToOne(optional = false)
 	@JoinColumn(name = &quot;product_id&quot;, nullable = false)
 	private ProductPojo productPojo;
+	
 	private int quantity;
 
 	public int getId() {
-<span class="nc" id="L25">		return id;</span>
+<span class="nc" id="L26">		return id;</span>
 	}
 
 	public void setId(int id) {
-<span class="nc" id="L29">		this.id = id;</span>
-<span class="nc" id="L30">	}</span>
+<span class="nc" id="L30">		this.id = id;</span>
+<span class="nc" id="L31">	}</span>
 
 	public ProductPojo getProductPojo() {
-<span class="nc" id="L33">		return productPojo;</span>
+<span class="nc" id="L34">		return productPojo;</span>
 	}
 
 	public void setProductPojo(ProductPojo productPojo) {
-<span class="nc" id="L37">		this.productPojo = productPojo;</span>
-<span class="nc" id="L38">	}</span>
+<span class="nc" id="L38">		this.productPojo = productPojo;</span>
+<span class="nc" id="L39">	}</span>
 
 	public int getQuantity() {
-<span class="nc" id="L41">		return quantity;</span>
+<span class="nc" id="L42">		return quantity;</span>
 	}
 
 	public void setQuantity(int quantity) {
-<span class="nc" id="L45">		this.quantity = quantity;</span>
-<span class="nc" id="L46">	}</span>
+<span class="nc" id="L46">		this.quantity = quantity;</span>
+<span class="nc" id="L47">	}</span>
 
 	public BrandPojo getBrandPojo() {
-<span class="nc" id="L49">		return productPojo.getBrandpojo();</span>
+<span class="nc" id="L50">		return productPojo.getBrandpojo();</span>
 	}
 
 }

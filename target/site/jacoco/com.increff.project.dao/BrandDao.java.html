@@ -18,6 +18,7 @@ import com.increff.project.pojo.BrandPojo;
 <span class="nc" id="L18">	private static String select_brand=&quot;Select p from BrandPojo p where brand=:brand&quot;;</span>
 <span class="nc" id="L19">	private static String select_id=&quot;Select p from BrandPojo p where id=:id&quot;;</span>
 <span class="nc" id="L20">	private static String select_brand_category=&quot;Select p from BrandPojo p where p.brand= :brand and p.category= :category&quot;;</span>
+<span class="nc" id="L21">	private static String Select_Category=&quot;Select p from BrandPojo p where p.category=:category&quot;;</span>
 	
 	@PersistenceContext
 	EntityManager em;
@@ -25,42 +26,50 @@ import com.increff.project.pojo.BrandPojo;
 	//insert brand
 	@Transactional
 	public void insert(BrandPojo p) {
-<span class="nc" id="L28">		em.persist(p);</span>
-<span class="nc" id="L29">	}</span>
+<span class="nc" id="L29">		em.persist(p);</span>
+<span class="nc" id="L30">	}</span>
 	
 	//Select By Id
 	public BrandPojo select(int id) {
-<span class="nc" id="L33">		TypedQuery&lt;BrandPojo&gt; query = getQuery(select_id, BrandPojo.class);</span>
-<span class="nc" id="L34">		query.setParameter(&quot;id&quot;, id);</span>
-<span class="nc" id="L35">		return getSingle(query);</span>
+<span class="nc" id="L34">		TypedQuery&lt;BrandPojo&gt; query = getQuery(select_id, BrandPojo.class);</span>
+<span class="nc" id="L35">		query.setParameter(&quot;id&quot;, id);</span>
+<span class="nc" id="L36">		return getSingle(query);</span>
        //return em.find(BrandPojo.class, id);
 	}
 	
 	//Select All
 	public List&lt;BrandPojo&gt; selectAll() {
-<span class="nc" id="L41">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_all,BrandPojo.class);</span>
-<span class="nc" id="L42">		return query.getResultList();</span>
+<span class="nc" id="L42">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_all,BrandPojo.class);</span>
+<span class="nc" id="L43">		return query.getResultList();</span>
 	}
 	
 	
 	//Select By Brand
 	public List&lt;BrandPojo&gt; selectBrand(String brand) {
-<span class="nc" id="L48">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_brand,BrandPojo.class);</span>
-<span class="nc" id="L49">	    query.setParameter(&quot;brand&quot;, brand);</span>
-<span class="nc" id="L50">		return query.getResultList();</span>
+<span class="nc" id="L49">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_brand,BrandPojo.class);</span>
+<span class="nc" id="L50">	    query.setParameter(&quot;brand&quot;, brand);</span>
+<span class="nc" id="L51">		return query.getResultList();</span>
 	}
 
+	//Select by Category
+	public List&lt;BrandPojo&gt; selectCategory(String category){
+<span class="nc" id="L56">		TypedQuery&lt;BrandPojo&gt; query=getQuery(Select_Category,BrandPojo.class);</span>
+<span class="nc" id="L57">	    query.setParameter(&quot;category&quot;, category);</span>
+<span class="nc" id="L58">		return query.getResultList();</span>
+
+	}
+	
 	//Update Brand
 	public void update(BrandPojo p) {
 		
-<span class="nc" id="L56">	}</span>
+<span class="nc" id="L65">	}</span>
 	
 	public List&lt;BrandPojo&gt; selectBrandCategory(String brand, String category) {
-<span class="nc" id="L59">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_brand_category,BrandPojo.class);</span>
-<span class="nc" id="L60">		query.setParameter(&quot;brand&quot;, brand);</span>
-<span class="nc" id="L61">		query.setParameter(&quot;category&quot;, category);</span>
+<span class="nc" id="L68">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_brand_category,BrandPojo.class);</span>
+<span class="nc" id="L69">		query.setParameter(&quot;brand&quot;, brand);</span>
+<span class="nc" id="L70">		query.setParameter(&quot;category&quot;, category);</span>
 		
-<span class="nc" id="L63">		return query.getResultList();</span>
+<span class="nc" id="L72">		return query.getResultList();</span>
 		
 	}
 }

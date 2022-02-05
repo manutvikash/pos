@@ -1,5 +1,7 @@
 package com.increff.project.controller;
 
+/*import java.io.IOException;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +20,23 @@ import io.swagger.annotations.ApiOperation;
 public class ReportController {
 
 	
-	@Autowired
+/*	//@Autowired
 	private ReportService reportService;
 	
 
-	/*@ApiOperation(value = "Gets Brand Report")
+	@ApiOperation(value = "Brand Report")
 	@RequestMapping(path = "/api/report/brand", method = RequestMethod.GET)
 	public void get(HttpServletResponse response) throws Exception {
 		byte[] bytes = reportService.generatePdfResponse("brand");
 		createPdfResponse(bytes, response);
-	}*/
+	}
 	
-}
+
+	public void createPdfResponse(byte[] bytes, HttpServletResponse response) throws IOException {
+		response.setContentType("application/pdf");
+		response.setContentLength(bytes.length);
+
+		response.getOutputStream().write(bytes);
+		response.getOutputStream().flush();
+	}
+}*/

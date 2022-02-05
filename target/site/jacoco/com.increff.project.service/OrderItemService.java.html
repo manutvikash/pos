@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderItemService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.service</a> &gt; <span class="el_source">OrderItemService.java</span></div><h1>OrderItemService.java</h1><pre class="source lang-java linenums">package com.increff.project.service;
+
+import com.increff.project.dao.OrderItemDao;
+import com.increff.project.pojo.OrderItemPojo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+
+@Service
+<span class="nc" id="L13">public class OrderItemService {</span>
+    @Autowired
+    private OrderItemDao orderItemDao;
+
+    protected static void checkOrderQuantity(int quantity) throws ApiException {
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        if (quantity &lt;= 0)</span>
+<span class="nc" id="L19">            throw new ApiException(&quot;Order Quantity cannot be negative&quot;);</span>
+<span class="nc" id="L20">    }</span>
+
+    protected static void checkSellingPrice(double price) throws ApiException {
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (price &lt;= 0)</span>
+<span class="nc" id="L24">            throw new ApiException(&quot;Selling Price cannot be negative&quot;);</span>
+<span class="nc" id="L25">    }</span>
+
+    @Transactional(rollbackFor = ApiException.class)
+    public void add(OrderItemPojo orderItemPojo) throws ApiException {
+<span class="nc" id="L29">        checkOrderQuantity(orderItemPojo.getQuantity());</span>
+<span class="nc" id="L30">        checkSellingPrice(orderItemPojo.getSellingPrice());</span>
+<span class="nc" id="L31">        orderItemDao.insert(orderItemPojo);</span>
+<span class="nc" id="L32">    }</span>
+
+    @Transactional(readOnly = true)
+    public List&lt;OrderItemPojo&gt; getByOrderId(int id) {
+<span class="nc" id="L36">        return orderItemDao.getByOrderId(id);</span>
+    }
+
+   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,4 @@
+barcode	brand	category	name	mrp
+@12345	puma	shoes	pavillion	-2000.45
+@123	nike	sneakers	zxy	1000
+@128	peter	jeans	peterengland	2000

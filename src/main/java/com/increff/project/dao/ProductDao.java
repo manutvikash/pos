@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.ProductPojo;
 
 
@@ -20,6 +21,7 @@ public class ProductDao extends AbstractDao {
 	
 	private String select_all="select p from ProductPojo p";
 	private String select_bar="select p from ProductPojo p where barcode=:barcode";
+	private String select_brandpojo="select p from ProductPojo p where p.brandPojo=:brandPojo";
 	
 	public void insert(ProductPojo p) {
 		em.persist(p);
@@ -53,5 +55,10 @@ public class ProductDao extends AbstractDao {
 			
 		}
 		
+		public List<ProductPojo> selectBrand(String brand) {
+			TypedQuery<ProductPojo> query=getQuery(select_brandpojo,ProductPojo.class);
+		    query.setParameter("brand", brand);
+			return query.getResultList();
+		}
 	
 }

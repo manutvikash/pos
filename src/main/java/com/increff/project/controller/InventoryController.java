@@ -64,15 +64,23 @@ public class InventoryController {
 		inventory_service.update(id, inventory_pojo);
 	}
 
+//	@ApiOperation(value = "Updates an Inventory record")
+//	@RequestMapping(path = "/api/inventory/{barcode}", method = RequestMethod.PUT)
+//	public void update(@PathVariable String barcode, @RequestBody InventoryForm f) throws ApiException {
+//		ProductPojo product = product_service.get(f.getBarcode());
+//		InventoryPojo inventory_pojo = ConversionUtil.convert(f,product);
+//		inventory_service.updatebybarcode(barcode, inventory_pojo);
+//	}
 	@ApiOperation(value="Gets Id of the Barcode")
 	@RequestMapping(path="/api/inventory/barcode",method=RequestMethod.POST)
 	public List<InventoryData> getid(@RequestBody InventoryForm f) throws ApiException{
 		ProductPojo p=product_service.checkbarcode(f.getBarcode());
 		InventoryPojo i=ConversionUtil.convert(f, p);
+		//inventory_service.updatefileData(i);
 		ProductPojo p1=i.getProductPojo();
 		int id=p1.getId();
 		InventoryPojo i2=inventory_service.getByProductId(id);
-		
+		//inventory_service.update(id, i2);
 		InventoryData arrayData= ConversionUtil.convert(i2);
 		
 		List<InventoryData> list=new ArrayList<InventoryData>();

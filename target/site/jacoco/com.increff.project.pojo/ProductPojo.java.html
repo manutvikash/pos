@@ -11,8 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(indexes= {
-		@Index(name = &quot;id&quot;, columnList = &quot;id&quot;),
-		//@Index(name = &quot;barcode&quot;, columnList = &quot;barcode&quot;)
+		//@Index(name = &quot;id&quot;, columnList = &quot;id&quot;),
+		@Index(name = &quot;barcode&quot;, columnList = &quot;barcode&quot;,unique=true)
 })
 <span class="nc" id="L17">public class ProductPojo {</span>
  

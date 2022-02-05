@@ -122,6 +122,7 @@ function editInventory(){
                 	'Content-Type': 'application/json'
                },	   
 	           success: function(response) {
+		toastr.success("Inventory updated successfully");
 	   		         getInventoryList(response);
                      $('#edit-inventory-modal').modal('toggle');
 	           },
@@ -178,7 +179,7 @@ function processData(){
 
 function readFileDataCallback(results){
 	fileData = results.data;
-	console.log("readFileDataCallback");
+	console.log("readfileDataCallBack");
 	uploadRows();
 }
 
@@ -187,7 +188,8 @@ function uploadRows(){
 	updateUploadDialog();
 	$("#download-errors-inventory").prop("disabled",false);
 	if(processCount==fileData.length){
-		getInventoryList();
+		//toastr.success("Uploaded Inventory Successfully");
+		//getInventoryList();
 		return;
 	}
 	
@@ -195,8 +197,8 @@ function uploadRows(){
 	processCount++;
 	/*var id=$("#inventory-edit-form input[name=id]").val();*/
 	var json=JSON.stringify(row);
-	var url=inventoryUrl()+'/barcode';
-	console.log(url);
+	console.log(json);
+
     if(!isInt(JSON.parse(json).quantity)){
 	       row.error="Quantity must be integer";
 	   		errorData.push(row);
@@ -204,6 +206,8 @@ function uploadRows(){
         return;
 	
      }
+	var url=inventoryUrl()+'/barcode';
+	console.log(url);
 		$.ajax({
 	   url: url,
 	   type: 'POST',//1
@@ -212,10 +216,18 @@ function uploadRows(){
        	'Content-Type': 'application/json'
        },	   
 	   success: function(response) {
+		console.log(response);
+		//return;
+		response=response[0];
 		response.quantity=JSON.parse(json).quantity;
+		//response.barcode=JSON.parse(json).barcode;
+		//console.log(response.barcode);
+		
+		console.log(response.id);
 		updateInventory(response.id,JSON.stringify(response),row);
-	   		uploadRows(); 
-        /*$('#upload-brand-modal').modal('toggle');*/
+	   		//updateInventory()
+            uploadRows(); 
+        
 	   },
 	  error: function(response){
 	   		row.error=JSON.parse(response.responseText).message;
@@ -227,7 +239,9 @@ function uploadRows(){
 
 function updateInventory(id,json,row){
 	console.log(id);
-	var url=inventoryUrl()+'/'+id;
+	//console.log("updating inventory");
+	var url=inventoryUrl()+"/"+id;
+	console.log(url);
 	$.ajax({
 		url:url,
 		type:'PUT',
@@ -236,7 +250,9 @@ function updateInventory(id,json,row){
 			'Content-Type':'application/json'
 		},
 		success:function(response){
+			console.log("success");
 			getInventoryList();
+			$('#upload-inventory-modal').modal('toggle');
 		},
 		error:function(response){
 			row.error=JSON.parse(response.responseText).message

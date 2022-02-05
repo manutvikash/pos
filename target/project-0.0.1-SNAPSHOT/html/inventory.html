@@ -13,20 +13,23 @@
 	<div class="container">
 
 		<div class="row" style="text-align: center; display: block;">
-			<h2>Inventory</h2>
+			<h2 th:fragment="inventory">Inventory</h2>
 		</div>
 
 		<div class="row inputfield"
 			style="display: block;">
-			<input id="inventory-filter" type="text" placeholder="Search.." style="height: 30px; margin-top: 1%; margin-left: 2%">
+			<form id="inventory-form" style="display:inline-block; width:50%;margin-bottom:0%;">
+			<input id="inventory-filter" type="text" name="barcode" placeholder="Search By BarCode" style="height: 30px; margin-top: 2%; margin-left: 2%;margin-right:1%;">
 			<button type="button" class="btn btn-info" id="search-inventory"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-			<button type="button" class="btn btn-warning" id="open-add-inventory"
+			</form>
+			
+			<!--<button type="button" class="btn btn-warning" id="open-add-inventory"
 				data-toggle="modal" data-target="#add-inventory-modal"
 				style="margin-left: 40%;">
 				<i class="fa fa-plus" aria-hidden="true"></i> Add
-			</button>
+			</button>-->
 			&nbsp;
-			<button type="button" class="btn btn-info" id="upload-inventory">
+			<button type="button" class="btn btn-info" id="upload-inventory" style="margin-left:23%;">
 				<i class="fa fa-upload" aria-hidden="true"></i> Upload
 			</button>
 			<!--  <button type="button" class="btn btn-outline-dark"
@@ -58,7 +61,7 @@
 			</div>
 		</div>
 
-		<div class="modal" tabindex="-1" role="dialog"
+		<!-- <div class="modal" tabindex="-1" role="dialog"
 			id="add-inventory-modal">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -81,7 +84,7 @@
 							<div class="form-group">
 								<label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" name="quantity"
+									<input type="number" class="form-control" name="quantity"
 										placeholder="Enter Quantity">
 								</div>
 							</div>
@@ -95,11 +98,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 
 		<div class="modal" tabindex="-1" role="dialog"
-			id="edit-inventory-modal">
+			id="edit-inventory-modal" style="height:70%;">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -121,7 +124,7 @@
 							<div class="form-group">
 								<label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" name="quantity"
+									<input type="number" class="form-control" name="quantity"
 										placeholder="Enter Quantity">
 								</div>
 							</div>
@@ -139,7 +142,7 @@
 		</div>
 
 		<div class="modal" tabindex="-1" role="dialog"
-			id="upload-inventory-modal">
+			id="upload-inventory-modal" style="height:47%;">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 

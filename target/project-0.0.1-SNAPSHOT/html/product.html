@@ -19,10 +19,23 @@
 <!-- Top row with form-->
  <div class="row" style="display: block;">
 	 <div class="col-12" style=" padding-left: 0px;">
-        <input id="product-filter" type="text" placeholder="Search.." style="height: 30px; margin-top: 1%; margin-left: 2%">
+        <!--<form action="/" style="display:inline-block; width:60%; margin-left:0%; margin-bottom: 0%" id="searchForm">
+				<label for="" style="display:inline-block">Barcode</label> 
+				<select name="searchBrand" id="enterInputBrand" style="width: 150px; margin-top:2%;">
+				<option value="shoes">select</option>
+				</select>
+				<label for="" style="display:inline-block; margin-left:2%">Category</label> 
+				<select name="searchCategory" id="enterInputCategory" style="width: 150px;margin-top:2%;">
+					<option value="shoes">select</option>
+				</select>
+				<button type="button" class="btn btn-info" id="search-brand" style="margin-left:5%">
+				<i class="fa fa-search" aria-hidden="true"></i> Search
+			</button>
+			</form>-->
+			<input id="product-filter" type="text" placeholder="Search.." style="height: 30px; margin-top: 1%; margin-left: 2%">
          &nbsp;
         <button type="button" class="btn btn-info" id="search-product"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-	    <button type="button" class="btn btn-warning" id="open-add-product" data-toggle="modal" data-target="#add-product-modal" style="margin-left: 49%;"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+	    <button type="button" class="btn btn-warning" id="open-add-product" data-toggle="modal" data-target="#add-product-modal" style="margin-left: 45%;"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
 	     &nbsp;
 	    <button type="button" class="btn btn-info" id="upload-data-product"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
 	 </div>
@@ -92,7 +105,7 @@
 			  <div class="form-group" style="margin-bottom:0%;">
 			    <label for="inputMrp" class="col-sm-2 col-form-label">MRP</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" name="mrp" placeholder="Enter MRP">
+			      <input type="number" class="form-control" name="mrp" placeholder="Enter MRP">
 			    </div>
 			  </div>
 			</form>
@@ -143,7 +156,7 @@
 			  <div class="form-group" style="margin-bottom:0%;">
 			    <label for="inputMrp" class="col-sm-2 col-form-label">MRP</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" name="mrp" placeholder="Enter MRP">
+			      <input type="number" class="form-control" name="mrp" placeholder="Enter MRP">
 			    </div>
 			  </div>
  	        <input type="hidden" name="id" >

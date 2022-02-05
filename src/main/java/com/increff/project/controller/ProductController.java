@@ -1,5 +1,6 @@
 package com.increff.project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.increff.project.model.BrandData;
+import com.increff.project.model.BrandForm;
 import com.increff.project.model.ProductData;
 import com.increff.project.model.ProductForm;
+import com.increff.project.model.ProductSearchForm;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.ProductPojo;
@@ -70,4 +74,25 @@ public class ProductController {
 		ProductPojo p = ConversionUtil.convert(brand_pojo,userform);
 		productService.update(id, p);
 	}
+	
+
+	@ApiOperation(value = "Search by Brand and Category")
+	@RequestMapping(path = "/api/product/search", method = RequestMethod.POST)
+	public List<ProductData> search(@RequestBody ProductForm f) throws ApiException {
+		//BrandPojo brand_pojo = brandService.getByBrandAndCategory(f.getBrand(), f.getCategory());
+		List<BrandPojo> brand_pojo=brandService.search(ConversionUtil.convertProductFormtoBrandPojo(f));
+					
+		List<ProductData> productDataList=new ArrayList<ProductData>();
+		
+	    for(BrandPojo p1:brand_pojo) {
+	    	List<ProductPojo> productList=productService.getByBrand(p1.getBrand());
+	    	for(ProductPojo p:productList) {
+	    		productDataList.add(ConversionUtil.convert(p));
+	    	}
+			
+		}
+		return productDataList;
+	}
+
+	
 }

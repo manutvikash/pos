@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.increff.project.dao.InventoryDao;
+import com.increff.project.dao.ProductDao;
 import com.increff.project.pojo.InventoryPojo;
+import com.increff.project.pojo.ProductPojo;
 
 @Service
 public class InventoryService {
@@ -15,6 +17,8 @@ public class InventoryService {
 	@Autowired
 	private InventoryDao inventory_dao;
 
+	@Autowired
+	private ProductDao product_dao;
 	/* Adding Inventory */
 	@Transactional
 	public void add(InventoryPojo p) throws ApiException {
@@ -58,7 +62,20 @@ public class InventoryService {
 		ex.setQuantity(p.getQuantity());
 		inventory_dao.update(p);
 	}
-
+//
+//	@Transactional(rollbackFor=ApiException.class)
+//	public void updatebybarcode(String barcode,InventoryPojo p) throws ApiException{
+//		InventoryPojo ex=checkIfBarcodeExists(barcode);
+//		ex.setQuantity(p.getQuantity());
+//		
+//	}
+	
+//	@Transactional(rollbackFor=ApiException.class)
+//	public InventoryPojo checkIfBarcodeExists(String barcode) throws ApiException{
+//		ProductPojo p= product_dao.select(barcode);
+//		InventoryPojo i=inventory_dao.selectByProductpojo(p);
+//		return i;
+//	}
 	/* Checking if particular inventory pojo exists */
 	@Transactional(rollbackFor = ApiException.class)
 	public InventoryPojo checkIfExists(int id) throws ApiException {

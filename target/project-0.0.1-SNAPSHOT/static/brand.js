@@ -19,7 +19,9 @@ function addBrand(event){
        },	   
 	   success: function(response) {
 		page=false;
+		toastr.success("Brand created successfully");
 	   		getBrandList(response);
+            getAllBrand(response);
             $('#add-brand-modal').modal('toggle');   
 	   },
 	   error: handleAjaxError
@@ -63,6 +65,8 @@ function updateBrand(event){
        	'Content-Type': 'application/json'
        },	   
 	   success: function(response) {
+		toastr.success("Brand updated successfully");
+		getAllBrand(response);
 	   		getBrandList(response);
           $('#edit-brand-modal').modal('toggle');
 	   },
@@ -102,7 +106,110 @@ function displayBrandList(data){
 	
 }
 
+function getAllBrand(){
+	var url = getBrandUrl();
+	$.ajax({
+	   url: url,
+	   type: 'GET',
+	   success: function(data) {
+	   		displaySearchBrandCategory(data);
+          //displaysearchBrand(data);
+	   },
+	   error: handleAjaxError
+	});
+}
+function displaySearchBrandCategory(data){
+	var $brandBody=$('#searchForm').find('#enterInputBrand');
+	var $categoryBody=$('#searchForm').find('#enterInputCategory');
+	$brandBody.empty();
+	$categoryBody.empty();
+	var brandSet =new Set();
+	var categorySet=new Set();
+	
+	for(var i in data){
+		var e=data[i];
+		brandSet.add(e.brand);
+		categorySet.add(e.category);
+	}
+	
+	brandSet = Array.from(brandSet);
+	categorySet = Array.from(categorySet);
+	
+	row='<option value="select">select</option>';
+			$brandBody.append(row);
+			$categoryBody.append(row);
+	for(var i in brandSet){
+		 row='<option value='+brandSet[i]+'>'+brandSet[i]+'</option>';
+			$brandBody.append(row);
+	}
+	for(var i in categorySet){
+		
+		 row='<option value='+categorySet[i]+'>'+categorySet[i]+'</option>';
+			$categoryBody.append(row);
+	}
+}
 
+function displaysearchBrand(data){
+	//$("#enterInputCategory").prop("disabled",ture);
+	document.getElementById("enterInputCategory").disabled = true;
+	/*var brand=$("#enterInputBrand :selected").text();
+	var json=JSON.stringify(brand);*/
+	var $brandBody=$('#searchForm').find('#enterInputBrand');
+	$brandBody.empty();
+	var brandSet =new Set();
+	for(var i in data){
+		var e=data[i];
+		brandSet.add(e.brand);
+		//categorySet.add(e.category);
+	}
+	
+	brandSet = Array.from(brandSet);
+	//categorySet = Array.from(categorySet);
+	
+	row='<option value="select">select</option>';
+			$brandBody.append(row);
+			//$categoryBody.append(row);
+	for(var i in brandSet){
+		 row='<option value='+brandSet[i]+'>'+brandSet[i]+'</option>';
+			$brandBody.append(row);
+	}
+
+}
+
+function searchBrand(s){
+	//var brand=$("#enterInputBrand :selected").text();
+	var brand =s;
+	var json=JSON.stringify(brand);
+	console.log(json);
+	
+}
+function searchBrandCategory(){
+var brand = $("#enterInputBrand :selected").text();
+var category = $("#enterInputCategory :selected").text();
+var obj={brand,category};
+
+if(obj.brand==="select"){
+	obj.brand="";
+}
+if(obj.category==="select"){
+	obj.category="";
+}
+	var json = JSON.stringify(obj);
+    console.log(json);
+	var url = getBrandUrl() + "/search";
+    	$.ajax({
+    	   url: url,
+    	   type: 'POST',
+    	   data: json,
+    	   headers: {
+                  	'Content-Type': 'application/json'
+                  },
+    	   success: function(data) {
+    	   		displayBrandList(data);
+    	   },
+    	   error: handleAjaxError
+    	});
+}
 function displayEditBrand(id){
 	var url = getBrandUrl() + "/" + id;
 	$.ajax({
@@ -161,7 +268,7 @@ function checkHeader(file,header_list,callback) {
 					readFileData(file,callback);
 				}
 				else{
-					alert("Improper or absent headers in file");
+					toastr.error("Wrong file. Please check the head of it");
 				}
 
     }
@@ -180,6 +287,7 @@ function uploadRows(){
 	
 	if(processCount==fileData.length){
 		getBrandList();
+		getAllBrand();
 		return;
 	}
 	
@@ -203,7 +311,7 @@ function uploadRows(){
         /*$('#upload-brand-modal').modal('toggle');*/
 	   },
 	   error: function(response){
-	   		row.error=response.responseText
+	   		row.error=JSON.parse(response.responseText).message
 	   		errorData.push(row);
 	   		uploadRows();
 	   }
@@ -251,37 +359,19 @@ function updateFileName(){
 	$('#brandFileName').html(fileName);
 }
 
-function brandFilter() {
 
-    var value = document.getElementById("brand-filter").value;
-    value = value.trim();
-    value = value.toLowerCase();
-
-    console.log(value);
-
-    if(value === '')
-    {
-        getBrandList();
-
-        return;
-    }
-
-    $("#brand-table-body tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-    });
-}
 
 
 
 function init(){
 	$('#add-brand').click(addBrand);
 	$('#update-brand').click(updateBrand);
-    $('#search-brand').click(brandFilter);
 	$('#upload-data').click(displayUploadData);
 	$('#process-data').click(processData);
 	$('#download-errors').click(downloadErrors);
     $('#brandFile').on('change', updateFileName)
-
+$('#search-brand').click(searchBrandCategory);
+//$('#enterInputBrand').on('change',searchBrand);
 }
 
 
@@ -312,8 +402,4 @@ function pagination() {
 $(document).ready(init);
 $(document).ready(getBrandList);
 $(document).ready(pagination);
-
-$('.navl li').click(function(){
-    $('.navl li').removeClass('active');
-    $(this).addClass('active');
-})
+$(document).ready(getAllBrand);

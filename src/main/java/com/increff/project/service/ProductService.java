@@ -119,4 +119,27 @@ public class ProductService {
 		productDao.update(ex);
 	}
 	
+	
+	@Transactional
+	public List<ProductPojo> search(ProductPojo p){
+		normalize(p);
+		if(p.getBrandpojo().getBrand().isEmpty()&&p.getBrandpojo().getCategory().isEmpty()) {
+			return productDao.selectAll();
+		}
+		/*if(p.getBrandpojo().getBrand().isEmpty()) {
+			return productDao.selectCategory(p.getBrandpojo().getCategory());
+		}*/
+		if(p.getBrandpojo().getCategory().isEmpty()) {
+			return productDao.selectBrand(p.getBrandpojo().getCategory());
+		}
+		
+		return productDao.selectAll();
+	}
+	
+	@Transactional
+	public List<ProductPojo> getByBrand(String brand){
+		return productDao.selectBrand(brand);
+	}
+	
+	
 }

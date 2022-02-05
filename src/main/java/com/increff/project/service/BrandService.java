@@ -86,7 +86,21 @@ public class BrandService {
 		return b;
 	}
 	
-	
+	@Transactional
+	public List<BrandPojo> search(BrandPojo p){
+		normalize(p);
+		if(p.getBrand().isEmpty()&&p.getCategory().isEmpty()) {
+			return brand_dao.selectAll();
+		}
+		if(p.getBrand().isEmpty()) {
+			return brand_dao.selectCategory(p.getCategory());
+		}
+		if(p.getCategory().isEmpty()) {
+			return brand_dao.selectBrand(p.getBrand());
+		}
+		
+		return brand_dao.selectBrandCategory(p.getBrand(),p.getCategory() );
+	}
 	
 	/*Updating the brands*/
 	@Transactional(rollbackOn = ApiException.class)

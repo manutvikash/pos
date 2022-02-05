@@ -81,5 +81,19 @@ import io.swagger.annotations.ApiOperation;
 <span class="nc" id="L81">		BrandPojo brand_pojo = ConversionUtil.convert(f);</span>
 <span class="nc" id="L82">		brandService.update(brand_pojo,id);</span>
 <span class="nc" id="L83">	}</span>
+	
+	@ApiOperation(value = &quot;Search by Brand and Category&quot;)
+	@RequestMapping(path = &quot;/api/brand/search&quot;, method = RequestMethod.POST)
+	public List&lt;BrandData&gt; search(@RequestBody BrandForm f) throws ApiException {
+<span class="nc" id="L88">		BrandPojo brand_pojo = ConversionUtil.convert(f);</span>
+<span class="nc" id="L89">		List&lt;BrandPojo&gt; brandList=brandService.search(brand_pojo);</span>
+<span class="nc" id="L90">		List&lt;BrandData&gt; brandDataList=new ArrayList&lt;BrandData&gt;();</span>
+		
+<span class="nc bnc" id="L92" title="All 2 branches missed.">	    for(BrandPojo p1:brandList) {</span>
+<span class="nc" id="L93">			brandDataList.add(ConversionUtil.convert(p1));</span>
+<span class="nc" id="L94">		}</span>
+<span class="nc" id="L95">		return brandDataList;</span>
+	}
+	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

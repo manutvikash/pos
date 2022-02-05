@@ -11,6 +11,7 @@ import com.increff.project.model.InventoryData;
 import com.increff.project.model.InventoryForm;
 import com.increff.project.model.ProductData;
 import com.increff.project.model.ProductForm;
+import com.increff.project.model.ProductSearchForm;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.ProductPojo;
@@ -44,7 +45,13 @@ public class ConversionUtil {
 		p.setBrandpojo(brand_pojo);
 		return p;
 	}
-
+//convert product form to brand pojo
+    public static BrandPojo convertProductFormtoBrandPojo(ProductForm f) {
+        BrandPojo b = new BrandPojo();
+        b.setCategory(f.getCategory());
+        b.setBrand(f.getBrand());
+        return b;
+    }
 	//Convert to Product Data
 	public static ProductData convert(ProductPojo p) {
 		ProductData d = new ProductData();

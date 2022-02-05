@@ -86,17 +86,31 @@ import com.increff.project.pojo.BrandPojo;
 <span class="nc" id="L86">		return b;</span>
 	}
 	
-	
+	@Transactional
+	public List&lt;BrandPojo&gt; search(BrandPojo p){
+<span class="nc" id="L91">		normalize(p);</span>
+<span class="nc bnc" id="L92" title="All 4 branches missed.">		if(p.getBrand().isEmpty()&amp;&amp;p.getCategory().isEmpty()) {</span>
+<span class="nc" id="L93">			return brand_dao.selectAll();</span>
+		}
+<span class="nc bnc" id="L95" title="All 2 branches missed.">		if(p.getBrand().isEmpty()) {</span>
+<span class="nc" id="L96">			return brand_dao.selectCategory(p.getCategory());</span>
+		}
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if(p.getCategory().isEmpty()) {</span>
+<span class="nc" id="L99">			return brand_dao.selectBrand(p.getBrand());</span>
+		}
+		
+<span class="nc" id="L102">		return brand_dao.selectBrandCategory(p.getBrand(),p.getCategory() );</span>
+	}
 	
 	/*Updating the brands*/
 	@Transactional(rollbackOn = ApiException.class)
 	public void update(BrandPojo b,int id) throws ApiException {
-<span class="nc" id="L94">	    check(b);</span>
-<span class="nc" id="L95">	    normalize(b);</span>
-<span class="nc" id="L96">	    BrandPojo prev=checkId(id);</span>
-<span class="nc" id="L97">	    prev.setBrand(b.getBrand());</span>
-<span class="nc" id="L98">	    prev.setCategory(b.getCategory());</span>
-<span class="nc" id="L99">		brand_dao.update(b);</span>
-<span class="nc" id="L100">	}</span>
+<span class="nc" id="L108">	    check(b);</span>
+<span class="nc" id="L109">	    normalize(b);</span>
+<span class="nc" id="L110">	    BrandPojo prev=checkId(id);</span>
+<span class="nc" id="L111">	    prev.setBrand(b.getBrand());</span>
+<span class="nc" id="L112">	    prev.setCategory(b.getCategory());</span>
+<span class="nc" id="L113">		brand_dao.update(b);</span>
+<span class="nc" id="L114">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

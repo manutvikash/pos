@@ -17,6 +17,7 @@ function addProduct(event) {
 				'Content-Type': 'application/json'
 			},
 			success: function(response) {
+				toastr.success("Product Created successfully");
 				getProductList(response);
 				$('#add-product-modal').modal('toggle');
 			},
@@ -76,7 +77,21 @@ function getProductList(){
 
 //UI
 function displayProductList(data){
-	
+	data=data.sort(function(a,b){
+		if(a.brand===b.brand){
+			if(a.category<b.category){
+				return -1;
+			}else{
+				return 1;
+			}
+		}else{
+		if(a.brand<b.brand){
+			return -1;
+		}else{
+			return 1;
+		}
+		}
+	});
 	var $tbody = $('#product-table').find('tbody');
 	$tbody.empty();
 	for(var i in data){
@@ -135,6 +150,7 @@ function editProduct(event){
        	'Content-Type': 'application/json'
        },	   
 	   success: function(response) {
+		toastr.success("Product Updated successfully");
 	   		getProductList(response);
           $('#edit-product-modal').modal('toggle');
 	   },
@@ -184,7 +200,7 @@ function checkHeader(file,header_list,callback) {
 					readFileData(file,callback);
 				}
 				else{
-					alert("Improper or absent headers in file");
+					toastr.error("Wrong file. Please check the head of it");
 				}
 
     }
@@ -222,7 +238,7 @@ function uploadRows(){
         /*$('#upload-brand-modal').modal('toggle');*/
 	   },
 	   error: function(response){
-	   		row.error=response.responseText
+	   		row.error=JSON.parse(response.responseText).message
 	   		errorData.push(row);
 	   		uploadRows();
 	   }

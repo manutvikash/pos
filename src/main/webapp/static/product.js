@@ -17,6 +17,7 @@ function addProduct(event) {
 				'Content-Type': 'application/json'
 			},
 			success: function(response) {
+				toastr.success("Product Created successfully");
 				getProductList(response);
 				$('#add-product-modal').modal('toggle');
 			},
@@ -149,6 +150,7 @@ function editProduct(event){
        	'Content-Type': 'application/json'
        },	   
 	   success: function(response) {
+		toastr.success("Product Updated successfully");
 	   		getProductList(response);
           $('#edit-product-modal').modal('toggle');
 	   },

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.dao</a> &gt; <span class="el_source">OrderDao.java</span></div><h1>OrderDao.java</h1><pre class="source lang-java linenums">package com.increff.project.dao;
+
+import com.increff.project.pojo.OrderPojo;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.List;
+
+@Repository
+<span class="nc" id="L13">public class OrderDao extends AbstractDao {</span>
+<span class="nc" id="L14">    private static String select_id = &quot;select p from OrderPojo p where id=:id&quot;;</span>
+<span class="nc" id="L15">    private static String select_all = &quot;select p from OrderPojo p&quot;;</span>
+
+	@PersistenceContext
+	EntityManager em;
+    @Transactional
+    public OrderPojo insert(OrderPojo orderPojo) {
+<span class="nc" id="L21">        em.persist(orderPojo);</span>
+<span class="nc" id="L22">        return orderPojo;</span>
+    }
+
+    public OrderPojo select(int id) {
+<span class="nc" id="L26">        TypedQuery&lt;OrderPojo&gt; query = getQuery(select_id, OrderPojo.class);</span>
+<span class="nc" id="L27">        query.setParameter(&quot;id&quot;, id);</span>
+<span class="nc" id="L28">        return getSingle(query);</span>
+    }
+
+    public List&lt;OrderPojo&gt; selectAll() {
+<span class="nc" id="L32">        TypedQuery&lt;OrderPojo&gt; query = em.createQuery(select_all, OrderPojo.class);</span>
+<span class="nc" id="L33">        return query.getResultList();</span>
+    }
+
+    public void update(OrderPojo pojo) {
+<span class="nc" id="L37">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

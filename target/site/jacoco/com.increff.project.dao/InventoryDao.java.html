@@ -38,19 +38,24 @@ import com.increff.project.pojo.ProductPojo;
 <span class="nc" id="L38">		return query.getResultList();</span>
 	}
 	
+	//Select inventory based on product
+//	public InventoryPojo selectByProductpojo(ProductPojo p) {
+//		return em.find(InventoryPojo.class, p);
+//	}
+	
 	//Select All inventory pojos
 	public List&lt;InventoryPojo&gt; selectAll() {
-<span class="nc" id="L43">		TypedQuery&lt;InventoryPojo&gt; query = getQuery(select_all);</span>
-<span class="nc" id="L44">		return query.getResultList();</span>
+<span class="nc" id="L48">		TypedQuery&lt;InventoryPojo&gt; query = getQuery(select_all);</span>
+<span class="nc" id="L49">		return query.getResultList();</span>
 	}
 	
 	//Update inventory
 	public void update(InventoryPojo p) {
 		
-<span class="nc" id="L50">	}</span>
+<span class="nc" id="L55">	}</span>
 	
 	private TypedQuery&lt;InventoryPojo&gt; getQuery(String jpql) {
-<span class="nc" id="L53">		return em.createQuery(jpql,InventoryPojo.class);</span>
+<span class="nc" id="L58">		return em.createQuery(jpql,InventoryPojo.class);</span>
 	}
 
 }

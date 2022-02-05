@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.controller</a> &gt; <span class="el_source">ProductController.java</span></div><h1>ProductController.java</h1><pre class="source lang-java linenums">package com.increff.project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.increff.project.model.BrandData;
+import com.increff.project.model.BrandForm;
 import com.increff.project.model.ProductData;
 import com.increff.project.model.ProductForm;
+import com.increff.project.model.ProductSearchForm;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.ProductPojo;
@@ -25,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Api
 @RestController
-<span class="nc" id="L28">public class ProductController {</span>
+<span class="nc" id="L32">public class ProductController {</span>
 
 	@Autowired
 	private ProductService productService;
@@ -39,36 +43,57 @@ import io.swagger.annotations.ApiOperation;
 	@ApiOperation(value=&quot;Add Products&quot;)
 	@RequestMapping(path=&quot;/api/product&quot;,method=RequestMethod.POST)
 	public void add(@RequestBody ProductForm userForm) throws ApiException{
-<span class="nc" id="L42">		BrandPojo brand_pojo = brandService.getByBrandAndCategory(userForm.getBrand(), userForm.getCategory()); </span>
-<span class="nc" id="L43">		ProductPojo p = ConversionUtil.convert(brand_pojo,userForm);</span>
-<span class="nc" id="L44">		productService.add(p);</span>
+<span class="nc" id="L46">		BrandPojo brand_pojo = brandService.getByBrandAndCategory(userForm.getBrand(), userForm.getCategory()); </span>
+<span class="nc" id="L47">		ProductPojo p = ConversionUtil.convert(brand_pojo,userForm);</span>
+<span class="nc" id="L48">		productService.add(p);</span>
 		
-<span class="nc" id="L46">		InventoryPojo inventory=new InventoryPojo();</span>
-<span class="nc" id="L47">		inventory.setQuantity(0);</span>
-<span class="nc" id="L48">		inventory.setProductPojo(p);</span>
-<span class="nc" id="L49">		inventoryService.add(inventory);</span>
-<span class="nc" id="L50">	}</span>
+<span class="nc" id="L50">		InventoryPojo inventory=new InventoryPojo();</span>
+<span class="nc" id="L51">		inventory.setQuantity(0);</span>
+<span class="nc" id="L52">		inventory.setProductPojo(p);</span>
+<span class="nc" id="L53">		inventoryService.add(inventory);</span>
+<span class="nc" id="L54">	}</span>
 	
 	@ApiOperation(value=&quot;Get Product Details by ID&quot;)
 	@RequestMapping(path=&quot;/api/product/{id}&quot;,method=RequestMethod.GET)
 	public ProductData get(@PathVariable int id) throws ApiException {
-<span class="nc" id="L55">		ProductPojo p=productService.get(id);</span>
-<span class="nc" id="L56">		return ConversionUtil.convert(p);</span>
+<span class="nc" id="L59">		ProductPojo p=productService.get(id);</span>
+<span class="nc" id="L60">		return ConversionUtil.convert(p);</span>
 	}
 	
 	@ApiOperation(value = &quot;Gets list of Products&quot;)
 	@RequestMapping(path = &quot;/api/product&quot;, method = RequestMethod.GET)
 	public List&lt;ProductData&gt; getAll() {
-<span class="nc" id="L62">		List&lt;ProductPojo&gt; product_pojo_list = productService.getAll();</span>
-<span class="nc" id="L63">		return ConversionUtil.convertProductList(product_pojo_list);</span>
+<span class="nc" id="L66">		List&lt;ProductPojo&gt; product_pojo_list = productService.getAll();</span>
+<span class="nc" id="L67">		return ConversionUtil.convertProductList(product_pojo_list);</span>
 	}
 	
 	@ApiOperation(value = &quot;Updates a ProductDetails record&quot;)
 	@RequestMapping(path = &quot;/api/product/{id}&quot;, method = RequestMethod.PUT)
 	public void update(@PathVariable int id, @RequestBody ProductForm userform) throws ApiException {
-<span class="nc" id="L69">		BrandPojo brand_pojo = brandService.getByBrandAndCategory(userform.getBrand(), userform.getCategory());</span>
-<span class="nc" id="L70">		ProductPojo p = ConversionUtil.convert(brand_pojo,userform);</span>
-<span class="nc" id="L71">		productService.update(id, p);</span>
-<span class="nc" id="L72">	}</span>
+<span class="nc" id="L73">		BrandPojo brand_pojo = brandService.getByBrandAndCategory(userform.getBrand(), userform.getCategory());</span>
+<span class="nc" id="L74">		ProductPojo p = ConversionUtil.convert(brand_pojo,userform);</span>
+<span class="nc" id="L75">		productService.update(id, p);</span>
+<span class="nc" id="L76">	}</span>
+	
+
+	@ApiOperation(value = &quot;Search by Brand and Category&quot;)
+	@RequestMapping(path = &quot;/api/product/search&quot;, method = RequestMethod.POST)
+	public List&lt;ProductData&gt; search(@RequestBody ProductForm f) throws ApiException {
+		//BrandPojo brand_pojo = brandService.getByBrandAndCategory(f.getBrand(), f.getCategory());
+<span class="nc" id="L83">		List&lt;BrandPojo&gt; brand_pojo=brandService.search(ConversionUtil.convertProductFormtoBrandPojo(f));</span>
+					
+<span class="nc" id="L85">		List&lt;ProductData&gt; productDataList=new ArrayList&lt;ProductData&gt;();</span>
+		
+<span class="nc bnc" id="L87" title="All 2 branches missed.">	    for(BrandPojo p1:brand_pojo) {</span>
+<span class="nc" id="L88">	    	List&lt;ProductPojo&gt; productList=productService.getByBrand(p1.getBrand());</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">	    	for(ProductPojo p:productList) {</span>
+<span class="nc" id="L90">	    		productDataList.add(ConversionUtil.convert(p));</span>
+<span class="nc" id="L91">	    	}</span>
+			
+<span class="nc" id="L93">		}</span>
+<span class="nc" id="L94">		return productDataList;</span>
+	}
+
+	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
