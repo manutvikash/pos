@@ -1,17 +1,17 @@
 package com.increff.project.model;
 
-public class SalesReportData {
-
-	public String brand;
-	public String category;
-	public int quantity;
-	public double amount;
+public class SalesData {
+	
+	private String brand;
 	public String getBrand() {
 		return brand;
 	}
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
+	private String category;
+	private int quantity;
+	private double revenue;
 	public String getCategory() {
 		return category;
 	}
@@ -24,12 +24,11 @@ public class SalesReportData {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public double getAmount() {
-		return amount;
+	public double getRevenue() {
+		return revenue;
 	}
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setRevenue(double revenue) {
+		this.revenue = revenue;
 	}
-	
-	
+
 }

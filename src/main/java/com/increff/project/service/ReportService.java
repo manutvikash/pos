@@ -4,6 +4,8 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +27,8 @@ import com.increff.project.model.InventoryData;
 import com.increff.project.model.InventoryReportData;
 import com.increff.project.model.InvoiceData;
 import com.increff.project.model.InvoiceDataList;
-import com.increff.project.model.SalesReportData;
+import com.increff.project.model.SalesDataList;
+import com.increff.project.model.SalesFilter;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.OrderItemPojo;
@@ -47,9 +50,18 @@ public class ReportService {
 
 	// Generating PDF
 	public byte[] generatePdfResponse(String type, Object... objects) throws Exception {
-		InvoiceDataList idl = generateInvoiceList((Integer) objects[0]);
-		XmlUtil.generateXml(new File("invoice.xml"), idl, InvoiceDataList.class);
-		return XmlUtil.generatePDF(new File("invoice.xml"), new StreamSource("invoice.xsl"));
+		if(type.contentEquals("invoice")) {
+			InvoiceDataList idl = generateInvoiceList((Integer) objects[0]);
+			XmlUtil.generateXml(new File("invoice.xml"), idl, InvoiceDataList.class);
+			return XmlUtil.generatePDF(new File("invoice.xml"), new StreamSource("invoice.xsl"));
+		}else{
+			SalesDataList sales_data_list = generateSalesList((SalesFilter) objects[0]);
+			if(sales_data_list.getSales_list().isEmpty()) {
+				throw new ApiException("No sales was done in this date range for this particular brand and category pair");
+			}
+			XmlUtil.generateXml(new File("sales_report.xml"), sales_data_list, SalesDataList.class);
+			return XmlUtil.generatePDF(new File("sales_report.xml"), new StreamSource("sales_report.xsl"));
+		}
 	}
 
 	public InvoiceDataList generateInvoiceList(int order_id) throws Exception {
@@ -62,6 +74,56 @@ public class ReportService {
 		idl.setTotal(total);
 		return idl;
 	}
+
+	
+	/*Generate sales list for sales report */
+	public SalesDataList generateSalesList(SalesFilter sales_filter) throws Exception {
+
+		List<OrderItemPojo> order_list = order_service.getAll();
+		List<OrderItemPojo> filtered_orderitem_list = FilterByDate(sales_filter, order_list);
+		Map<BrandPojo, Integer> quantityPerBrandCategory = getMapQuantity(sales_filter, filtered_orderitem_list);
+		Map<BrandPojo, Double> revenuePerBrandCategory = getMapRevenue(sales_filter, filtered_orderitem_list);
+		return ConversionUtil.convertSalesList(quantityPerBrandCategory, revenuePerBrandCategory);
+	}
+
+	/*Getting order items based on date */
+	private static List<OrderItemPojo> FilterByDate(SalesFilter sales_filter, List<OrderItemPojo> orderitem_list) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDateTime startDate = LocalDate.parse(sales_filter.getStartDate(), formatter).atStartOfDay();
+		LocalDateTime endDate = LocalDate.parse(sales_filter.getEndDate(), formatter).atStartOfDay().plusDays(1);
+		List<OrderItemPojo> filtered_date_list = orderitem_list.stream()
+				.filter(orderitem -> orderitem.getOrderpojo().getDatetime().isAfter(startDate)
+						&& orderitem.getOrderpojo().getDatetime().isBefore(endDate))
+				.collect(Collectors.toList());
+		return filtered_date_list;
+	}
+
+	/* Getting quantity sold based on brand category */
+	private static Map<BrandPojo, Integer> getMapQuantity(SalesFilter sales_filter, List<OrderItemPojo> orderitem_list) {
+		Map<BrandPojo, Integer> quantityPerBrandCategory = orderitem_list.stream()
+				.filter(order_item -> Equals(order_item.getBrandPojo().getBrand(), sales_filter.getBrand())
+						&& Equals(order_item.getBrandPojo().getCategory(), sales_filter.getCategory()))
+				.collect(Collectors.groupingBy(OrderItemPojo::getBrandPojo,
+						Collectors.summingInt(OrderItemPojo::getQuantity)));
+		return quantityPerBrandCategory;
+	}
+
+	/*Getting revenue generated based on brand category */
+	private static Map<BrandPojo, Double> getMapRevenue(SalesFilter sales_filter, List<OrderItemPojo> orderitem_list) {
+		Map<BrandPojo, Double> revenuePerBrandCategory = orderitem_list.stream()
+				.filter(order_item -> Equals(order_item.getBrandPojo().getBrand(), sales_filter.getBrand())
+						&& Equals(order_item.getBrandPojo().getCategory(), sales_filter.getCategory()))
+				.collect(Collectors.groupingBy(OrderItemPojo::getBrandPojo,
+						Collectors.summingDouble(OrderItemPojo::getRevenue)));;
+		return revenuePerBrandCategory;
+	}
+
+	/*String equals or empty (used for filtering) */
+	private static Boolean Equals(String a, String b) {
+		return (a.contentEquals(b) || b.isEmpty());
+	}
+
+
 
 	/*Calculating total cost of order */
 	private static double calculateTotal(InvoiceDataList idl) {

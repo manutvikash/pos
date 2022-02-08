@@ -6,9 +6,24 @@ img{
 	max-width: 100%;
 }
 
-body {
-	margin-bottom: 60px; /* Margin bottom by footer height */
+/*body {
+	margin-bottom: 60px; /* Margin bottom by footer height 
 	
+}*/
+body {
+  padding-right:0 !important;
+}
+
+.modal-open {
+  overflow:auto;
+  padding-right:0 !important;
+}
+.show{
+	padding-right:0 !important;
+	overflow:auto !important;
+}
+.modal {
+    overflow-y: auto !important;
 }
 .navbar-brand a{
 	

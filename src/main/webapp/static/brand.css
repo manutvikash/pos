@@ -2,9 +2,24 @@ html {
 	position: relative;
 	min-height: 100%;
 }
-body {
-	margin-bottom: 60px; /* Margin bottom by footer height */
+/*body {
+	margin-bottom: 60px; /* Margin bottom by footer height 
 	
+}*/
+body {
+  padding-right:0 !important;
+}
+
+.modal-open {
+  overflow:auto;
+  padding-right:0 !important;
+}
+.show{
+	padding-right:0 !important;
+	overflow:auto !important;
+}
+.modal {
+    overflow-y: auto !important;
 }
 img{
 	margin-left:5%;
@@ -61,4 +76,8 @@ margin-top: 50px;
      text-align: center;
     padding-bottom: 3%;
     font-size: 16px;
+    }
+    
+    .modal .show{
+    padding-right:0px;
     }

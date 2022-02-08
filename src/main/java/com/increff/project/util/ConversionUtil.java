@@ -17,6 +17,8 @@ import com.increff.project.model.OrderItemForm;
 import com.increff.project.model.ProductData;
 import com.increff.project.model.ProductForm;
 import com.increff.project.model.ProductSearchForm;
+import com.increff.project.model.SalesData;
+import com.increff.project.model.SalesDataList;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.OrderItemPojo;
@@ -233,6 +235,26 @@ public class ConversionUtil {
 			InvoiceDataList idl = new InvoiceDataList();
 			idl.setItem_list(invoiceLis);
 			return idl;
+		}
+
+		
+		//Convert Maps of quantity sold and revenue per BrandPojo to sales list
+		public static SalesDataList convertSalesList(Map<BrandPojo, Integer> quantityPerBrandCategory,
+				Map<BrandPojo, Double> revenuePerBrandCategory) {
+			
+			List<SalesData> sales_list = new ArrayList<SalesData>();
+			for(BrandPojo brand: quantityPerBrandCategory.keySet()) {
+				SalesData sales = new SalesData();
+				sales.setBrand(brand.getBrand());
+				sales.setCategory(brand.getCategory());
+				sales.setQuantity(quantityPerBrandCategory.get(brand));
+				sales.setRevenue(revenuePerBrandCategory.get(brand));
+				sales_list.add(sales);
+			}
+			SalesDataList sales_data_list = new SalesDataList();
+			sales_data_list.setSales_list(sales_list);
+			return sales_data_list;
+
 		}
 
 }

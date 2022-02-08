@@ -15,12 +15,13 @@
 			<h2>Order</h2>
 		</div>
 		<div class="row" style="margin-bottom: 2%;">
-		<button type="button" class="btn btn-info" id="open-add-modal" style="height:50%;">
-				<i class="fa fa-plus" aria-hidden="true"></i> Add
-			</button>
-		<button type="button" class="btn btn-primary" id="open-add-model" style="margin-left: 63.4%;" data-toggle="modal" data-target="#sales-modal">
+		
+		<button type="button" class="btn btn-primary" id="open-add-model" data-toggle="modal" data-target="#sales-modal">
 				<i class="fa fa-download" aria-hidden="true"></i> Sales Report
 		</button>
+		<button type="button" class="btn btn-info" id="open-add-modal" style="height:50%; margin-left:58%;">
+				<i class="fa fa-plus" aria-hidden="true"></i> Add
+			</button>
 		
 		</div>
 
@@ -140,7 +141,7 @@
 
 
 		<div class="modal" tabindex="-1" role="dialog"
-			id="add-orderitem-modal" style="padding-right:0px; height:53.4%;">
+			id="add-orderitem-modal" style="height:53.4%;">
 			<div class="modal-dialog" role="document" style="max-width:100%; margin:0px;">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -181,7 +182,7 @@
 	</div>
 
 
-<div class="modal" tabindex="-1" role="dialog" id="sales-modal" style="padding-right:0px; height:43.2%;">
+<div class="modal" tabindex="-1" role="dialog" id="sales-modal" style="padding-right:0px; height:43.4%;">
   <div class="modal-dialog" role="document" style="max-width:100%; margin:0px;">
     <div class="modal-content">
       <div class="modal-header">
@@ -191,20 +192,20 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/" style="display:inline-block; width:100%;" id="searchForm">
+        <form action="/" style="display:inline-block; width:100%;" id="sales-report-form">
         <label for="inputBrand" class="col-form-label" style="display:inline-block">Brand</label>
-            <input type="text" class="form-control" id="inputBrand" name="brand" placeholder="Brand" style="height:70%; display:inline-block;width:30%; margin-left:4%; margin-top:2%;">
-		<label for="startDate" class="col-form-label" style="display:inline-block; margin-left:3%;">Start Date</label>
-            <input type="date" class="form-control" id="startDate" name="startDate" placeholder="Start Date" style="height:70%; display:inline-block;width:35%; margin-bottom:0px;">
+            <input type="text" class="form-control" required id="inputBrand" name="brand" placeholder="Enter Brand" style="height:70%; display:inline-block;width:30%; margin-left:4%; margin-top:2%;">
+		<label for="inputStartDate" class="col-form-label" style="display:inline-block; margin-left:3%;">Start Date</label>
+            <input type="date" class="form-control" required id="inputStartDate" name="startDate" placeholder="Start Date" style="height:70%; display:inline-block;width:35%; margin-bottom:0px;">
            <label for="inputCategory" class="col-form-label" style="display:inline-block">Category</label>
-            <input type="text" class="form-control" id="inputCategory" name="category" placeholder="Category" style="height:70%; display:inline-block;width:30%; margin-bottom:0px;">
+            <input type="text" class="form-control" required id="inputCategory" name="category" placeholder="Enter Category" style="height:70%; display:inline-block;width:30%; margin-bottom:0px;">
             
-            <label for="endDate" class="col-form-label" style="display:inline-block; margin-left:4%;">End Date</label>
-		 <input type="date" class="form-control" id="endDate" name="endDate" placeholder="End Date" style="height:70%;display:inline-block;width:35%; margin-bottom:0px;">
+            <label for="inputEndDate" class="col-form-label" style="display:inline-block; margin-left:4%;">End Date</label>
+		 <input type="date" class="form-control" required id="inputEndDate" name="endDate" placeholder="End Date" style="height:70%;display:inline-block;width:35%; margin-bottom:0px;">
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Download</button>
+        <button type="button" class="btn btn-primary" id="sales-report"><i class="fa fa-download" aria-hidden="true"></i> Download</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>

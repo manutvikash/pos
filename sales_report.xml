@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sales_items>
+    <sales_item>
+        <brand>amazon</brand>
+        <category>alexa new</category>
+        <quantity>2</quantity>
+        <revenue>6000.0</revenue>
+    </sales_item>
+</sales_items>

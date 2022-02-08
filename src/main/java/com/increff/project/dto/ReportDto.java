@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import com.increff.project.model.BrandForm;
 import com.increff.project.model.InventoryReportData;
-import com.increff.project.model.SalesReportData;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.OrderItemPojo;

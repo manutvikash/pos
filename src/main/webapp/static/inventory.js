@@ -210,7 +210,9 @@ function uploadRows(){
         return;
 	
      }
-	var url=inventoryUrl()+'/barcode';
+
+	var url=inventoryUrl()+"/barcode";
+//	var url=inventoryUrl()+'/'+id;
 	console.log(url);
 		$.ajax({
 	   url: url,
@@ -220,11 +222,12 @@ function uploadRows(){
        	'Content-Type': 'application/json'
        },	   
 	   success: function(response) {
+		console.log("success");
 		console.log(response);
 		//return;
 		response=response[0];
 		response.quantity=JSON.parse(json).quantity;
-		//response.barcode=JSON.parse(json).barcode;
+		response.barcode=JSON.parse(json).barcode;
 		//console.log(response.barcode);
 		
 		console.log(response.id);
@@ -242,6 +245,7 @@ function uploadRows(){
 }
 
 function updateInventory(id,json,row){
+	console.log("updateinventory");
 	console.log(id);
 	//console.log("updating inventory");
 	var url=inventoryUrl()+"/"+id;
@@ -254,9 +258,9 @@ function updateInventory(id,json,row){
 			'Content-Type':'application/json'
 		},
 		success:function(response){
-			console.log("success");
+			//console.log("success");
 			getInventoryList();
-			$('#upload-inventory-modal').modal('toggle');
+			//$('#upload-inventory-modal').modal('toggle');
 		},
 		error:function(response){
 			row.error=JSON.parse(response.responseText).message

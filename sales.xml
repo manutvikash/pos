@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sales_items>
+    <sales_item>
+        <brand>amul</brand>
+        <category>dairy</category>
+        <quantity>2</quantity>
+        <revenue>200.0</revenue>
+    </sales_item>
+    <sales_item>
+        <brand>amul</brand>
+        <category>bakery</category>
+        <quantity>1</quantity>
+        <revenue>60.0</revenue>
+    </sales_item>
+    <sales_item>
+        <brand>nestle</brand>
+        <category>dairy</category>
+        <quantity>4</quantity>
+        <revenue>118.0</revenue>
+    </sales_item>
+</sales_items>

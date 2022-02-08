@@ -29,6 +29,13 @@ function getInvoiceDisableUrl(){
 	console.log(baseUrl);
 	return baseUrl + "/api/invoicedisable";
 }
+
+
+function getSalesReportUrl(){
+	var baseUrl = $("meta[name=baseUrl]").attr("content");
+	console.log(baseUrl);
+	return baseUrl+"/api/report/sales";
+}
 function displayAddModal() {
 	$("#add-order-modal").modal('toggle');	
 }
@@ -178,10 +185,10 @@ function mainOrdersListTable(data){
 	for(var i in data){
 		var e = data[i];
 		console.log(e.id);
-		var buttonHtml1 = '<button style="padding: 0;border: none;background: none;" ><span class="material-icons">keyboard_arrow_down</span></button>';
+		//var buttonHtml1 = '<button style="padding: 0;border: none;background: none;" ><span class="material-icons">keyboard_arrow_down</span></button>';
 		var buttonHtml = '<button class="btn btn-primary" onclick="downloadPDF('+e.id+')"><i class="fa fa-download" aria-hidden="true"></i> Download Invoice</button>';
 		var row = '<tr class="order-header view" onclick="initializeDropdown(' + e.id + ')" >'
-		+ '<td style="text-align:center;">' + buttonHtml1+" "+ e.id + '</td>'
+		+ '<td style="text-align:center;">' + e.id + '</td>'
 		+ '<td style="text-align:center;">'  + e.datetime + '</td>'
 		+ '<td style="text-align:center;">' + buttonHtml + '</td>'
 		+ '</tr>';
@@ -199,7 +206,7 @@ function mainOrdersListTable(data){
 	});
 }*/
 function downloadPDF(id){
-	$(".insideEdit").prop("disabled", true);
+	//$(".insideEdit").prop("disabled", true);
 	var url = getInvoiceUrl() + "/" + id;
 	$.ajax({
 	   url: url,
@@ -208,7 +215,7 @@ function downloadPDF(id){
         responseType: 'blob'
      },
 	   success: function(blob) {
-				console.log(blob.size);
+				
       	var link=document.createElement('a');
       	link.href=window.URL.createObjectURL(blob);
       	link.download="Invoice_" + new Date() + ".pdf";
@@ -302,6 +309,7 @@ function deleteOrderItemFromOrderList(id){
 function initializeDropdown(id) {
 	console.log("Orderitems toggle");
 	var orderitem_row = '.orderitemrows' + id;
+
   $(orderitem_row).toggle();
 }
 
@@ -392,15 +400,88 @@ function displayEditOrderItemModal(data){
 	$("#orderitem-edit-form input[name=order-id]").val(data.orderId);
 	$('#edit-orderitem-modal').modal('toggle');
 }
+
+
+function getSalesReport(){
+	var $form=$("#sales-report-form");
+	var json=toJson($form);
+	var url=getSalesReportUrl();
+	console.log(url);
+	if(checkSalesForm(json)){
+		$.ajax({
+			url:url,
+			type:'POST',
+			data:json,
+			headers:{
+				'Content-Type':'application/json'
+			},
+			xhrFields:{
+				responseType:'blob'
+			},
+			success:function(blob) {
+					console.log(blob.size);
+	      	var link=document.createElement('a');
+	      	link.href=window.URL.createObjectURL(blob);
+	      	link.download="SalesReport_" + new Date() + ".pdf";
+	      	link.click();
+		   },
+		   error: function(response){
+		   		toastr.error("No sales data was found within given date range and brand category pair");
+		   }
+		});
+	}
+}
+
+function defaultDates(){
+	document.getElementById("inputStartDate").defaultValue="2022-02-01";
+	document.getElementById("inputEndDate").defaultValue="2022-10-20";
+	
+}
+
+function endDateCheck() {
+	var startDate = document.getElementById("inputStartDate").value;
+	var endDate = document.getElementById("inputEndDate").value;
+
+	if ((Date.parse(startDate) > Date.parse(endDate))) {
+			toastr.error("End date should be greater than Start date");
+			document.getElementById("inputEndDate").value = "2022-10-20";
+	}
+}
+function startDateCheck() {
+	var startDate = document.getElementById("inputStartDate").value;
+	var endDate = document.getElementById("inputEndDate").value;
+
+	if ((Date.parse(startDate) > Date.parse(endDate))) {
+			toastr.error("Start date should be lesser than End date");
+			document.getElementById("inputStartDate").value = "2022-02-01";
+	}
+}
+
+
+function checkSalesForm(data){
+	json=JSON.parse(data);
+	if(!brandList.includes(json.brand)&&!isBlank(json.brand)){
+		toastr.error("Please enter valid brand");
+		return false;
+	}
+	if(!categoryList.includes(json.category)&&!isBlank(json.category)){
+		toastr.error("Please enter valid category");
+	}
+	return true;
+}
 function init(){
 $("#open-add-modal").click(displayAddModal);	
 $('#add-orderitem').click(addOrderItemtoList);
 $('#add-order').click(addOrder);
 $("#add-orderitem-previousorders").click(addOrderItemToOldOrder);
 $('#update-orderitem').click(updateOrder);
+$("#sales-report").click(getSalesReport);
+$("#inputEndDate").change(endDateCheck);
+$("#inputStartDate").change(startDateCheck);
 }
 
 
 $(document).ready(init);
 $(document).ready(getOrderItemList);
 $(document).ready(getOrderList);
+$(document).ready(defaultDates);

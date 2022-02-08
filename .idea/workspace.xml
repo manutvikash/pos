@@ -4,11 +4,79 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2642ac1c-186a-468a-ba5e-cecbb9b072c9" name="Changes" comment="" />
+    <list default="true" id="2642ac1c-186a-468a-ba5e-cecbb9b072c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/SalesReportData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/SalesReportForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/OrderItemPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/OrderItemPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/service/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/util/ConversionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/util/ConversionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/AppRestControllerAdvice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/BrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/BrandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ReportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/UIController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/AbstractDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/BrandDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/InventoryDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/OrderDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/OrderItemDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/ProductDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dto/ReportDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dto/ReportDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BillData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BillForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryReportData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InvoiceDataList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/InvoiceDataList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/MessageData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductSearchForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesReportData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesReportForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/BrandPojo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/InventoryPojo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderItemPojo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderPojo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/ProductPojo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ApiException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/BrandService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/InventoryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/ReportService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/ControllerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/DBConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/SpringConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/WebInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/ConversionUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/util/ConversionUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/GeneratePDF.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/GenerateXML.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/XmlUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.increff.project.dto.ReportDto;
 import com.increff.project.model.BrandForm;
+import com.increff.project.model.SalesFilter;
 import com.increff.project.service.ReportService;
 
 import io.swagger.annotations.Api;
@@ -36,7 +37,13 @@ public class ReportController {
 	    public List<BrandForm> getBrandReport(){
 	        return reportDto.getBrandReport();
 	    }
-
+	  @ApiOperation(value = "Gets Sales Report")
+		@RequestMapping(path = "/api/report/sales", method = RequestMethod.POST)
+		public void getSales(@RequestBody SalesFilter sales_filter, HttpServletResponse response) throws Exception {
+			byte[] bytes = reportService.generatePdfResponse("sales", sales_filter);
+			createPdfResponse(bytes, response);
+		}
+	  
 
 	public void createPdfResponse(byte[] bytes, HttpServletResponse response) throws IOException {
 		response.setContentType("application/pdf");

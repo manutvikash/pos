@@ -1,4 +1,4 @@
 brand	category
-Brand1345	Category1345
-Brand1345	Category1345
-Brand1345	Category1345
+Brand1	Category1
+Brand2	Category2
+Brand3	Category3
