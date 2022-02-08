@@ -15,6 +15,7 @@ import com.increff.project.model.InventoryForm;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.ProductPojo;
 import com.increff.project.service.ApiException;
+import com.increff.project.service.BrandService;
 import com.increff.project.service.InventoryService;
 import com.increff.project.service.ProductService;
 import com.increff.project.util.ConversionUtil;
@@ -31,6 +32,9 @@ public class InventoryController {
 
 	@Autowired
 	private ProductService product_service;
+	
+	@Autowired
+	private BrandService brand_service;
 
 	@ApiOperation(value = "Adds Inventory")
 	@RequestMapping(path = "/api/inventory", method = RequestMethod.POST)
@@ -51,9 +55,16 @@ public class InventoryController {
 
 	@ApiOperation(value = "Gets list of Products")
 	@RequestMapping(path = "/api/inventory", method = RequestMethod.GET)
-	public List<InventoryData> getAll() {
+	public List<InventoryData> getAll() throws ApiException {
 		List<InventoryPojo> inventory_pojo_list = inventory_service.getAll();
-		return ConversionUtil.convertInventoryList(inventory_pojo_list);
+		List<InventoryData> inventoryData=new ArrayList<InventoryData>();
+		for(InventoryPojo p:inventory_pojo_list) {
+			ProductPojo p1=product_service.get(p.getId());
+			InventoryData d=ConversionUtil.convertInventoryPojotoInventoryData(p,p1,brand_service.get(p1.getBrandpojo().getId()));
+			inventoryData.add(d);
+		}
+		//return ConversionUtil.convertInventoryList(inventory_pojo_list);
+	    return inventoryData;
 	}
 
 	@ApiOperation(value = "Updates an Inventory record")

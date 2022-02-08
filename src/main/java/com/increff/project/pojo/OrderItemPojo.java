@@ -1,65 +1,50 @@
 package com.increff.project.pojo;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+
 
 @Entity
-@Table(indexes= {@Index(columnList="id,orderId")})
+@Table(indexes= {
+		@Index(name = "orderid_index", columnList = "orderId")
+})
 public class OrderItemPojo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private int productId;
-	private int orderId;
-	@Column(nullable=false)
+	@ManyToOne(optional=false)
+	@JoinColumn(name = "orderId", nullable = false)
+	private OrderPojo orderpojo;
+	@ManyToOne(optional=false)
+	@JoinColumn(name = "productId", nullable = false)
+	private ProductPojo productpojo;
 	private int quantity;
-	@Column(nullable=false)
 	private double sellingPrice;
-	
-
-    public OrderItemPojo() {
-    }
-
-    public OrderItemPojo(int orderId, int productId, int quantity, double sellingPrice) {
-        this.orderId = orderId;
-        this.productId = productId;
-        this.quantity = quantity;
-        this.sellingPrice = sellingPrice;
-    }
-    
-
-
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getProductId() {
-		return productId;
+	public OrderPojo getOrderpojo() {
+		return orderpojo;
 	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setOrderpojo(OrderPojo orderpojo) {
+		this.orderpojo = orderpojo;
 	}
-
-	public int getOrderId() {
-		return orderId;
+	public ProductPojo getProductpojo() {
+		return productpojo;
 	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setProductpojo(ProductPojo productpojo) {
+		this.productpojo = productpojo;
 	}
-
 	public int getQuantity() {
 		return quantity;
 	}

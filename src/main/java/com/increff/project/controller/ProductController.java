@@ -80,6 +80,7 @@ public class ProductController {
 	@RequestMapping(path = "/api/product/search", method = RequestMethod.POST)
 	public List<ProductData> search(@RequestBody ProductForm f) throws ApiException {
 		//BrandPojo brand_pojo = brandService.getByBrandAndCategory(f.getBrand(), f.getCategory());
+		//ProductPojo z=productService.checkbarcode(f.getBarcode());
 		List<BrandPojo> brand_pojo=brandService.search(ConversionUtil.convertProductFormtoBrandPojo(f));
 					
 		List<ProductData> productDataList=new ArrayList<ProductData>();
@@ -87,7 +88,7 @@ public class ProductController {
 	    for(BrandPojo p1:brand_pojo) {
 	    	List<ProductPojo> productList=productService.getByBrand(p1.getBrand());
 	    	for(ProductPojo p:productList) {
-	    		productDataList.add(ConversionUtil.convert(p));
+	    		productDataList.add(ConversionUtil.convertProductpojotoProductData(p,brandService.get(p.getBrandpojo().getId())));
 	    	}
 			
 		}

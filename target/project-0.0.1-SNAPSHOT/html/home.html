@@ -14,44 +14,44 @@
 			<a class="navbar-brand" th:href="@{/}" style="width:30px;"><img
 				src="../static/download.png"></a>
 
-			<h2>Point Of Sale</h2>
+			<h3>Point Of Sale</h3>
 		</div>
 	</nav>
 
-	<div class="container homecontainer">
+	<div class="container homecontainer" style="padding-left:0px;margin-left:3%;">
 		<span><i class="icon-dashboard fa-2x"></i></span>
 		<h1>Dashboard</h1>
 	</div>
 
-	<div class="dashboard">
+	<div class="dashboard" style="margin-bottom:10%;">
 		<div class="card cardbrand">
 		<span><i class="fab fa-bimobject icon-4x icoons"></i></span>
 			<div class="card-body">
-				<h4 class="card-title" style="color:black;">Brand Management</h4>
+				<!-- <h4 class="card-title" style="color:black;">Brand Management</h4>-->
 				<a th:href="@{/ui/brand}" class="btn clickme stretched-link">Brand</a>
 			</div>
 		</div>
 
-		<div class="card">
+		<div class="card" th:href="@{/ui/product}">
 		<span><i class="fab fa-product-hunt icon-4x icoons"></i></span>
 			<div class="card-body">
-				<h4 class="card-title" style="color:black;">Product Management</h4>
+				<!--<h4 class="card-title" style="color:black;">Product Management</h4>-->
 				<a th:href="@{/ui/product}" class="btn clickme stretched-link">Product</a>
 			</div>
 		</div>
 
 		<div class="card">
-			<span><i class="fas fa-warehouse icon-4x icoons"></i></span>
+			<span><i class="fa fa-warehouse icon-4x icoons"></i></span>
 			<div class="card-body">
-				<h4 class="card-title" style="color:black;">Inventory Managment</h4>
+				<!--<h4 class="card-title" style="color:black;">Inventory Managment</h4>-->
 				<a th:href="@{/ui/inventory}" class="btn clickme stretched-link">Inventory</a>
 			</div>
 		</div>
 
-		<div class="card">
+		<div class="card" style="margin-top:2%;">
 			<span><i class="fa fa-shopping-bag icon-4x icoons" aria-hidden="true"></i></span>
 			<div class="card-body">
-				<h4 class="card-title" style="color:black;">Place Orders</h4>
+				<!--<h4 class="card-title" style="color:black;">Place Orders</h4>-->
 				<a th:href="@{/ui/order}" class="btn clickme stretched-link">Order</a>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 		<div class="card">
 			<span><i class="fa fa-file icon-4x icoons" aria-hidden="true"></i></span>
 			<div class="card-body">
-				<h4 class="card-title" style="color:black;">Reports</h4>
+				<!--<h4 class="card-title" style="color:black;">Reports</h4>-->
 				<a th:href="@{/ui/brand}" class="btn clickme stretched-link">Reports</a>
 			</div>
 		</div>

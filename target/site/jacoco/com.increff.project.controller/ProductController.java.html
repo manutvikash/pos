@@ -80,18 +80,19 @@ import io.swagger.annotations.ApiOperation;
 	@RequestMapping(path = &quot;/api/product/search&quot;, method = RequestMethod.POST)
 	public List&lt;ProductData&gt; search(@RequestBody ProductForm f) throws ApiException {
 		//BrandPojo brand_pojo = brandService.getByBrandAndCategory(f.getBrand(), f.getCategory());
-<span class="nc" id="L83">		List&lt;BrandPojo&gt; brand_pojo=brandService.search(ConversionUtil.convertProductFormtoBrandPojo(f));</span>
+		//ProductPojo z=productService.checkbarcode(f.getBarcode());
+<span class="nc" id="L84">		List&lt;BrandPojo&gt; brand_pojo=brandService.search(ConversionUtil.convertProductFormtoBrandPojo(f));</span>
 					
-<span class="nc" id="L85">		List&lt;ProductData&gt; productDataList=new ArrayList&lt;ProductData&gt;();</span>
+<span class="nc" id="L86">		List&lt;ProductData&gt; productDataList=new ArrayList&lt;ProductData&gt;();</span>
 		
-<span class="nc bnc" id="L87" title="All 2 branches missed.">	    for(BrandPojo p1:brand_pojo) {</span>
-<span class="nc" id="L88">	    	List&lt;ProductPojo&gt; productList=productService.getByBrand(p1.getBrand());</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">	    	for(ProductPojo p:productList) {</span>
-<span class="nc" id="L90">	    		productDataList.add(ConversionUtil.convert(p));</span>
-<span class="nc" id="L91">	    	}</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">	    for(BrandPojo p1:brand_pojo) {</span>
+<span class="nc" id="L89">	    	List&lt;ProductPojo&gt; productList=productService.getByBrand(p1.getBrand());</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">	    	for(ProductPojo p:productList) {</span>
+<span class="nc" id="L91">	    		productDataList.add(ConversionUtil.convertProductpojotoProductData(p,brandService.get(p.getBrandpojo().getId())));</span>
+<span class="nc" id="L92">	    	}</span>
 			
-<span class="nc" id="L93">		}</span>
-<span class="nc" id="L94">		return productDataList;</span>
+<span class="nc" id="L94">		}</span>
+<span class="nc" id="L95">		return productDataList;</span>
 	}
 
 	

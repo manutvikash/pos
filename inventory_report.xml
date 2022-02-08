@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<inventory_items>
+    <inventory_item>
+        <barcode>@123</barcode>
+        <quantity>77</quantity>
+        <brand>nike</brand>
+        <category>sneakers</category>
+        <id>1</id>
+        <name>air</name>
+    </inventory_item>
+    <inventory_item>
+        <barcode>@1234</barcode>
+        <quantity>23</quantity>
+        <brand>puma</brand>
+        <category>shoes</category>
+        <id>2</id>
+        <name>puma svt</name>
+    </inventory_item>
+    <inventory_item>
+        <barcode>@12</barcode>
+        <quantity>18</quantity>
+        <brand>gucci</brand>
+        <category>purse</category>
+        <id>3</id>
+        <name>leather purse</name>
+    </inventory_item>
+    <inventory_item>
+        <barcode>@1</barcode>
+        <quantity>2</quantity>
+        <brand>brand11</brand>
+        <category>category11</category>
+        <id>4</id>
+        <name>new</name>
+    </inventory_item>
+    <inventory_item>
+        <barcode>@12345</barcode>
+        <quantity>9</quantity>
+        <brand>brand22</brand>
+        <category>category22</category>
+        <id>5</id>
+        <name>xvzv</name>
+    </inventory_item>
+    <inventory_item>
+        <barcode>@123456</barcode>
+        <quantity>19</quantity>
+        <brand>brand2234</brand>
+        <category>category2234</category>
+        <id>6</id>
+        <name>wsdgfh</name>
+    </inventory_item>
+    <inventory_item>
+        <barcode> @1</barcode>
+        <quantity>0</quantity>
+        <brand>brand11</brand>
+        <category>category11</category>
+        <id>7</id>
+        <name>worthy</name>
+    </inventory_item>
+    <inventory_item>
+        <barcode>abc90</barcode>
+        <quantity>0</quantity>
+        <brand>samsung</brand>
+        <category>phones</category>
+        <id>8</id>
+        <name>m51</name>
+    </inventory_item>
+</inventory_items>

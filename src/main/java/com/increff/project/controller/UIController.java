@@ -42,5 +42,9 @@ public class UIController {
 	public ModelAndView order() {
 		return mav("order.html");
 	}
+	@RequestMapping(value = "/ui/reports")
+	public ModelAndView reports() {
+		return mav("reports.html");
+	}
 
 }

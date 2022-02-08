@@ -1,13 +1,19 @@
 package com.increff.project.controller;
 
-/*import java.io.IOException;
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.increff.project.dto.ReportDto;
+import com.increff.project.model.BrandForm;
 import com.increff.project.service.ReportService;
 
 import io.swagger.annotations.Api;
@@ -20,17 +26,17 @@ import io.swagger.annotations.ApiOperation;
 public class ReportController {
 
 	
-/*	//@Autowired
+	@Autowired
 	private ReportService reportService;
-	
+	  @Autowired
+	    private ReportDto reportDto;
 
-	@ApiOperation(value = "Brand Report")
-	@RequestMapping(path = "/api/report/brand", method = RequestMethod.GET)
-	public void get(HttpServletResponse response) throws Exception {
-		byte[] bytes = reportService.generatePdfResponse("brand");
-		createPdfResponse(bytes, response);
-	}
-	
+	  @ApiOperation(value = "Gets Brand report")
+	    @RequestMapping(value = "/api/brand-report",method = RequestMethod.GET)
+	    public List<BrandForm> getBrandReport(){
+	        return reportDto.getBrandReport();
+	    }
+
 
 	public void createPdfResponse(byte[] bytes, HttpServletResponse response) throws IOException {
 		response.setContentType("application/pdf");
@@ -39,4 +45,4 @@ public class ReportController {
 		response.getOutputStream().write(bytes);
 		response.getOutputStream().flush();
 	}
-}*/
+}

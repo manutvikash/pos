@@ -1,49 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderPojo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.pojo</a> &gt; <span class="el_source">OrderPojo.java</span></div><h1>OrderPojo.java</h1><pre class="source lang-java linenums">package com.increff.project.pojo;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(indexes= {@Index(columnList = &quot;id,date&quot;)})
-<span class="nc" id="L17">public class OrderPojo {</span>
-
+<span class="nc" id="L11">public class OrderPojo {</span>
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	@DateTimeFormat(pattern=&quot;dd-MM-yyyy hh:mm&quot;)
-	private Date date;
+    private int id;
+    private LocalDateTime datetime;
 
-//	 public OrderPojo() {
-//	    }
-//	public OrderPojo(Date date) {
-//		this.date=date;
-//	}
-	public int getId() {
-<span class="nc" id="L32">		return id;</span>
+    public int getId() {
+<span class="nc" id="L19">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="nc" id="L23">        this.id = id;</span>
+<span class="nc" id="L24">    }</span>
+
+	public LocalDateTime getDatetime() {
+<span class="nc" id="L27">		return datetime;</span>
 	}
 
-	public void setId(int id) {
-<span class="nc" id="L36">		this.id = id;</span>
-<span class="nc" id="L37">	}</span>
-	public Date getDate() {
-<span class="nc" id="L39">		return date;</span>
-	}
-	public void setDate(Date date) {
-<span class="nc" id="L42">		this.date = date;</span>
-<span class="nc" id="L43">	}</span>
+	public void setDatetime(LocalDateTime datetime) {
+<span class="nc" id="L31">		this.datetime = datetime;</span>
+<span class="nc" id="L32">	}</span>
 
 
-
-		
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

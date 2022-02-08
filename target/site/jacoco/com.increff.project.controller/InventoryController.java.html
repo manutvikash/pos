@@ -15,6 +15,7 @@ import com.increff.project.model.InventoryForm;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.ProductPojo;
 import com.increff.project.service.ApiException;
+import com.increff.project.service.BrandService;
 import com.increff.project.service.InventoryService;
 import com.increff.project.service.ProductService;
 import com.increff.project.util.ConversionUtil;
@@ -24,45 +25,55 @@ import io.swagger.annotations.ApiOperation;
 
 @Api
 @RestController
-<span class="nc" id="L27">public class InventoryController {</span>
+<span class="nc" id="L28">public class InventoryController {</span>
 
 	@Autowired
 	private InventoryService inventory_service;
 
 	@Autowired
 	private ProductService product_service;
+	
+	@Autowired
+	private BrandService brand_service;
 
 	@ApiOperation(value = &quot;Adds Inventory&quot;)
 	@RequestMapping(path = &quot;/api/inventory&quot;, method = RequestMethod.POST)
 	public void add(@RequestBody InventoryForm userform) throws ApiException {
-<span class="nc" id="L38">		ProductPojo product = product_service.get(userform.getBarcode());</span>
-<span class="nc" id="L39">		InventoryPojo inventory_pojo = ConversionUtil.convert(userform,product);</span>
-<span class="nc" id="L40">		inventory_service.add(inventory_pojo);</span>
-<span class="nc" id="L41">	}</span>
+<span class="nc" id="L42">		ProductPojo product = product_service.get(userform.getBarcode());</span>
+<span class="nc" id="L43">		InventoryPojo inventory_pojo = ConversionUtil.convert(userform,product);</span>
+<span class="nc" id="L44">		inventory_service.add(inventory_pojo);</span>
+<span class="nc" id="L45">	}</span>
 
 	
 
 	@ApiOperation(value = &quot;Gets an Inventory record by id&quot;)
 	@RequestMapping(path = &quot;/api/inventory/{id}&quot;, method = RequestMethod.GET)
 	public InventoryData get(@PathVariable int id) throws ApiException {
-<span class="nc" id="L48">		InventoryPojo inventory_pojo = inventory_service.get(id);</span>
-<span class="nc" id="L49">		return ConversionUtil.convert(inventory_pojo);</span>
+<span class="nc" id="L52">		InventoryPojo inventory_pojo = inventory_service.get(id);</span>
+<span class="nc" id="L53">		return ConversionUtil.convert(inventory_pojo);</span>
 	}
 
 	@ApiOperation(value = &quot;Gets list of Products&quot;)
 	@RequestMapping(path = &quot;/api/inventory&quot;, method = RequestMethod.GET)
-	public List&lt;InventoryData&gt; getAll() {
-<span class="nc" id="L55">		List&lt;InventoryPojo&gt; inventory_pojo_list = inventory_service.getAll();</span>
-<span class="nc" id="L56">		return ConversionUtil.convertInventoryList(inventory_pojo_list);</span>
+	public List&lt;InventoryData&gt; getAll() throws ApiException {
+<span class="nc" id="L59">		List&lt;InventoryPojo&gt; inventory_pojo_list = inventory_service.getAll();</span>
+<span class="nc" id="L60">		List&lt;InventoryData&gt; inventoryData=new ArrayList&lt;InventoryData&gt;();</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		for(InventoryPojo p:inventory_pojo_list) {</span>
+<span class="nc" id="L62">			ProductPojo p1=product_service.get(p.getId());</span>
+<span class="nc" id="L63">			InventoryData d=ConversionUtil.convertInventoryPojotoInventoryData(p,p1,brand_service.get(p1.getBrandpojo().getId()));</span>
+<span class="nc" id="L64">			inventoryData.add(d);</span>
+<span class="nc" id="L65">		}</span>
+		//return ConversionUtil.convertInventoryList(inventory_pojo_list);
+<span class="nc" id="L67">	    return inventoryData;</span>
 	}
 
 	@ApiOperation(value = &quot;Updates an Inventory record&quot;)
 	@RequestMapping(path = &quot;/api/inventory/{id}&quot;, method = RequestMethod.PUT)
 	public void update(@PathVariable int id, @RequestBody InventoryForm f) throws ApiException {
-<span class="nc" id="L62">		ProductPojo product = product_service.get(f.getBarcode());</span>
-<span class="nc" id="L63">		InventoryPojo inventory_pojo = ConversionUtil.convert(f,product);</span>
-<span class="nc" id="L64">		inventory_service.update(id, inventory_pojo);</span>
-<span class="nc" id="L65">	}</span>
+<span class="nc" id="L73">		ProductPojo product = product_service.get(f.getBarcode());</span>
+<span class="nc" id="L74">		InventoryPojo inventory_pojo = ConversionUtil.convert(f,product);</span>
+<span class="nc" id="L75">		inventory_service.update(id, inventory_pojo);</span>
+<span class="nc" id="L76">	}</span>
 
 //	@ApiOperation(value = &quot;Updates an Inventory record&quot;)
 //	@RequestMapping(path = &quot;/api/inventory/{barcode}&quot;, method = RequestMethod.PUT)
@@ -74,18 +85,18 @@ import io.swagger.annotations.ApiOperation;
 	@ApiOperation(value=&quot;Gets Id of the Barcode&quot;)
 	@RequestMapping(path=&quot;/api/inventory/barcode&quot;,method=RequestMethod.POST)
 	public List&lt;InventoryData&gt; getid(@RequestBody InventoryForm f) throws ApiException{
-<span class="nc" id="L77">		ProductPojo p=product_service.checkbarcode(f.getBarcode());</span>
-<span class="nc" id="L78">		InventoryPojo i=ConversionUtil.convert(f, p);</span>
+<span class="nc" id="L88">		ProductPojo p=product_service.checkbarcode(f.getBarcode());</span>
+<span class="nc" id="L89">		InventoryPojo i=ConversionUtil.convert(f, p);</span>
 		//inventory_service.updatefileData(i);
-<span class="nc" id="L80">		ProductPojo p1=i.getProductPojo();</span>
-<span class="nc" id="L81">		int id=p1.getId();</span>
-<span class="nc" id="L82">		InventoryPojo i2=inventory_service.getByProductId(id);</span>
+<span class="nc" id="L91">		ProductPojo p1=i.getProductPojo();</span>
+<span class="nc" id="L92">		int id=p1.getId();</span>
+<span class="nc" id="L93">		InventoryPojo i2=inventory_service.getByProductId(id);</span>
 		//inventory_service.update(id, i2);
-<span class="nc" id="L84">		InventoryData arrayData= ConversionUtil.convert(i2);</span>
+<span class="nc" id="L95">		InventoryData arrayData= ConversionUtil.convert(i2);</span>
 		
-<span class="nc" id="L86">		List&lt;InventoryData&gt; list=new ArrayList&lt;InventoryData&gt;();</span>
-<span class="nc" id="L87">		list.add(arrayData);</span>
-<span class="nc" id="L88">		return list;</span>
+<span class="nc" id="L97">		List&lt;InventoryData&gt; list=new ArrayList&lt;InventoryData&gt;();</span>
+<span class="nc" id="L98">		list.add(arrayData);</span>
+<span class="nc" id="L99">		return list;</span>
 	}
 	
 

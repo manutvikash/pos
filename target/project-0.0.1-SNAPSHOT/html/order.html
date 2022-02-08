@@ -10,51 +10,65 @@
 <nav th:replace="snippets.html :: name_site_navbar"></nav>
 <div class="container">
 
-	<div class="row" style="text-align: center; display: block;">
+	<div class="row" style="display: block;">
 			<h2>Order</h2>
 		</div>
 
 <div class="row">
-			<div class="col-4">
-			 <form class="form-inline" id="orderitem-form" style="margin-top: 15%">
+			<div class="col-4" style="padding-left:0px;">
+			 <form class="form-inline" id="orderitem-form" style="">
                 <div class="form-group" style="width:100%;">
-				    <label for="inputBarcode" class="col-sm-4 col-form-label" style="font-size:22px">Barcode</label>
-				      <input type="text" class="form-control barcode" style="height:40px" name="barcode" id="inputBarcode" placeholder="Enter Barcode" required>
+				    <label for="inputBarcode" class="col-sm-3 col-form-label" style="font-size:18px;padding-left:0px;">Barcode</label>
+				      <input type="text" class="form-control barcode" style="height:30px" name="barcode" id="inputBarcode" placeholder="Enter Barcode" required>
 				  </div>
                   <div class="form-group" style="width:100%;">
-				    <label for="inputQuantity" class="col-sm-4 col-form-label" style="font-size:22px">Quantity</label>
-				      <input type="number" class="form-control" style="height:40px;" name="quantity" id="inputQuantity" placeholder="Enter Quantity" required>
+				    <label for="inputQuantity" class="col-sm-3 col-form-label" style="font-size:18px;padding-left:0px;">Quantity</label>
+				      <input type="number" class="form-control" style="height:30px;" name="quantity" id="inputQuantity" placeholder="Enter Quantity" required>
 				  </div>
-				  <button class="btn btn-primary" id="create-new-order" type="button" style="margin-top: 5%">Create New Order</button>
-                <button class="btn btn-info" id="add-order-item" type="button" style="margin-left: 25%;margin-top: 5%;">Add Item</button>
+				  <!-- <div class="form-group" style="width: 100%;">
+                            <label for="inputBrand" class="col-sm-3 col-form-label" style="font-size:18px;padding-left:0px;">Brand</label>
+                            <input type="text" class="form-control" name="brand" readonly id="inputBrand">
+                        </div>
+                        <div class="form-group" style="width: 100%; padding-bottom: 1%;">
+                            <label for="inputCategory" class="col-sm-3 col-form-label" style="font-size:18px;padding-left:0px;">Category</label>
+                            <input type="text" class="form-control" name="category" readonly id="inputCategory">
+                        </div>-->
+                <button class="btn btn-info" id="add-order-item" type="button" style="margin-left: 54%;margin-top: 5%;">Add Item</button>
                 &nbsp;&nbsp;
                 
             </form>
             </div>
-            <table class="table table-striped col-8" id="orderitem-table">
+            <div class="col-1"></div>
+            <div class="col-7">
+            <div style="height: 70%; background-color: #E6E6FA; box-shadow: 1px 1px #888888;">
+            <table class="table table-striped" id="orderitem-table">
 				  <thead>
 				    <tr>
-				     <th scope="col">ID</th>
+				     <!-- <th scope="col">ID</th>-->
 				      <th scope="col">Barcode</th>
 				     <th scope="col">Name</th>
 				      <th scope="col">Quantity</th>
-				      <th scope="col">MRP (&#8377)</th>
-				      <th scope="col">Cost (&#8377)</th>
+				      <th scope="col">MRP</th>
+				      <th scope="col">Cost</th>
 				      <th scope="col">Actions</th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				  </tbody>
-				</table>
-				<form class="form-inline" id="" style="margin-left:35%">
-		             <div class="form-group" style="width:750px;">
-		                <div style="width:400px;">
-		                   <label class="col-form-label" style="margin-right:5%; font-size:20px;" for="total">Total</label>
-                           <input class="form-control" disabled id="total" name="totalAmount" style="height:30px;" type="text">
+			</table>
+			</div>
+				<form class="form-inline" id="" style="">
+		             <div class="form-group" style="width:650px;">
+		                <div style="width:230px;">
+		                   <label class="col-form-label" style="margin-right:2%; font-size:15px;" for="total">Total (&#8377)</label>
+                           <input class="form-control" disabled id="total" name="totalAmount" style="height:25px;width:50%" type="text">
 		                </div>
-                       <button class="btn btn-warning" id="create-order" type="button" style="margin-left: 25%;">Create Order</button>
+		                <button class="btn btn-info" id="create-order" type="button" style="margin-left: 24%;">Create Order</button>
+		                <button class="btn btn-primary" id="create-new-order" type="button" style="margin-left:2%">Create New Order</button>
+                        
                     </div>
                 </form>
+                </div>
 </div>
 
 <div class="row">
@@ -64,15 +78,16 @@
 <div class="row">
 	&nbsp;
 </div>
-<div class="row">
+<div class="row" style="margin-top:5%;">
 
 
- <div class="col-12">
+ <div class="col-12" style="padding-left:0px;">
   <table class="table table-striped" id="order-table">
  	  <thead>
  	    <tr>
  	      <th scope="col">Order ID</th>
- 	      <th scope="col">Date Time</th>
+ 	      <th scope="col">Date & Time</th>
+ 	      <th scope="col">Total</th>
 		  <th scope="col">Actions</th>
  	    </tr>				  
  	  </thead>
@@ -87,7 +102,7 @@
 
 		
 
-<div class="modal" tabindex="-1" role="dialog" id="edit-orderitem-modal">
+<div class="modal" tabindex="-1" role="dialog" id="edit-orderitem-modal" style="height:63%;">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

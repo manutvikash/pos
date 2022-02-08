@@ -1,39 +1,52 @@
 package com.increff.project.dao;
 
-import com.increff.project.pojo.OrderPojo;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.List;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
+import com.increff.project.pojo.OrderPojo;
 
 @Repository
-public class OrderDao extends AbstractDao {
-    private static String select_id = "select p from OrderPojo p where id=:id";
+public class OrderDao extends AbstractDao{
+
+	
     private static String select_all = "select p from OrderPojo p";
 
 	@PersistenceContext
 	EntityManager em;
-    @Transactional
-    public OrderPojo insert(OrderPojo orderPojo) {
-        em.persist(orderPojo);
-        return orderPojo;
-    }
-
-    public OrderPojo select(int id) {
-        TypedQuery<OrderPojo> query = getQuery(select_id, OrderPojo.class);
-        query.setParameter("id", id);
-        return getSingle(query);
-    }
-
-    public List<OrderPojo> selectAll() {
-        TypedQuery<OrderPojo> query = em.createQuery(select_all, OrderPojo.class);
-        return query.getResultList();
-    }
-
-    public void update(OrderPojo pojo) {
-    }
-
+   // @Transactional
+    public int insert(OrderPojo p) {
+		em.persist(p);
+		em.flush();
+		return p.getId();
+	}
+	
+	//Delete Order from DB
+	public void delete(int id) {
+		OrderPojo p = em.find(OrderPojo.class, id);
+		em.remove(p);
+	}
+	
+	//Select Order from DB
+	public OrderPojo select(int id) {
+		return em.find(OrderPojo.class, id);
+	}
+	
+	//Select All Orders from DB
+	public List<OrderPojo> selectAll() {
+		TypedQuery<OrderPojo> query = getQuery(select_all,OrderPojo.class);
+		return query.getResultList();
+	}
+	
+	//Update Order
+	public void update(OrderPojo p) {
+		
+	}
+	
 }

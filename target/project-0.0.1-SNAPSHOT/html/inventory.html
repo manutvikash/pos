@@ -12,14 +12,14 @@
 
 	<div class="container">
 
-		<div class="row" style="text-align: center; display: block;">
+		<div class="row" style="display: block;">
 			<h2 th:fragment="inventory">Inventory</h2>
 		</div>
 
 		<div class="row inputfield"
 			style="display: block;">
 			<form id="inventory-form" style="display:inline-block; width:50%;margin-bottom:0%;">
-			<input id="inventory-filter" type="text" name="barcode" placeholder="Search By BarCode" style="height: 30px; margin-top: 2%; margin-left: 2%;margin-right:1%;">
+			<input id="inventory-filter" type="text" name="barcode" placeholder="Search By BarCode" style="height: 30px; margin-top: 2%; margin-right:1%;">
 			<button type="button" class="btn btn-info" id="search-inventory"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
 			</form>
 			
@@ -32,10 +32,10 @@
 			<button type="button" class="btn btn-info" id="upload-inventory" style="margin-left:23%;">
 				<i class="fa fa-upload" aria-hidden="true"></i> Upload
 			</button>
-			<!--  <button type="button" class="btn btn-outline-dark"
+			  <button type="button" class="btn btn-primary"
 				id="inventory-report">
 				<i class="fa fa-download" aria-hidden="true"></i> Download Report
-			</button>-->
+			</button>
 
 		</div>
 
@@ -44,11 +44,13 @@
 		<div class="row">
 
 
-			<div class="col-12">
+			<div class="col-12" style="padding-left:0px;">
 				<table class="table table-striped" id="inventory-table">
 					<thead>
 						<tr>
 							<th scope="col">Barcode</th>
+							<th scope="col">Brand</th>
+							<th scope="col">Category</th>
 							<th scope="col">Name</th>
 							<th scope="col">Quantity</th>
 							<th scope="col">Actions</th>

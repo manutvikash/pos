@@ -33,19 +33,18 @@ body {
 .active{
 	color:red;
 }
-.container-fluid h2{
-	font-size:30px;
+.container-fluid h3{
+	/*font-size:30px;*/
 	color:#0f5298;
 }
 
 .dashboard{
-	margin-left:6%;
 	text-align:center;
 }
 .card{
 	display:inline-block;
-	margin-right:5%;
-	width:20%;
+	margin-right:2%;
+	width:15%;
 	margin-top:1%;
 	color:#0f5298;
 	background-color:#d5f3fe;
@@ -53,7 +52,7 @@ body {
 .clickme {
     background-color: #EEEEEE;
     color:#0f5298;
-    padding: 8px 20px;
+
     text-decoration:none;
     font-weight:bold;
     border-radius:5px;
@@ -62,6 +61,10 @@ body {
 .icoons{
 	margin-top:10%;
 }
+/*.btn:hover{
+	background-color:#0f5298;
+	color:white;
+}*/
 .footer {
 	position: absolute;
 	bottom: 0;

@@ -2,24 +2,34 @@ function productUrl() {
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
 	return baseUrl + "/api/product";
 }
-
+function displayAddProductModal() {
+	$("#add-product-modal").modal('toggle');
+}
 function addProduct(event) {
-
+	//console.log(event);
+console.log("addproduct");
 	var $form = $("#product-form");
+	console.log($form);
 	var json = toJson($form);
+	console.log(json);
+	var url = productUrl();
+	console.log(url);
 	if (validateProduct(json)) {
-		var url = productUrl();
+		
 		$.ajax({
 			url: url,
 			type: 'POST',
 			data: json,
 			headers: {
+				
 				'Content-Type': 'application/json'
 			},
 			success: function(response) {
+				$("#add-product-modal").modal('toggle');
 				toastr.success("Product Created successfully");
 				getProductList(response);
-				$('#add-product-modal').modal('toggle');
+				$("#product-form").trigger("reset");
+				
 			},
 			error: handleAjaxError
 		});
@@ -29,6 +39,7 @@ return false;
 
 function validateProduct(json) {
 	json = JSON.parse(json);
+	console.log(json);
 	if (isBlank(json.barcode)) {
 		toastr.error("Barcode must not be empty");
 		return false;
@@ -96,7 +107,7 @@ function displayProductList(data){
 	$tbody.empty();
 	for(var i in data){
 		var e = data[i];
-		var buttonHtml = ' <button type="button" class="btn btn-primary" style="border: none;" onclick="displayEditProduct(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>'
+		var buttonHtml = ' <button type="button" class="btn btn-info" style="border: none;" onclick="displayEditProduct(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>'
 		var row = '<tr>'
 		+ '<td>' + e.barcode + '</td>'
 		+ '<td>' + e.brand + '</td>'
@@ -138,6 +149,7 @@ function editProduct(event){
 	var id=$("#product-edit-form input[name=id]").val();
 	var url = productUrl() + "/" + id;
 	var $form = $("#product-edit-form");
+	console.log($form);
 	var json = toJson($form);
 
     if(validateProduct(json)){
@@ -284,7 +296,7 @@ function updateFileName(){
 }
 
 
-function productFilter() {
+function productSearch() {
 
     var value = document.getElementById("product-filter").value;
     value = value.trim();
@@ -304,11 +316,49 @@ function productFilter() {
     });
 }
 
+/*function productSearch(event){
+
+	//Set the values to update
+	var $form = $("#product-form");
+	//console.log($form);
+	var json = toJson($form);
+	console.log(json);
+	var url = productUrl() + '/search';
+	console.log(url);
+console.log(json);
+	var json2 = {barcode: JSON.parse(json).barcode, brand: "", category: "", mrp: 0, name: ""};
+   console.log(json2);
+    if(json2.barcode === "")
+    {
+        getProductList();
+
+        return;
+    }
+
+	json = JSON.stringify(json2);
+console.log(json);
+	$.ajax({
+	   url: url,
+	   type: 'POST',
+	   data: json,
+	   headers: {
+       	'Content-Type': 'application/json'
+       },
+	   success: function(data) {
+console.log(data);
+	   		displayProductList(data);
+	   },
+	   error: handleAjaxError
+	});
+
+	return false;
+}*/
 
 function init(){
+	$("#open-add-product").click(displayAddProductModal);
 	$('#add-product').click(addProduct);
 	$('#edit-product').click(editProduct);
-	$('#search-product').click(productFilter);
+	$('#search-product').click(productSearch);
 	$('#upload-data-product').click(displayUploadData);
 	$('#download-errors-product').click(downloadErrors);
 	$('#process-data-product').click(processData);

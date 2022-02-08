@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GenerateXML.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.util</a> &gt; <span class="el_source">GenerateXML.java</span></div><h1>GenerateXML.java</h1><pre class="source lang-java linenums">package com.increff.project.util;
+
+import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import com.increff.project.model.BillData;
+
+<span class="nc" id="L23">public class GenerateXML {</span>
+
+	 public static void createXml(List&lt;BillData&gt; billDataItems)
+	            throws ParserConfigurationException, TransformerException {
+<span class="nc" id="L27">	        String xmlFilePath = &quot;invoice.xml&quot;;</span>
+
+<span class="nc" id="L29">	        DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();</span>
+
+<span class="nc" id="L31">	        DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();</span>
+
+<span class="nc" id="L33">	        Document document = documentBuilder.newDocument();</span>
+
+<span class="nc" id="L35">	        int i = 0;</span>
+	        // root element
+<span class="nc" id="L37">	        Element root = document.createElement(&quot;orders&quot;);</span>
+<span class="nc" id="L38">	        document.appendChild(root);</span>
+<span class="nc" id="L39">	        double finalBill = 0;</span>
+
+<span class="nc" id="L41">	        Element date = document.createElement(&quot;date&quot;);</span>
+<span class="nc" id="L42">	        date.appendChild(document.createTextNode(getDate()));</span>
+<span class="nc" id="L43">	        root.appendChild(date);</span>
+
+<span class="nc" id="L45">	        Element time = document.createElement(&quot;time&quot;);</span>
+<span class="nc" id="L46">	        time.appendChild(document.createTextNode(getTime()));</span>
+<span class="nc" id="L47">	        root.appendChild(time);</span>
+	        // Create elements from BillData list
+<span class="nc bnc" id="L49" title="All 2 branches missed.">	        for (i = 0; i &lt; billDataItems.size(); i++) {</span>
+<span class="nc" id="L50">	            Element item = document.createElement(&quot;order_item&quot;);</span>
+<span class="nc" id="L51">	            root.appendChild(item);</span>
+<span class="nc" id="L52">	            Element id = document.createElement(&quot;id&quot;);</span>
+<span class="nc" id="L53">	            id.appendChild(document.createTextNode(String.valueOf(billDataItems.get(i).id)));</span>
+<span class="nc" id="L54">	            item.appendChild(id);</span>
+
+<span class="nc" id="L56">	            Element name = document.createElement(&quot;name&quot;);</span>
+<span class="nc" id="L57">	            name.appendChild(document.createTextNode(billDataItems.get(i).name));</span>
+<span class="nc" id="L58">	            item.appendChild(name);</span>
+	            // Calculate total bill amount
+<span class="nc" id="L60">	            finalBill = finalBill + billDataItems.get(i).quantity * billDataItems.get(i).mrp;</span>
+<span class="nc" id="L61">	            double totalCost = 0;</span>
+<span class="nc" id="L62">	            totalCost = totalCost + billDataItems.get(i).quantity * billDataItems.get(i).mrp;</span>
+<span class="nc" id="L63">	            Element quantity = document.createElement(&quot;quantity&quot;);</span>
+<span class="nc" id="L64">	            quantity.appendChild(document.createTextNode(String.valueOf(billDataItems.get(i).quantity)));</span>
+<span class="nc" id="L65">	            item.appendChild(quantity);</span>
+
+<span class="nc" id="L67">	            Element mrp = document.createElement(&quot;unit_cost&quot;);</span>
+<span class="nc" id="L68">	            mrp.appendChild(document.createTextNode(String.format(&quot;%.2f&quot;,billDataItems.get(i).mrp)));</span>
+<span class="nc" id="L69">	            item.appendChild(mrp);</span>
+
+<span class="nc" id="L71">	            Element cost = document.createElement(&quot;amount&quot;);</span>
+<span class="nc" id="L72">	            cost.appendChild(document.createTextNode(String.format(&quot;%.2f&quot;,totalCost)));</span>
+<span class="nc" id="L73">	            item.appendChild(cost);</span>
+
+	        }
+
+<span class="nc" id="L77">	        Element total = document.createElement(&quot;total&quot;);</span>
+<span class="nc" id="L78">	        total.appendChild(document.createTextNode(String.format(&quot;%.2f&quot;,finalBill) + &quot; Rs.&quot;));</span>
+<span class="nc" id="L79">	        root.appendChild(total);</span>
+
+<span class="nc" id="L81">	        TransformerFactory transformerFactory = TransformerFactory.newInstance();</span>
+<span class="nc" id="L82">	        Transformer transformer = transformerFactory.newTransformer();</span>
+<span class="nc" id="L83">	        DOMSource domSource = new DOMSource(document);</span>
+
+<span class="nc" id="L85">	        StreamResult streamResult = new StreamResult(new File(xmlFilePath));</span>
+
+<span class="nc" id="L87">	        transformer.transform(domSource, streamResult);</span>
+<span class="nc" id="L88">	    }</span>
+
+	    // Get date in required format
+	    private static String getDate() {
+<span class="nc" id="L92">	        DateFormat df = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L93">	        Date dateobj = new Date();</span>
+<span class="nc" id="L94">	        String date = df.format(dateobj);</span>
+<span class="nc" id="L95">	        return date;</span>
+	    }
+
+	    // Get time in required format
+	    private static String getTime() {
+<span class="nc" id="L100">	        DateFormat df = new SimpleDateFormat(&quot;HH:mm:ss&quot;);</span>
+<span class="nc" id="L101">	        Date dateobj = new Date();</span>
+<span class="nc" id="L102">	        String time = df.format(dateobj);</span>
+<span class="nc" id="L103">	        return time;</span>
+	    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

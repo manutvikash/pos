@@ -1,5 +1,96 @@
-//Active Link
+var barcodeList = [];
+var brandList = [];
+var categoryList = [];
+var inventoryMap = {};
 
+
+function getBrandUrl(){
+	var baseUrl = $("meta[name=baseUrl]").attr("content");
+	console.log(baseUrl);
+	return baseUrl + "/api/brand";
+}
+
+function getProductUrl(){
+	var baseUrl = $("meta[name=baseUrl]").attr("content");
+	console.log(baseUrl);
+	return baseUrl + "/api/product";
+}
+
+function getInventoryUrl(){
+	var baseUrl = $("meta[name=baseUrl]").attr("content");
+	console.log(baseUrl);
+	return baseUrl + "/api/inventory";
+}
+
+function createBarcodeList() {
+	var url = getProductUrl();
+		$.ajax({
+	   url: url,
+	   type: 'GET',
+	   
+	   headers: {
+       	'Content-Type': 'application/json'
+       },
+	   success: function(response) {
+	   		formBarcodeList(response);
+	   },
+	   error: handleAjaxError
+	});
+}
+
+function createBrandCategoryList() {
+	var url = getBrandUrl();
+	$.ajax({
+	   url: url,
+	   type: 'GET',
+	   
+	   headers: {
+       	'Content-Type': 'application/json'
+       },
+	   success: function(response) {
+	   		formBrandCategoryList(response);
+	   },
+	   error: handleAjaxError
+	});
+}
+
+function createInventoryMap() {
+	var url = getInventoryUrl();
+	$.ajax({
+	   url: url,
+	   type: 'GET',
+	   
+	   headers: {
+       	'Content-Type': 'application/json'
+       },
+	   success: function(response) {
+	   		formInventoryMap(response);
+	   },
+	   error: handleAjaxError
+	});
+}
+
+function formBarcodeList(data) {
+	for(var i in data){
+		var e = data[i];
+		barcodeList.push(e.barcode);
+	}
+}
+
+function formBrandCategoryList(data) {
+	for(var i in data){
+		var e = data[i];
+		brandList.push(e.brand);
+		categoryList.push(e.category);
+	}
+}
+
+function formInventoryMap(data) {
+	for(var i in data){
+		var e = data[i];
+		inventoryMap[e.barcode] = e.quantity;
+	}
+}
 
 
 //HELPER METHOD
@@ -55,3 +146,22 @@ function writeFileData(arr) {
 	tempLink.setAttribute('download', 'download.tsv');
 	tempLink.click();
 }
+
+function init(){
+	createBarcodeList();
+	createBrandCategoryList();
+	createInventoryMap();
+	$(".barcode").autocomplete({
+		minLength:0,
+		source: barcodeList
+	});
+	$(".brand").autocomplete({
+		minLength:0,
+		source: brandList
+	});
+	$(".category").autocomplete({
+		minLength:0,
+		source: categoryList
+	});
+}
+$(document).ready(init);

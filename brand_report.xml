@@ -1,38 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <brands>
     <brand_item>
-        <brand>nike</brand>
-        <category>shoes</category>
-        <id>2</id>
+        <brand>brand1</brand>
+        <category>category1</category>
+        <id>9</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand11</brand>
+        <category>category11</category>
+        <id>4</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand11</brand>
+        <category>school</category>
+        <id>7</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand134</brand>
+        <category>category134</category>
+        <id>11</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand1345</brand>
+        <category>category1345</category>
+        <id>12</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand2</brand>
+        <category>category2</category>
+        <id>10</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand22</brand>
+        <category>category22</category>
+        <id>5</id>
+    </brand_item>
+    <brand_item>
+        <brand>brand2234</brand>
+        <category>category2234</category>
+        <id>6</id>
+    </brand_item>
+    <brand_item>
+        <brand>gucci</brand>
+        <category>purse</category>
+        <id>3</id>
     </brand_item>
     <brand_item>
         <brand>nike</brand>
         <category>sneakers</category>
-        <id>3</id>
-    </brand_item>
-    <brand_item>
-        <brand>brand32</brand>
-        <category>category32</category>
-        <id>4</id>
-    </brand_item>
-    <brand_item>
-        <brand>brand3233</brand>
-        <category>category3233</category>
-        <id>7</id>
-    </brand_item>
-    <brand_item>
-        <brand>dress</brand>
-        <category>1234</category>
-        <id>6</id>
-    </brand_item>
-    <brand_item>
-        <brand>dress</brand>
-        <category>1235</category>
         <id>1</id>
     </brand_item>
     <brand_item>
-        <brand>string</brand>
-        <category>long</category>
-        <id>5</id>
+        <brand>puma</brand>
+        <category>shoes</category>
+        <id>2</id>
+    </brand_item>
+    <brand_item>
+        <brand>samsung</brand>
+        <category>phones</category>
+        <id>8</id>
     </brand_item>
 </brands>

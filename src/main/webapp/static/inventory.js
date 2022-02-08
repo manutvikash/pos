@@ -3,6 +3,7 @@ function inventoryUrl(){
 	return baseUrl+"/api/inventory";
 }
 
+
 function addInventory(event){
 	var $form=$("#inventory-form");
 	var json=toJson($form);
@@ -64,6 +65,7 @@ function getInventoryList(){
 
 //Display table
 function displayInventoryList(data){
+	console.log(data);
 	data=data.sort(function(a,b){
 		if(a.name===b.name){
 			return 0;
@@ -78,9 +80,11 @@ function displayInventoryList(data){
 	$tbody.empty();
 	for(var i in data){
 		var e = data[i];
-		var buttonHtml = ' <button type="button" class="btn btn-primary" style="border: none;" onclick="displayEditInventory(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>'
+		var buttonHtml = ' <button type="button" class="btn btn-info" style="border: none;" onclick="displayEditInventory(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>'
 		var row = '<tr>'
 		+ '<td>' + e.barcode + '</td>'
+		+ '<td>' + e.brand + '</td>'
+		+ '<td>' + e.category + '</td>'
 		+ '<td>' + e.name + '</td>'
 		+ '<td>' + e.quantity + '</td>'
 		+ '<td>' + buttonHtml + '</td>'
@@ -275,7 +279,7 @@ function inventorySearch(event){
 	console.log(json);
 	var url = inventoryUrl() + '/barcode';
 
-	var json2 = {barcode: JSON.parse(json).barcode, brand: "", name: "", quantity: 0};
+	var json2 = {barcode: JSON.parse(json).barcode, name: "", quantity: 0};
    console.log(json2);
     if(json2.barcode === "")
     {
@@ -322,6 +326,75 @@ console.log(data);
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
 }*/
+/*function getReportUrl() {
+	var baseUrl = $("meta[name=baseUrl]").attr("content");
+	console.log(baseUrl);
+	return baseUrl + "/api/report";
+}
+function getInventoryReport(){
+	var url = getReportUrl() + "/inventory";
+	console.log(url);
+	$.ajax({
+	   url: url,
+	   type: 'GET',
+		 xhrFields: {
+        responseType: 'blob'
+     },
+	   success: function(blob) {
+				console.log(blob.size);
+      	var link=document.createElement('a');
+      	link.href=window.URL.createObjectURL(blob);
+      	link.download="InventoryReport_" + new Date() + ".pdf";
+      	link.click();
+	   },
+	   error: function(response){
+	   		handleAjaxError(response);
+	   }
+	});
+}*/
+
+function downloadInventoryReport(){
+
+	var url = inventoryUrl();
+	console.log(url);
+	// call api
+	$.ajax({
+		url: url,
+		type: 'GET',
+	
+		success: function(response) {
+
+			var config = {
+            		quoteChar: '',
+            		escapeChar: '',
+            		delimiter: "\t"
+            	};
+
+            	var data = Papa.unparse(response, config);
+                var blob = new Blob([data], {type: 'text/tsv;charset=utf-8;'});
+                var fileUrl =  null;
+                var currentdate = new Date();
+                var inventoryreportname = "inventory-report_"+ currentdate.getDate() + "/"
+                                 	+ (currentdate.getMonth()+1)  + "/"
+                                 	+ currentdate.getFullYear() + "@"
+                                 	+ currentdate.getHours() + "h_"
+                                 	+ currentdate.getMinutes() + "m_"
+                                 	+ currentdate.getSeconds()+"s.tsv";
+                if (navigator.msSaveBlob) {
+                    fileUrl = navigator.msSaveBlob(blob, inventoryreportname);
+                } else {
+                    fileUrl = window.URL.createObjectURL(blob);
+                }
+                var tempLink = document.createElement('a');
+                tempLink.href = fileUrl;
+                tempLink.setAttribute('download', inventoryreportname);
+                tempLink.click();
+	   	},
+	   	error: handleAjaxError
+	   });
+
+	return false;
+}
 function init(){
 	$('#add-inventory').click(addInventory);
 	$('#edit-inventory').click(editInventory);
@@ -330,6 +403,7 @@ function init(){
 	$('#process-inventory').click(processData);
 		$('#download-errors-inventory').click(downloadErrors);
 	$('#search-inventory').click(inventorySearch);
+	$('#inventory-report').click(downloadInventoryReport);
 }
 
 $(document).ready(init);

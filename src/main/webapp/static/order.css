@@ -1,0 +1,6 @@
+.view:hover{
+    background-color:#d5f3fe;
+}
+tr .view:active{
+	 background-color:#d5f3fe;
+}
