@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <items>
-    <datetime>2022-02-09 00:36</datetime>
+    <datetime>2022-02-09 16:14</datetime>
     <item>
-        <id>2</id>
+        <id>5</id>
         <mrp>200089.0</mrp>
         <name>pavillion</name>
         <quantity>1</quantity>
     </item>
-    <item>
-        <id>3</id>
-        <mrp>3000.0</mrp>
-        <name>alexa xt</name>
-        <quantity>2</quantity>
-    </item>
-    <order_id>2</order_id>
-    <total>206089.0</total>
+    <order_id>4</order_id>
+    <total>200089.0</total>
 </items>

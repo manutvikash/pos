@@ -3,6 +3,13 @@ var brandList = [];
 var categoryList = [];
 var inventoryMap = {};
 
+/*toastr.options = {
+    timeOut: 0,
+    extendedTimeOut: 0,
+"preventDuplicates": true,
+"preventOpenDuplicates": true,
+};*/
+
 
 function getBrandUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content");

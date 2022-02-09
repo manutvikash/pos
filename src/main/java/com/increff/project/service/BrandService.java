@@ -38,7 +38,7 @@ public class BrandService {
 	}
 	
 	/*Converting to lowercase and trimming it as well*/
-	protected void normalize(BrandPojo p) {
+	protected static void normalize(BrandPojo p) {
 		p.setBrand(p.getBrand().toLowerCase().trim());
 		p.setCategory(p.getCategory().toLowerCase().trim());
 	}

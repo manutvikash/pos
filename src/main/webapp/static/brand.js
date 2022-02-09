@@ -21,11 +21,12 @@ function addBrand(event) {
 				'Content-Type': 'application/json'
 			},
 			success: function(response) {
-				$("#add-brand-modal").modal('toggle');	
+				$("#add-brand-modal").modal('toggle');
+				$("#brand-form").trigger("reset");	
 				toastr.success("Brand created successfully");
 				getAllBrand(response);
 				getBrandList(response);
-				//$("#brand-form").trigger("reset");
+				
 			},
 			error: handleAjaxError
 		});

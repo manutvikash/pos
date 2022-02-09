@@ -311,25 +311,7 @@ console.log(data);
 	return false;
 }
 
-/*function inventoryFilter() {
 
-    var value = document.getElementById("inventory-filter").value;
-    value = value.trim();
-    value = value.toLowerCase();
-
-    console.log(value);
-
-    if(value === '')
-    {
-        getInventoryList();
-
-        return;
-    }
-
-    $("#inventory-table-body tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-    });
-}*/
 /*function getReportUrl() {
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
 	console.log(baseUrl);

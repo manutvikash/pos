@@ -105,7 +105,7 @@ public class OrderService {
 	@Transactional(rollbackFor = ApiException.class)
 	public void update(int id, OrderItemPojo p) throws ApiException {
 
-		validate(p);
+		validate1(p);
 		OrderItemPojo ex = checkIfExists(id);
 		int old_qty = ex.getQuantity();
 		ex.setQuantity(p.getQuantity());
@@ -186,6 +186,12 @@ public class OrderService {
 	/* Validation of order item */
 	private void validate(OrderItemPojo p) throws ApiException {
 		if (p.getQuantity() <= 0) {
+			throw new ApiException("Quantity must be positive");
+		}
+
+	}
+	private void validate1(OrderItemPojo p) throws ApiException {
+		if (p.getQuantity() < 0) {
 			throw new ApiException("Quantity must be positive");
 		}
 

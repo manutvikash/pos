@@ -12,10 +12,10 @@
 
 
 
-	<div class="container">
+	<div class="container" style="margin-left:4%;">
 
 		<div class="row" style="display: block;">
-			<h2>Brand</h2>
+			<h2 style="margin-top:2%;">Brand</h2>
 		</div>
 
 
@@ -23,26 +23,22 @@
 
 			<form action="/" style="display:inline-block; width:50%;" id="searchForm">
 				<!-- <label for="" style="display:inline-block">Barcode</label> -->
-				<select name="searchBrand" id="enterInputBrand" style="width: 150px; margin-top:2%;">
+				<select name="searchBrand" id="enterInputBrand" style="width: 150px; margin-top:2%; padding:0.5%;">
 				<option value="shoes">Barcode</option>
 				</select>
 				<!--<label for="" style="display:inline-block; margin-left:2%">Category</label> -->
-				<select name="searchCategory" id="enterInputCategory" style="width: 150px;margin-top:2%;">
+				<select name="searchCategory" id="enterInputCategory" style="width: 150px;margin-top:2%; padding:0.5%;">
 					<option value="shoes">Category</option>
 				</select>
-				<button type="button" class="btn btn-primary" id="search-brand" style="margin-left:2%">
+				<button type="button" class="btn btn-info" id="search-brand" style="margin-left:2%">
 				<i class="fa fa-search" aria-hidden="true"></i> Search
 			</button>
 			</form>
 
-			<!--<input id="brand-filter" type="text" placeholder="Search..">
-			&nbsp;
-			<button type="button" class="btn btn-info" id="search-brand">
-				<i class="fa fa-search" aria-hidden="true"></i> Search
-			</button>-->
+			
 			<button type="button" class="btn btn-info" id="open-add-brand"
 				
-				style="margin-left: 20%;">
+				style="margin-left: 19%;">
 				<i class="fa fa-plus" aria-hidden="true"></i> Add
 			</button>
 			&nbsp;
@@ -75,8 +71,8 @@
 
 </div>
 		<div class="modal" id="add-brand-modal" tabindex="-1" role="dialog"
-			style="height: 55.4%;padding-right:0px;" data-keyboard="false" data-backdrop="static">
-			<div class="modal-dialog" role="document" style="max-width:100%; margin:0px;">
+			 data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">Add Brand</h5>
@@ -101,8 +97,8 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-info" id="add-brand"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" id="add-brand">Submit</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
@@ -111,8 +107,8 @@
 
 
 		<div class="modal" tabindex="-1" role="dialog" id="edit-brand-modal"
-			style="height: 55.4%;padding-right:0px;" data-keyboard="false">
-			<div class="modal-dialog" role="document" style="max-width:100%; margin:0px;">
+			 data-keyboard="false">
+			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">Edit Brand</h5>
@@ -141,8 +137,8 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-info" id="update-brand"><i class="icon-edit editicon"></i> Edit</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-primary" id="update-brand">Submit</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -150,8 +146,8 @@
 
 
 		<div class="modal" tabindex="-1" role="dialog" id="upload-brand-modal"
-			style="height: 37.5%;padding-right:0px;" data-keyboard="false">
-			<div class="modal-dialog" role="document"style="max-width:100%; margin:0px;">
+			 data-keyboard="false">
+			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 
 					<div class="modal-header">
@@ -163,11 +159,12 @@
 					</div>
 
 					<div class="modal-body">
-						<div class="brand-file">
+						<div class="brand-file" style="margin-bottom:2%;">
 							<input type="file" class="custom-file-input" id="brandFile">
 							<label class="custom-file-label" for="brandFile"
 								id="brandFileName" style="margin-left:4%;margin-right:4%;margin-top: 2%;">Choose file</label>
 						</div>
+						<a th:href="@{/sample/brandSample.tsv}" target="_blank">Download Sample</a>
 						<br> Rows: <span id="rowCount">0</span>, Success: <span
 							id="processCount">0</span>, Errors: <span id="errorCount">0</span>
 					</div>

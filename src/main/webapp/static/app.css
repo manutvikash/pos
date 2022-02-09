@@ -65,12 +65,8 @@ body {
 	background-color:#d5f3fe;
 }
 .clickme {
-    background-color: #EEEEEE;
-    color:#0f5298;
-
     text-decoration:none;
-    font-weight:bold;
-    border-radius:5px;
+   /*font-weight:bold;*/
     cursor:pointer;
 }
 .icoons{

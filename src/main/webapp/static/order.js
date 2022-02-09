@@ -184,10 +184,10 @@ function mainOrdersListTable(data){
 	data.reverse();
 	for(var i in data){
 		var e = data[i];
-		console.log(e.id);
-		//var buttonHtml1 = '<button style="padding: 0;border: none;background: none;" ><span class="material-icons">keyboard_arrow_down</span></button>';
-		var buttonHtml = '<button class="btn btn-primary" onclick="downloadPDF('+e.id+')"><i class="fa fa-download" aria-hidden="true"></i> Download Invoice</button>';
-		var row = '<tr class="order-header view" onclick="initializeDropdown(' + e.id + ')" >'
+		console.log(e);
+		var buttonHtml = '<button class="btn btn-info" id="insideEdit" onclick="initializeDropdown('+e.id+')" ><i class="icon-edit editicon"></i> Edit</button>';
+		 buttonHtml += '<button class="btn btn-primary" onclick="downloadPDF('+e.id+')" style="margin-left:3%;"><i class="fa fa-download" aria-hidden="true"></i> Generate Invoice</button>';
+		var row = '<tr class="order-header view">'
 		+ '<td style="text-align:center;">' + e.id + '</td>'
 		+ '<td style="text-align:center;">'  + e.datetime + '</td>'
 		+ '<td style="text-align:center;">' + buttonHtml + '</td>'
@@ -206,7 +206,7 @@ function mainOrdersListTable(data){
 	});
 }*/
 function downloadPDF(id){
-	//$(".insideEdit").prop("disabled", true);
+	$("#insideEdit").prop("disabled", true);
 	var url = getInvoiceUrl() + "/" + id;
 	$.ajax({
 	   url: url,
@@ -274,7 +274,7 @@ function createOrderItemsHtml(data,id) {
 	for(var i in data){
 		var e = data[i];
 		//var buttonHtml = '<button class="btn btn-danger" onclick="deleteOrderItemFromOrderList(' + e.id + ')">Delete</button>';
-		var buttonHtml = '<button class="btn btn-info insideEdit" onclick="displayEditOrderItem(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>';
+		var buttonHtml = '<button class="btn btn-info" onclick="displayEditOrderItem(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>';
 		var row = '<tr>'
 		+ '<td>' + e.barcode + '</td>'
 		+ '<td>' + e.name + '</td>'
@@ -340,6 +340,27 @@ function addOrderItemToOldOrder(event){
 	return false;
 }
 
+function checkOrderItem1(json){
+	json = JSON.parse(json);
+	if(isBlank(json.barcode)) {
+		toastr.error("Barcode field must not be empty");
+		return false;
+	}
+	if(isBlank(json.quantity) || isNaN(parseInt(json.quantity)) || !isInt(json.quantity)) {
+		toastr.error("Quantity field must not be empty and must be an integer value");
+		return false;
+	}
+	if(barcodeList.indexOf(json.barcode) == -1) {
+		toastr.error("Please enter a valid barcode");
+		return false;
+	}
+	if(parseInt(json.quantity)<0) {
+		toastr.error("Quantity must be positive");
+		return false;
+	}
+	return true;
+}
+
 function updateOrder(event){
 	$('#edit-orderitem-modal').modal('toggle');
 	//Get the ID
@@ -349,7 +370,7 @@ function updateOrder(event){
 	var url = getOrderItemUrl() + "/" + id;
 	var $form = $("#orderitem-edit-form");
 	var json = toJson($form);
-	if(checkOrderItem(json)){
+	if(checkOrderItem1(json)){
 		$.ajax({
 			url:url,
 			type:'PUT',

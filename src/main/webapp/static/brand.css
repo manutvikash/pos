@@ -10,7 +10,14 @@ body {
   padding-right:0 !important;
 }
 
-.modal-open {
+.container{
+	margin-left:4%;
+}
+.btn{
+	font-size:14px;
+}
+
+/*.modal-open {
   overflow:auto;
   padding-right:0 !important;
 }
@@ -20,7 +27,7 @@ body {
 }
 .modal {
     overflow-y: auto !important;
-}
+}*/
 img{
 	margin-left:5%;
 }
