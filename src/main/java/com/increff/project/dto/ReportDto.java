@@ -33,8 +33,7 @@ public class ReportDto {
 	    private InventoryService inventoryService;
 	    @Autowired
 	    private ReportService reportService;
-	  //  @Autowired
-	   // private OrderItemService orderItemService;
+
 	    @Autowired
 	    private OrderService orderService;
 

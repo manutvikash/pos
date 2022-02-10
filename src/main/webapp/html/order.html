@@ -9,20 +9,20 @@
 
 <body>
 	<nav th:replace="snippets.html :: name_site_navbar"></nav>
-	<div class="container" style="margin-left:4%;">
+	<div class="container" style="margin-left:4%; margin-bottom:5%;">
 
 		<div class="row" style="display: block; margin-bottom:2%;">
 			<h2 style="margin-top:2%;">Orders</h2>
 		</div>
 		<div class="row" style="margin-bottom: 2%;">
 		
+		
+		<button type="button" class="btn btn-info" id="open-add-modal" style="height:50%; margin-left:65%; margin-right:2%">
+				<i class="fa fa-plus" aria-hidden="true"></i> Add
+			</button>
 		<button type="button" class="btn btn-primary" id="open-add-model" data-toggle="modal" data-target="#sales-modal">
 				<i class="fa fa-download" aria-hidden="true"></i> Sales Report
 		</button>
-		<button type="button" class="btn btn-info" id="open-add-modal" style="height:50%; margin-left:58%;">
-				<i class="fa fa-plus" aria-hidden="true"></i> Add
-			</button>
-		
 		</div>
 
 		<div class="row">&nbsp;</div>
@@ -35,7 +35,7 @@
 						<tr>
 							<th scope="col" style="text-align:center;">Order ID</th>
 							<th scope="col" style="text-align:center;">Date Time</th>
-							<th scope="col" style="text-align:center;">Action</th>
+							<th scope="col" style="text-align:center;">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,7 +46,7 @@
 			</div>
 		</div>
 
-		<div class="modal" tabindex="-1" role="dialog" id="add-order-modal">
+		<div class="modal" tabindex="-1" role="dialog" id="add-order-modal"  data-keyboard="false" data-backdrop="static">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -57,7 +57,7 @@
 						</button>
 					</div>
 					<div class="modal-body ui-front">
-						<form class="form-inline" id="orderitem-form">
+						<form class="form-inline" id="orderitem-form" autocomplete="off">
 							<div class="" style="width:100%;">
 								<label for="inputBarcode" class="" style="margin-left:3%; display:inline-block;">Barcode</label>
 									<input type="text" class="form-control barcode" name="barcode"
@@ -67,11 +67,11 @@
 							<div class="" style="width: 100%; margin-top:2%;">
 								<label for="inputQuantity" class="" style="margin-left:3%; display:inline-block">Quantity</label>
 									<input type="text" class="form-control" name="quantity"
-										id="inputQuantity" placeholder="enter quantity" style="height:50%;margin-left:3%;" required>
+										id="inputQuantity" placeholder="enter quantity" style="height:50%;margin-left:2%;" required>
 							</div>
 							
 						</form>
-						<button type="button" class="btn btn-info" id="add-orderitem" style="margin-left: 65%;margin-top: 3%; margin-bottom: 3%;">Add</button>
+						<button type="button" class="btn btn-info" id="add-orderitem" style="margin-left: 85%;margin-top: 3%; margin-bottom: 3%;">Add</button>
 						<br />
 						<table class="table table-striped" id="orderitem-table">
 							<thead>
@@ -99,7 +99,7 @@
 		</div>
 
 		<div class="modal" tabindex="-1" role="dialog"
-			id="edit-orderitem-modal">
+			id="edit-orderitem-modal"  data-keyboard="false" data-backdrop="static">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -110,7 +110,7 @@
 						</button>
 					</div>
 					<div class="modal-body ui-front">
-						<form id="orderitem-edit-form">
+						<form id="orderitem-edit-form" autocomplete="off">
 							<div class="form-group">
 								<label for="inputBarcode" class="col-sm-2 col-form-label">Barcode</label>
 								<div class="col-sm-10">
@@ -141,7 +141,7 @@
 
 
 		<div class="modal" tabindex="-1" role="dialog"
-			id="add-orderitem-modal">
+			id="add-orderitem-modal"  data-keyboard="false" data-backdrop="static">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -152,7 +152,7 @@
 						</button>
 					</div>
 					<div class="modal-body ui-front">
-						<form id="orderitem-add-form">
+						<form id="orderitem-add-form" autocomplete="off">
 							<div class="form-group">
 								<label for="inputBarcode" class="col-sm-2 col-form-label">Barcode</label>
 								<div class="col-sm-10">
@@ -183,7 +183,7 @@
 	</div>
 
 
-<div class="modal" tabindex="-1" role="dialog" id="sales-modal">
+<div class="modal" tabindex="-1" role="dialog" id="sales-modal"  data-keyboard="false" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -193,7 +193,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/" style="display:inline-block; width:100%;" id="sales-report-form">
+        <form action="/" style="display:inline-block; width:100%;" id="sales-report-form" autocomplete="off">
         <label for="inputBrand" class="col-form-label" style="display:inline-block">Brand</label>
             <input type="text" class="form-control" required id="inputBrand" name="brand" placeholder="Enter Brand" style="height:70%; display:inline-block;width:30%; margin-left:5%; margin-top:2%;">
 		<label for="inputStartDate" class="col-form-label" style="display:inline-block; margin-left:3%;">Start Date</label>

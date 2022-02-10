@@ -52,7 +52,9 @@ body {
 	/*font-size:30px;*/
 	color:#0f5298;
 }
-
+a:hover{
+	text-decoration:none !important;
+}
 .dashboard{
 	text-align:center;
 }

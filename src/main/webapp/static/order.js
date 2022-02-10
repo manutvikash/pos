@@ -113,7 +113,7 @@ function checkOrderItem(json) {
 		toastr.error("Please enter a valid barcode");
 		return false;
 	}
-	if(parseInt(json.quantity)<0) {
+	if(parseInt(json.quantity)<=0) {
 		toastr.error("Quantity must be positive");
 		return false;
 	}
@@ -185,11 +185,12 @@ function mainOrdersListTable(data){
 	for(var i in data){
 		var e = data[i];
 		console.log(e);
-		var buttonHtml = '<button class="btn btn-info" id="insideEdit" onclick="initializeDropdown('+e.id+')" ><i class="icon-edit editicon"></i> Edit</button>';
+		var buttonHtml = '<button class="btn btn-info" id="insideEdit" onclick="initializeDropdown('+e.id+')" >View & Edit</button>';
 		 buttonHtml += '<button class="btn btn-primary" onclick="downloadPDF('+e.id+')" style="margin-left:3%;"><i class="fa fa-download" aria-hidden="true"></i> Generate Invoice</button>';
 		var row = '<tr class="order-header view">'
 		+ '<td style="text-align:center;">' + e.id + '</td>'
 		+ '<td style="text-align:center;">'  + e.datetime + '</td>'
+			//+ '<td style="text-align:center;">'  + total + '</td>'
 		+ '<td style="text-align:center;">' + buttonHtml + '</td>'
 		+ '</tr>';
 		orderitemsHtml = '<tr><td colspan="3"><table style ="display:none;" class="table table-striped orderitemrows' + e.id +'"><tbody></tbody></table></tr>';
@@ -215,7 +216,6 @@ function downloadPDF(id){
         responseType: 'blob'
      },
 	   success: function(blob) {
-				
       	var link=document.createElement('a');
       	link.href=window.URL.createObjectURL(blob);
       	link.download="Invoice_" + new Date() + ".pdf";
@@ -267,26 +267,29 @@ function createOrderItemsHtml(data,id) {
 	thHtml += '<th scope="col">Barcode</th>';
 	thHtml += '<th scope="col">Name</th>';
 	thHtml += '<th scope="col">Quantity</th>';
-	thHtml += '<th scope="col">MRP</th>';
+	thHtml += '<th scope="col">Unit Price</th>';
+	thHtml += '<th scope="col">Cost</th>';
 	thHtml += '<th scope="col">Action</th>';
 	thHtml += '</tr>';
 	table.append(thHtml);
+	var total=0;
 	for(var i in data){
 		var e = data[i];
-		//var buttonHtml = '<button class="btn btn-danger" onclick="deleteOrderItemFromOrderList(' + e.id + ')">Delete</button>';
 		var buttonHtml = '<button class="btn btn-info" onclick="displayEditOrderItem(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>';
 		var row = '<tr>'
 		+ '<td>' + e.barcode + '</td>'
 		+ '<td>' + e.name + '</td>'
 		+ '<td>'  + e.quantity + '</td>'
 		+ '<td>' + e.mrp + '</td>'
+		+ '<td>' + e.mrp*e.quantity + '</td>'
 		+ '<td>' + buttonHtml + '</td>'
 		+ '</tr>';
 	
+	total+=e.mrp*e.quantity;
 		table.append(row);
 	}
 	console.log(id);
-	table.append('<tr><td colspan="3"><button class="btn btn-primary insideEdit" onclick="displayAddOrderItemModal(' + id + ')"><i class="fa fa-plus" aria-hidden="true"></i> Add Item</button></td><td colspan="2"></td></tr>');
+	table.append('<tr><td colspan="3" style="font-weight:700;padding-left:3%; font-size:22px"> Total: '+total+'</td><td colspan="3"><button class="btn btn-info insideEdit" style="margin-left:52%;" onclick="displayAddOrderItemModal(' + id + ')"><i class="fa fa-plus" aria-hidden="true"></i> Add Item</button></td></tr>');
 }
 function deleteOrderItemFromOrderList(id){
 	var url=getOrderItemUrl()+"/"+id;
@@ -440,11 +443,13 @@ function getSalesReport(){
 				responseType:'blob'
 			},
 			success:function(blob) {
+					$("#sales-report-form").trigger("reset");
 					console.log(blob.size);
 	      	var link=document.createElement('a');
 	      	link.href=window.URL.createObjectURL(blob);
 	      	link.download="SalesReport_" + new Date() + ".pdf";
 	      	link.click();
+
 		   },
 		   error: function(response){
 		   		toastr.error("No sales data was found within given date range and brand category pair");
@@ -455,7 +460,7 @@ function getSalesReport(){
 
 function defaultDates(){
 	document.getElementById("inputStartDate").defaultValue="2022-02-01";
-	document.getElementById("inputEndDate").defaultValue="2022-10-20";
+	document.getElementById("inputEndDate").defaultValue="2022-02-20";
 	
 }
 
@@ -465,7 +470,7 @@ function endDateCheck() {
 
 	if ((Date.parse(startDate) > Date.parse(endDate))) {
 			toastr.error("End date should be greater than Start date");
-			document.getElementById("inputEndDate").value = "2022-10-20";
+			document.getElementById("inputEndDate").value = "2022-02-20";
 	}
 }
 function startDateCheck() {

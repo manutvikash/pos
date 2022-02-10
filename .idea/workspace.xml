@@ -5,398 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2642ac1c-186a-468a-ba5e-cecbb9b072c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/brand.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetty.log" beforeDir="false" afterPath="$PROJECT_DIR$/jetty.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sales_report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sales_report.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderItemForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderItemForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/util/ConversionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/util/ConversionUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/brand.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/brand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/inventory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/order.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/snippets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/snippets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/brand.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/brand.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/brand.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/brand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/inventory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/order.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/static/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/service/BrandServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/service/BrandServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/spring/AbstractUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/spring/AbstractUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/AppRestControllerAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/AppRestControllerAdvice.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/BrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/BrandController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InventoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InvoiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InvoiceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ReportController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/UIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/UIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/AbstractDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/AbstractDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/BrandDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/BrandDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/InventoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/InventoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/OrderDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/OrderItemDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/OrderItemDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/ProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dto/ReportDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dto/ReportDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BillData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/BillData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BillForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/BillForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/BrandList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryReportData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/InventoryReportData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InvoiceData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/InvoiceData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/InvoiceDataList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/InvoiceDataList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/MessageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/MessageData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductSearchForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/ProductSearchForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesDataList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesDataList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/BrandPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/BrandPojo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/InventoryPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/InventoryPojo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderItemPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderItemPojo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderPojo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/ProductPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/ProductPojo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ApiException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/ApiException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/BrandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/BrandService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/InventoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/InventoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/ReportService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/ControllerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/spring/ControllerConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/DBConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/spring/DBConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/SpringConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/spring/SpringConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/WebInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/spring/WebInitializer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/ConversionUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/util/ConversionUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/GeneratePDF.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/util/GeneratePDF.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/GenerateXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/util/GenerateXML.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/XmlUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/util/XmlUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/AppRestControllerAdvice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/BrandController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/InventoryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/InvoiceController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/OrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/ProductController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/ReportController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/controller/UIController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/dao/AbstractDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/dao/BrandDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/dao/InventoryDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/dao/OrderDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/dao/OrderItemDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/dao/ProductDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/dto/ReportDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/BillData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/BillForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/BrandData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/BrandForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/BrandList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/InventoryData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/InventoryForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/InventoryReportData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/MessageData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/OrderData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/OrderItemData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/OrderItemForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/ProductData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/ProductForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/ProductSearchForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/SalesReportData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/model/SalesReportForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/pojo/BrandPojo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/pojo/InventoryPojo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/pojo/OrderItemPojo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/pojo/OrderPojo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/pojo/ProductPojo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/service/ApiException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/service/BrandService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/service/InventoryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/service/OrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/service/ProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/service/ReportService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/spring/ControllerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/spring/DBConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/spring/SpringConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/spring/WebInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/util/ConversionUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/util/GeneratePDF.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/util/GenerateXML.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/classes/com/increff/project/util/XmlUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/FastInfoset-1.2.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/antlr-2.7.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/attoparser-2.0.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/avalon-framework-api-4.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/avalon-framework-impl-4.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-anim-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-awt-util-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-bridge-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-constants-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-css-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-dom-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-ext-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-extension-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-gvt-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-i18n-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-parser-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-script-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-svg-dom-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-svggen-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-transcoder-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-util-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/batik-xml-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/byte-buddy-1.9.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/classmate-1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/commons-dbcp-1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/commons-io-2.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/commons-logging-1.0.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/commons-pool-1.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/dom4j-2.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/fontbox-2.0.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/fop-2.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/guava-18.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-5.1.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/hibernate-core-5.4.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/istack-commons-runtime-3.0.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.9.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-core-2.9.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jackson-databind-2.9.10.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jandex-2.0.5.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/javassist-3.24.0-GA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/javax.activation-api-1.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/javax.annotation-api-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/javax.persistence-api-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jaxb-api-2.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jaxb-runtime-2.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-logging-3.3.2.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/ognl-3.1.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/protobuf-java-3.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/serializer-2.7.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-context-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-core-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-orm-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-plugin-core-1.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-plugin-metadata-1.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-security-config-4.2.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-security-core-4.2.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-security-web-4.2.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-tx-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-web-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/springfox-core-2.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/springfox-schema-2.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/springfox-spi-2.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/springfox-spring-web-2.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/springfox-swagger-common-2.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/springfox-swagger-ui-2.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/springfox-swagger2-2.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/stax-ex-1.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/swagger-annotations-1.5.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/swagger-models-1.5.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/thymeleaf-3.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/thymeleaf-spring4-3.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/txw2-2.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/unbescape-1.1.5.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/xalan-2.7.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/xml-apis-1.3.04.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/xml-apis-ext-1.3.04.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/WEB-INF/lib/xmlgraphics-commons-2.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/brand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/inventory.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/order.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/product.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/reports.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/html/snippets.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/brand.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/brand.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/download.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/fav.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/inventory.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/jquery-ajax-native.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/order.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/papaparse.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project-0.0.1-SNAPSHOT/static/product.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/AppRestControllerAdvice.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/AppRestControllerAdvice.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/BrandController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/BrandController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/InventoryController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/InventoryController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/InvoiceController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/InvoiceController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/OrderController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/OrderController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/ProductController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/ProductController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/ReportController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/ReportController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/UIController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/UIController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.controller/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/AbstractDao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/AbstractDao.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/BrandDao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/BrandDao.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/InventoryDao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/InventoryDao.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/OrderDao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/OrderDao.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/OrderItemDao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/OrderItemDao.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/ProductDao.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/ProductDao.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dao/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dto/ReportDto.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dto/ReportDto.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dto/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.dto/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BillData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BillData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BillForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BillForm.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BrandData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BrandData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BrandForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BrandForm.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BrandList.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/BrandList.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/InventoryData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/InventoryData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/InventoryForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/InventoryForm.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/InventoryReportData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/InventoryReportData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/MessageData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/MessageData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/OrderData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/OrderData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/OrderItemData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/OrderItemData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/OrderItemForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/OrderItemForm.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/ProductData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/ProductData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/ProductForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/ProductForm.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/ProductSearchForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/ProductSearchForm.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/SalesReportData.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/SalesReportData.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/SalesReportForm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/SalesReportForm.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.model/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/BrandPojo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/BrandPojo.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/InventoryPojo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/InventoryPojo.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/OrderItemPojo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/OrderItemPojo.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/OrderPojo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/OrderPojo.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/ProductPojo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/ProductPojo.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.pojo/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/ApiException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/ApiException.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/BrandService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/BrandService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/InventoryService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/InventoryService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/OrderService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/OrderService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/ProductService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/ProductService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/ReportService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/ReportService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.service/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/ControllerConfig.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/ControllerConfig.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/DBConfig.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/DBConfig.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/SpringConfig.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/SpringConfig.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/WebInitializer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/WebInitializer.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.spring/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/ConversionUtil.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/ConversionUtil.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/GeneratePDF.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/GeneratePDF.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/GenerateXML.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/GenerateXML.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/XmlUtil.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/XmlUtil.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.increff.project.util/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.increff.project.AppTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.increff.project.AppTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/service/BrandServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/service/BrandServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/spring/AbstractUnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/spring/AbstractUnitTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/template.xsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,7 +65,15 @@
       <recent name="D:\project\src\main\resources\com\increff\project" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SampleTest.testFiles">
+  <component name="RunManager" selected="JUnit.All in project">
+    <configuration name="All in project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <extension name="coverage">
@@ -466,6 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in project" />
         <item itemvalue="JUnit.SampleTest.testFiles" />
         <item itemvalue="JUnit.SampleTest" />
       </list>
@@ -489,5 +131,6 @@
     <SUITE FILE_PATH="coverage/project$SampleTest_testFiles.ic" NAME="SampleTest.testFiles Coverage Results" MODIFIED="1644423902955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.increff.project.service.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/project$All_in_project.ic" NAME="All in project Coverage Results" MODIFIED="1644481476033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

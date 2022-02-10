@@ -25,7 +25,7 @@
 									background-color="#3e73b9" color="white">
 									<fo:table-cell padding-left="6pt">
 										<fo:block>
-											POS Application
+											POS
 										</fo:block>
 									</fo:table-cell>
 									<fo:table-cell>
@@ -68,15 +68,16 @@
 					<fo:block font-size="10pt">
 						<fo:table table-layout="fixed" width="80%"
 							border-collapse="separate" margin-left="15pt">
-							<fo:table-column column-width="2cm" />
-							<fo:table-column column-width="6cm" />
+							<!-- <fo:table-column column-width="2cm" />-->
 							<fo:table-column column-width="5cm" />
 							<fo:table-column column-width="5cm" />
+							<fo:table-column column-width="4cm" />
+							<fo:table-column column-width="4cm" />
 							<fo:table-header>
-								<fo:table-cell
+								<!-- <fo:table-cell
 									xsl:use-attribute-sets="tableBorder">
 									<fo:block font-weight="bold" text-align="center">Id</fo:block>
-								</fo:table-cell>
+								</fo:table-cell>-->
 								<fo:table-cell
 									xsl:use-attribute-sets="tableBorder">
 									<fo:block font-weight="bold" text-align="center">Name</fo:block>
@@ -88,6 +89,10 @@
 									<fo:table-cell
 									xsl:use-attribute-sets="tableBorder">
 									<fo:block font-weight="bold" text-align="right">Unit Price</fo:block>
+								</fo:table-cell>
+								<fo:table-cell
+									xsl:use-attribute-sets="tableBorder">
+									<fo:block font-weight="bold" text-align="right">Cost</fo:block>
 								</fo:table-cell>
 							</fo:table-header>
 							<fo:table-body>
@@ -106,11 +111,11 @@
 	</xsl:template>
 	<xsl:template match="item">
 		<fo:table-row>
-			<fo:table-cell xsl:use-attribute-sets="tableBorder">
+			<!-- <fo:table-cell xsl:use-attribute-sets="tableBorder">
 				<fo:block text-align="center">
 					<xsl:value-of select="id" />
 				</fo:block>
-			</fo:table-cell>
+			</fo:table-cell>-->
 
 			<fo:table-cell xsl:use-attribute-sets="tableBorder">
 				<fo:block text-align="center">
@@ -126,6 +131,12 @@
 			
 				<fo:block text-align="right">
 					<xsl:value-of select="mrp" />
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell xsl:use-attribute-sets="tableBorder">
+			
+				<fo:block text-align="right">
+					<xsl:value-of select="mrp * quantity" />
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>

@@ -34,13 +34,7 @@ public class BrandController {
 		brandService.add(p);
 	}
 	
-	//Convert to BrandPojo
-//	private static BrandPojo convert(BrandForm f) {
-//		BrandPojo p = new BrandPojo();
-//		p.setBrand(f.getBrand());
-//		p.setCategory(f.getCategory());
-//		return p;
-//	}
+
 	
 	@ApiOperation(value = "Get Brand details by id")
 	@RequestMapping(path = "/api/brand/{id}", method = RequestMethod.GET)

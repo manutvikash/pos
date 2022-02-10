@@ -1,9 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<sales_items>
-    <sales_item>
-        <brand>puma</brand>
-        <category>shoes</category>
-        <quantity>7</quantity>
-        <revenue>1400623.0</revenue>
-    </sales_item>
-</sales_items>
+<sales_items/>

@@ -203,6 +203,7 @@ public class ConversionUtil {
 			OrderItemPojo p = new OrderItemPojo();
 			p.setProductpojo(product_pojo);
 			p.setQuantity(f.getQuantity());
+			p.setSellingPrice(f.getSellingPrice());
 			if(product_pojo != null) {
 				p.setSellingPrice(product_pojo.getMrp());
 			}
@@ -228,6 +229,7 @@ public class ConversionUtil {
 				InvoiceData i = new InvoiceData();
 				i.setId(p.getId());
 				i.setMrp(p.getProductpojo().getMrp());
+				//i.setMrp(p.getSellingPrice());
 				i.setName(p.getProductpojo().getName());
 				i.setQuantity(p.getQuantity());
 				invoiceLis.add(i);
