@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 import com.increff.project.model.BrandData;
 import com.increff.project.model.BrandForm;
 import com.increff.project.model.InventoryData;
@@ -19,6 +20,7 @@ import com.increff.project.model.ProductForm;
 import com.increff.project.model.ProductSearchForm;
 import com.increff.project.model.SalesData;
 import com.increff.project.model.SalesDataList;
+import com.increff.project.model.SalesFilter;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.OrderItemPojo;
@@ -30,6 +32,7 @@ public class ConversionUtil {
 
 	//Convert to BrandPojo
 	public static BrandPojo convert(BrandForm d) {
+		
 		BrandPojo p = new BrandPojo();
 		p.setBrand(d.getBrand());
 		p.setCategory(d.getCategory());
@@ -186,9 +189,10 @@ public class ConversionUtil {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 			String datetime = pojo.getDatetime().format(formatter);
 			d.setDatetime(datetime);
+			d.setInvoiceCreated(pojo.getInvoiceCreated());
 			return d;
 		}
-		
+	
 		//Convert List of Order Pojos to Data
 		public static List<OrderData> convertOrderList(List<OrderPojo> list) {
 			List<OrderData> list2 = new ArrayList<OrderData>();
@@ -201,12 +205,14 @@ public class ConversionUtil {
 		//Convert to OrderItem Pojo
 		public static OrderItemPojo convert(ProductPojo product_pojo, OrderItemForm f) throws ApiException {
 			OrderItemPojo p = new OrderItemPojo();
+			OrderItemData orderData=new OrderItemData();
 			p.setProductpojo(product_pojo);
 			p.setQuantity(f.getQuantity());
 			p.setSellingPrice(f.getSellingPrice());
-			if(product_pojo != null) {
+			if((f.getSellingPrice()) > (product_pojo.getMrp())) {
 				p.setSellingPrice(product_pojo.getMrp());
 			}
+			p.setMrp(product_pojo.getMrp());
 			
 			return p;
 		}
@@ -219,7 +225,8 @@ public class ConversionUtil {
 			d.setQuantity(p.getQuantity());
 			d.setOrderId(p.getOrderpojo().getId());
 			d.setName(p.getProductpojo().getName());
-			d.setMrp(p.getSellingPrice());
+			d.setSellingPrice(p.getSellingPrice());
+			d.setMrp(p.getMrp());
 			return d;
 		}
 		
@@ -228,8 +235,8 @@ public class ConversionUtil {
 			for (OrderItemPojo p : lis) {
 				InvoiceData i = new InvoiceData();
 				i.setId(p.getId());
-				i.setMrp(p.getProductpojo().getMrp());
-				//i.setMrp(p.getSellingPrice());
+				//i.setMrp(p.getProductpojo().getMrp());
+				i.setMrp(p.getSellingPrice());
 				i.setName(p.getProductpojo().getName());
 				i.setQuantity(p.getQuantity());
 				invoiceLis.add(i);
@@ -258,5 +265,6 @@ public class ConversionUtil {
 			return sales_data_list;
 
 		}
+		
 
 }

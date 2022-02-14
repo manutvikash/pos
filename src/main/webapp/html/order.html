@@ -17,7 +17,7 @@
 		<div class="row" style="margin-bottom: 2%;">
 		
 		
-		<button type="button" class="btn btn-info" id="open-add-modal" style="height:50%; margin-left:65%; margin-right:2%">
+		<button type="button" class="btn btn-info" id="open-add-modal" style="height:50%; margin-left:64%; margin-right:2%;">
 				<i class="fa fa-plus" aria-hidden="true"></i> Add
 			</button>
 		<button type="button" class="btn btn-primary" id="open-add-model" data-toggle="modal" data-target="#sales-modal">
@@ -39,6 +39,7 @@
 						</tr>
 					</thead>
 					<tbody>
+					
 					</tbody>
 				</table>
 
@@ -59,15 +60,36 @@
 					<div class="modal-body ui-front">
 						<form class="form-inline" id="orderitem-form" autocomplete="off">
 							<div class="" style="width:100%;">
-								<label for="inputBarcode" class="" style="margin-left:3%; display:inline-block;">Barcode</label>
+								<label for="inputBarcode" class="" style="display:inline-block;">Barcode</label>
 									<input type="text" class="form-control barcode" name="barcode"
-										id="inputBarcode" placeholder="enter barcode" style="margin-left:3%;height:50%;" required>
+										id="inputBarcode" placeholder="Enter barcode" style="margin-left:16%;" required>
 								
 							</div>
+							<div class="" style="margin-top:2%; width:100%;">
+								<label for="inputName" class="" style="display:inline-block">Name</label>
+									<input type="text" class="form-control" name="inputName"
+										id="inputName" placeholder="Item Name" style="height:50%; margin-left:19%;" readonly>
+							</div>
+							<div class="" style="margin-top:2%; width:100%;">
+								<label for="inputAvailable" class="" style="display:inline-block">Available Quantity</label>
+									<input type="text" class="form-control" name="inputAvailable"
+										id="inputAvailable" placeholder="Quantity" style="height:50%;" readonly>
+							</div>
 							<div class="" style="width: 100%; margin-top:2%;">
-								<label for="inputQuantity" class="" style="margin-left:3%; display:inline-block">Quantity</label>
+								<label for="inputQuantity" class="" style="display:inline-block">Quantity</label>
 									<input type="text" class="form-control" name="quantity"
-										id="inputQuantity" placeholder="enter quantity" style="height:50%;margin-left:2%;" required>
+										id="inputQuantity" placeholder="Enter quantity" style="height:50%; margin-left:14.5%;" required>
+							</div>
+						
+							<!-- <div class="" style="width: 50%; margin-top:2%;">
+								<label for="inputBrand" class="" style="display:inline-block">Brand</label>
+									<input type="text" class="form-control" name="inputBrand"
+										id="inputBrand" placeholder="Item Brand" style="height:50%;margin-left:12%; width:60%" readonly>
+							</div>-->
+							<div class="" style="margin-top:2%; width:100%;">
+								<label for="inputSellingPrice" class="" style="display:inline-block">Unit Price</label>
+									<input type="text" class="form-control" name="sellingPrice"
+										id="inputSellingPrice" placeholder="Enter Price " style="height:50%; margin-left:13%;" required>
 							</div>
 							
 						</form>
@@ -76,9 +98,10 @@
 						<table class="table table-striped" id="orderitem-table">
 							<thead>
 								<tr>
-									<th scope="col">ID</th>
+									<th scope="col">S/N</th>
 									<th scope="col">Barcode</th>
 									<th scope="col">Quantity</th>
+									<th scope="col">Unit Price</th>
 									<th scope="col">Actions</th>
 								</tr>
 							</thead>
@@ -119,10 +142,25 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label for="inputName" class="col-sm-2 col-form-label">Name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control barcode" name="name"
+									 readonly>
+								</div>
+							</div>
+						
+							<div class="form-group">
 								<label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="quantity"
 										placeholder="enter quantity">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputprice" class="col-4 col-form-label">Unit Price</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="sellingPrice"
+										placeholder="enter price">
 								</div>
 							</div>
 							<input type="hidden" name="id"> <input type="hidden"
@@ -165,6 +203,13 @@
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="quantity"
 										placeholder="enter quantity">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputprice" class="col-4 col-form-label">Unit Price</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="sellingPrice"
+										placeholder="enter price">
 								</div>
 							</div>
 							<input type="hidden" name="order_id">

@@ -65,7 +65,7 @@ function getInventoryList(){
 
 //Display table
 function displayInventoryList(data){
-	console.log(data);
+	/*console.log(data);
 	data=data.sort(function(a,b){
 		if(a.name===b.name){
 			return 0;
@@ -75,7 +75,7 @@ function displayInventoryList(data){
 		}else{
 			return 1;
 		}
-	});
+	});*/
 	var $tbody = $('#inventory-table').find('tbody');
 	$tbody.empty();
 	for(var i in data){
@@ -104,8 +104,10 @@ function displayEditInventory(id){
 	});	
 }
 function displayInventory(data){
+	console.log(data.name);
 	$("#inventory-edit-form input[name=id]").val(data.id);
-	$("#inventory-edit-form input[name=quantity]").val(data.quantity);	
+	$("#inventory-edit-form input[name=quantity]").val(data.quantity);
+	$("#inventory-edit-form input[name=name]").val(data.name);	
 	$("#inventory-edit-form input[name=barcode]").val(data.barcode);
 	$('#edit-inventory-modal').modal('toggle');
 	
@@ -188,7 +190,7 @@ function readFileDataCallback(results){
 }
 
 function uploadRows(){
-	console.log("uploadRows");
+	//console.log("uploadRows");
 	updateUploadDialog();
 	$("#download-errors-inventory").prop("disabled",false);
 	if(processCount==fileData.length){
@@ -212,8 +214,7 @@ function uploadRows(){
      }
 
 	var url=inventoryUrl()+"/barcode";
-//	var url=inventoryUrl()+'/'+id;
-	console.log(url);
+
 		$.ajax({
 	   url: url,
 	   type: 'POST',//1
@@ -222,13 +223,10 @@ function uploadRows(){
        	'Content-Type': 'application/json'
        },	   
 	   success: function(response) {
-		console.log("success");
-		console.log(response);
-		//return;
-		response=response[0];
+			response=response[0];
 		response.quantity=JSON.parse(json).quantity;
 		response.barcode=JSON.parse(json).barcode;
-		//console.log(response.barcode);
+		
 		
 		console.log(response.id);
 		updateInventory(response.id,JSON.stringify(response),row);
@@ -312,32 +310,6 @@ console.log(data);
 }
 
 
-/*function getReportUrl() {
-	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
-	return baseUrl + "/api/report";
-}
-function getInventoryReport(){
-	var url = getReportUrl() + "/inventory";
-	console.log(url);
-	$.ajax({
-	   url: url,
-	   type: 'GET',
-		 xhrFields: {
-        responseType: 'blob'
-     },
-	   success: function(blob) {
-				console.log(blob.size);
-      	var link=document.createElement('a');
-      	link.href=window.URL.createObjectURL(blob);
-      	link.download="InventoryReport_" + new Date() + ".pdf";
-      	link.click();
-	   },
-	   error: function(response){
-	   		handleAjaxError(response);
-	   }
-	});
-}*/
 
 function downloadInventoryReport(){
 
@@ -362,10 +334,10 @@ function downloadInventoryReport(){
                 var currentdate = new Date();
                 var inventoryreportname = "inventory-report_"+ currentdate.getDate() + "/"
                                  	+ (currentdate.getMonth()+1)  + "/"
-                                 	+ currentdate.getFullYear() + "@"
-                                 	+ currentdate.getHours() + "h_"
+                                 	+ currentdate.getFullYear() + ".tsv"
+                                 	/*+ currentdate.getHours() + "h_"
                                  	+ currentdate.getMinutes() + "m_"
-                                 	+ currentdate.getSeconds()+"s.tsv";
+                                 	+ currentdate.getSeconds()+"s.tsv";*/
                 if (navigator.msSaveBlob) {
                     fileUrl = navigator.msSaveBlob(blob, inventoryreportname);
                 } else {

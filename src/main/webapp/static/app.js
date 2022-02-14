@@ -158,7 +158,7 @@ function init(){
 	createBarcodeList();
 	createBrandCategoryList();
 	createInventoryMap();
-	$(".barcode").autocomplete({
+	/*$(".barcode").autocomplete({
 		minLength:0,
 		source: barcodeList
 	});
@@ -169,6 +169,6 @@ function init(){
 	$(".category").autocomplete({
 		minLength:0,
 		source: categoryList
-	});
+	});*/
 }
 $(document).ready(init);

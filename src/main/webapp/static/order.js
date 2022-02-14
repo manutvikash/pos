@@ -2,45 +2,50 @@ var orderitemList = [];
 
 function getOrderUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
 	return baseUrl + "/api/order";
+}
+
+function inventoryUrl(){
+	var baseUrl=$("meta[name=baseUrl]").attr("content");
+	return baseUrl+"/api/inventory";
 }
 
 function getOrderItemUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
 	return baseUrl + "/api/order_item";
 }
 
 function getAllOrdersUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
 	return baseUrl + "/api/all_orders";
 }
 
 function getInvoiceUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
 	return baseUrl + "/api/invoice";
 }
 
 function getInvoiceDisableUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
+	//console.log(baseUrl);
 	return baseUrl + "/api/invoicedisable";
 }
-
+function productUrl() {
+	var baseUrl = $("meta[name=baseUrl]").attr("content");
+	return baseUrl + "/api/product";
+}
 
 function getSalesReportUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
 	return baseUrl+"/api/report/sales";
 }
 function displayAddModal() {
-	$("#add-order-modal").modal('toggle');	
+	$("#add-order-modal").modal('toggle');
+	$("#orderitem-table tr td").remove();	
 }
 function addOrderItemtoList(){
 	var $form=$("#orderitem-form");
+	
 	var json=toJson($form);
 	if(checkOrderItem(json)){
 		var check = checkIfPresent(JSON.parse(json).barcode);
@@ -68,8 +73,6 @@ function addOrderItemtoList(){
 }
 
 function getOrderItemList() {
-
-console.log("getorderitemlist");
 	displayOrderItem(orderitemList);
 }
 
@@ -78,12 +81,13 @@ function displayOrderItem(data){
 	$tbody.empty();
 	for(var i in data){
 		var e = data[i];
-		console.log(e);
+		console.log(e.sellingPrice);
 		var buttonHtml = '<button class="btn btn-danger" onclick="deleteOrderItem(' + i + ')">Delete</button>'
 		var row = '<tr>'
 		+ '<td>' + (i+1) + '</td>'
 		+ '<td>' + e.barcode + '</td>'
 		+ '<td>'  + e.quantity + '</td>'
+		+ '<td>'  + parseFloat(e.sellingPrice).toFixed(2)+ '</td>'
 		+ '<td>' + buttonHtml + '</td>'
 		+ '</tr>';
         $tbody.append(row);
@@ -111,6 +115,14 @@ function checkOrderItem(json) {
 	}
 	if(barcodeList.indexOf(json.barcode) == -1) {
 		toastr.error("Please enter a valid barcode");
+		return false;
+	}
+	if(isBlank(json.sellingPrice) || isNaN(parseInt(json.sellingPrice))) {
+		toastr.error("Selling price must not be empty and must be an float or integer value");
+		return false;
+	}
+		if(parseInt(json.sellingPrice)<0) {
+		toastr.error("Selling Price must be positive");
 		return false;
 	}
 	if(parseInt(json.quantity)<=0) {
@@ -172,11 +184,13 @@ function getOrderList(){
        	'Content-Type': 'application/json'
        },
 	   success: function(response) {
+		
 	   		mainOrdersListTable(response);
 	   },
 	   error: handleAjaxError
 	});
 }
+
 
 function mainOrdersListTable(data){
 	var $tbody=$('#order-main-table').find('tbody');
@@ -184,30 +198,32 @@ function mainOrdersListTable(data){
 	data.reverse();
 	for(var i in data){
 		var e = data[i];
-		console.log(e);
-		var buttonHtml = '<button class="btn btn-info" id="insideEdit" onclick="initializeDropdown('+e.id+')" >View & Edit</button>';
+		if(e.invoiceCreated){
+			var buttonHtml='<button class="btn btn-info" id="insideEdit" disabled ><i class="icon-edit editicon"></i> Edit</button>';
+		}else{
+			var buttonHtml = '<button class="btn btn-info" id="insideEdit" onclick="initializeDropdown('+e.id+')" ><i class="icon-edit editicon"></i> Edit</button>';
+		}
+		buttonHtml+= '<button class="btn btn-info" id="insideEdit" style="margin-left:3%" onclick="initializeDropdownView('+e.id+')" ><i class="fa fa-eye"></i> View</button>';
 		 buttonHtml += '<button class="btn btn-primary" onclick="downloadPDF('+e.id+')" style="margin-left:3%;"><i class="fa fa-download" aria-hidden="true"></i> Generate Invoice</button>';
 		var row = '<tr class="order-header view">'
 		+ '<td style="text-align:center;">' + e.id + '</td>'
 		+ '<td style="text-align:center;">'  + e.datetime + '</td>'
-			//+ '<td style="text-align:center;">'  + total + '</td>'
+	
 		+ '<td style="text-align:center;">' + buttonHtml + '</td>'
 		+ '</tr>';
-		orderitemsHtml = '<tr><td colspan="3"><table style ="display:none;" class="table table-striped orderitemrows' + e.id +'"><tbody></tbody></table></tr>';
-    $tbody.append(row);
+		orderitemsHtml = '<tr><td colspan="3"><table style ="display:none; margin-bottom:3%" class="table table-striped orderitemrows' + e.id +'"><tbody></tbody></table><table style ="display:none;margin-bottom:3%;" class="table table-striped orderitemrowsView' + e.id +'"><tbody></tbody></table></tr>';
+        //orderitemsHtmlView='<tr><td colspan="3"><table style ="display:none;" class="table table-striped orderitemrowsView' + e.id +'"><tbody></tbody></table></tr>';    
+        $tbody.append(row);
+        
 		$tbody.append(orderitemsHtml);
+		//$tbody.append(orderitemsHtmlView);
 		getOrderItemsHtml(e.id);
 	}
 }
 
-/*function disablebuttons(id){
-	var url= getInvoiceDisableUrl+"/"+id;
-	$.ajax({
-		
-	});
-}*/
+
 function downloadPDF(id){
-	$("#insideEdit").prop("disabled", true);
+	
 	var url = getInvoiceUrl() + "/" + id;
 	$.ajax({
 	   url: url,
@@ -216,16 +232,17 @@ function downloadPDF(id){
         responseType: 'blob'
      },
 	   success: function(blob) {
+		getOrderList();
       	var link=document.createElement('a');
       	link.href=window.URL.createObjectURL(blob);
       	link.download="Invoice_" + new Date() + ".pdf";
       	link.click();
+        
 	   },
 	   error: function(response){
 	   		handleAjaxError(response);
 	   }
 	});
-
 }
 function deleteOrder(id){
 	var url=getOrderUrl()+"/"+id;
@@ -245,7 +262,7 @@ function deleteOrder(id){
 }
 function getOrderItemsHtml(id) {
 	var url = getOrderUrl() + "/" + id;
-	console.log(id);
+	
 	$.ajax({
 		 url: url,
 		 type: 'GET',
@@ -253,6 +270,7 @@ function getOrderItemsHtml(id) {
 				'Content-Type': 'application/json'
 			 },
 		 success: function(response) {
+			    showOrderItemTable(response,id);
 				createOrderItemsHtml(response,id);
 		 },
 		 error: function(response){
@@ -260,8 +278,40 @@ function getOrderItemsHtml(id) {
 		 }
 	});
 }
-function createOrderItemsHtml(data,id) {
 
+function showOrderItemTable(data,id){
+	 var $tbody=$('#order-main-table').find('tbody');
+	var table = $('.orderitemrowsView' + id).find('tbody');
+	var thHtml = '<tr>';
+	thHtml += '<th scope="col">Barcode</th>';
+	thHtml += '<th scope="col">Name</th>';
+	thHtml += '<th scope="col">Quantity</th>';
+	thHtml += '<th scope="col">Unit Price</th>';
+	thHtml += '<th scope="col">Cost</th>';
+	thHtml += '</tr>';
+	table.append(thHtml);
+	var total=0;
+	for(var i in data){
+		var e = data[i];
+		
+		var row = '<tr>'
+		+ '<td>' + e.barcode + '</td>'
+		+ '<td>' + e.name + '</td>'
+		+ '<td>' + e.quantity + '</td>'
+		+ '<td>' + parseFloat(e.sellingPrice).toFixed(2) + '</td>'
+		+ '<td>' + parseFloat(e.sellingPrice*e.quantity).toFixed(2) + '</td>'
+		+ '</tr>';
+	
+	total+=e.sellingPrice*e.quantity;
+		table.append(row);
+	}
+	
+	$tbody.append()
+	table.append('<tr><td colspan="3" style="font-weight:700;padding-left:3%; font-size:22px"> Total: '+parseFloat(total).toFixed(2)+'</td><td colspan="3"></td></tr>');
+}
+
+function createOrderItemsHtml(data,id) {
+    var $tbody=$('#order-main-table').find('tbody');
 	var table = $('.orderitemrows' + id).find('tbody');
 	var thHtml = '<tr>';
 	thHtml += '<th scope="col">Barcode</th>';
@@ -279,17 +329,18 @@ function createOrderItemsHtml(data,id) {
 		var row = '<tr>'
 		+ '<td>' + e.barcode + '</td>'
 		+ '<td>' + e.name + '</td>'
-		+ '<td>'  + e.quantity + '</td>'
-		+ '<td>' + e.mrp + '</td>'
-		+ '<td>' + e.mrp*e.quantity + '</td>'
+		+ '<td>' + e.quantity + '</td>'
+		+ '<td>' + parseFloat(e.sellingPrice).toFixed(2) + '</td>'
+		+ '<td>' + parseFloat(e.sellingPrice*e.quantity).toFixed(2) + '</td>'
 		+ '<td>' + buttonHtml + '</td>'
 		+ '</tr>';
 	
-	total+=e.mrp*e.quantity;
+	total+=e.sellingPrice*e.quantity;
 		table.append(row);
 	}
-	console.log(id);
-	table.append('<tr><td colspan="3" style="font-weight:700;padding-left:3%; font-size:22px"> Total: '+total+'</td><td colspan="3"><button class="btn btn-info insideEdit" style="margin-left:52%;" onclick="displayAddOrderItemModal(' + id + ')"><i class="fa fa-plus" aria-hidden="true"></i> Add Item</button></td></tr>');
+	
+	$tbody.append()
+	table.append('<tr><td colspan="3" style="font-weight:700;padding-left:3%; font-size:22px"> Total: '+parseFloat(total).toFixed(2)+'</td><td colspan="3"><button class="btn btn-warning insideEdit" style="margin-left:66%;" onclick="displayAddOrderItemModal(' + id + ')"><i class="fa fa-plus" aria-hidden="true"></i> Add Item</button></td></tr>');
 }
 function deleteOrderItemFromOrderList(id){
 	var url=getOrderItemUrl()+"/"+id;
@@ -310,8 +361,14 @@ function deleteOrderItemFromOrderList(id){
 
 
 function initializeDropdown(id) {
-	console.log("Orderitems toggle");
+	
 	var orderitem_row = '.orderitemrows' + id;
+
+  $(orderitem_row).toggle();
+}
+function initializeDropdownView(id) {
+	
+	var orderitem_row = '.orderitemrowsView' + id;
 
   $(orderitem_row).toggle();
 }
@@ -320,9 +377,8 @@ function addOrderItemToOldOrder(event){
 	var $form=$("#orderitem-add-form");
 	var json=toJson($form);
 	var orderId=$("#orderitem-add-form input[name=order_id]").val();
-	console.log(orderId);
 	var url=getOrderItemUrl()+"/"+orderId;
-	console.log(url);
+	
 	if(checkOrderItem(json)){
 		$.ajax({
 		url: url,
@@ -334,6 +390,7 @@ function addOrderItemToOldOrder(event){
 			},
 			success: function(response) {
 				$("#add-orderitem-modal").modal('toggle');
+				$("#orderitem-add-form").trigger("reset");
 				getOrderList(response);
 			},
 			error: handleAjaxError
@@ -344,6 +401,7 @@ function addOrderItemToOldOrder(event){
 }
 
 function checkOrderItem1(json){
+
 	json = JSON.parse(json);
 	if(isBlank(json.barcode)) {
 		toastr.error("Barcode field must not be empty");
@@ -353,11 +411,15 @@ function checkOrderItem1(json){
 		toastr.error("Quantity field must not be empty and must be an integer value");
 		return false;
 	}
+	if(parseInt(json.sellingPrice)<0){
+		toastr.error("Selling Price must be positive");
+		return false;
+	}
 	if(barcodeList.indexOf(json.barcode) == -1) {
 		toastr.error("Please enter a valid barcode");
 		return false;
 	}
-	if(parseInt(json.quantity)<0) {
+	if(parseInt(json.quantity)<0 ) {
 		toastr.error("Quantity must be positive");
 		return false;
 	}
@@ -369,10 +431,11 @@ function updateOrder(event){
 	//Get the ID
 	var id = $("#orderitem-edit-form input[name=id]").val();
 	var orderId = $("#orderitem-edit-form input[name=order-id]").val();
-	console.log(orderId);
+	
 	var url = getOrderItemUrl() + "/" + id;
 	var $form = $("#orderitem-edit-form");
 	var json = toJson($form);
+	console.log(json);
 	if(checkOrderItem1(json)){
 		$.ajax({
 			url:url,
@@ -407,6 +470,7 @@ function displayEditOrderItem(id){
 				'Content-Type': 'application/json'
 			 },
 		 success: function(response) {
+			//console.log(response);
 				displayEditOrderItemModal(response);
 		 },
 		 error: function(response){
@@ -418,8 +482,11 @@ function displayEditOrderItem(id){
 }
 
 function displayEditOrderItemModal(data){
+	//console.log(data);
 	$("#orderitem-edit-form input[name=barcode]").val(data.barcode);
 	$("#orderitem-edit-form input[name=quantity]").val(data.quantity);
+	$("#orderitem-edit-form input[name=sellingPrice]").val(data.sellingPrice);
+	$("#orderitem-edit-form input[name=name]").val(data.name);
 	$("#orderitem-edit-form input[name=id]").val(data.id);
 	$("#orderitem-edit-form input[name=order-id]").val(data.orderId);
 	$('#edit-orderitem-modal').modal('toggle');
@@ -430,7 +497,7 @@ function getSalesReport(){
 	var $form=$("#sales-report-form");
 	var json=toJson($form);
 	var url=getSalesReportUrl();
-	console.log(url);
+	//console.log(url);
 	if(checkSalesForm(json)){
 		$.ajax({
 			url:url,
@@ -444,7 +511,7 @@ function getSalesReport(){
 			},
 			success:function(blob) {
 					$("#sales-report-form").trigger("reset");
-					console.log(blob.size);
+					//console.log(blob.size);
 	      	var link=document.createElement('a');
 	      	link.href=window.URL.createObjectURL(blob);
 	      	link.download="SalesReport_" + new Date() + ".pdf";
@@ -460,7 +527,15 @@ function getSalesReport(){
 
 function defaultDates(){
 	document.getElementById("inputStartDate").defaultValue="2022-02-01";
-	document.getElementById("inputEndDate").defaultValue="2022-02-20";
+	 var now = new Date();
+ 
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+	document.getElementById("inputEndDate").defaultValue=today;
 	
 }
 
@@ -470,7 +545,7 @@ function endDateCheck() {
 
 	if ((Date.parse(startDate) > Date.parse(endDate))) {
 			toastr.error("End date should be greater than Start date");
-			document.getElementById("inputEndDate").value = "2022-02-20";
+			document.getElementById("inputEndDate").value = new Date().toJSON().slice(0,10);
 	}
 }
 function startDateCheck() {
@@ -495,6 +570,55 @@ function checkSalesForm(data){
 	}
 	return true;
 }
+function getInputsofAddonChange(barcode){
+
+	 barcode = barcode.trim();
+
+	var obj = {barcode, brand: "", category: "", mrp: 0, name: ""};
+
+    var json = JSON.stringify(obj);
+
+
+ var url = inventoryUrl() + "/barcode";
+
+$.ajax({
+        	   url: url,
+        	   type: 'POST',
+        	   data: json,
+        	   headers: {
+                      	'Content-Type': 'application/json'
+                      },
+        	   success: function(data) {
+                //console.log(data);
+                    if(data.length != 1)
+                    {
+                        $('#inputSellingPrice').val("");
+                        $('#inputBrand').val("");
+                        $('#inputName').val("");
+                        $('#inputAvailable').val("");
+
+                        return;
+                    }
+
+                    data = data[0];
+                        $('#inputBrand').val(data.brand);
+                        $('#inputName').val(data.name);
+                        $('#inputAvailable').val(data.quantity);
+        	   		$('#inputSellingPrice').val(data.mrp);
+        	   		
+                  
+        	   },
+        	   error: function(error)
+        	   {
+	                 $('#inputBrand').val("");
+                     $('#inputAvailable').val("");
+                     $('#inputName').val("");
+                    $('#inputSellingPrice').val("");
+                    $('#inputQuantity').val("");
+        	   }
+    });
+
+}
 function init(){
 $("#open-add-modal").click(displayAddModal);	
 $('#add-orderitem').click(addOrderItemtoList);
@@ -504,6 +628,10 @@ $('#update-orderitem').click(updateOrder);
 $("#sales-report").click(getSalesReport);
 $("#inputEndDate").change(endDateCheck);
 $("#inputStartDate").change(startDateCheck);
+$("#inputBarcode").on('input',function(){
+	if($(this).val().length==2)
+	getInputsofAddonChange($(this).val());
+})
 }
 
 

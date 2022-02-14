@@ -10,19 +10,22 @@
 <nav th:replace="snippets.html :: name_site_navbar"></nav>
 
 
-<div class="container" style="margin-left:4%;">
+<div class="container" style="margin-left:4%; margin-bottom:7%;">
 
-  <div class="row" style="display: block;">
+  <div class="row" style="display: block; margin-bottom:2%">
      <h2 style="margin-top:2%;">Products</h2>
   </div>
 
 <!-- Top row with form-->
  <div class="row" style="display: block;">
 	 <div class="col-12" style="padding-left: 0px;">
-		<input id="product-filter" type="text" placeholder="Filter.." style="height: 30px; margin-top: 1%;">
+	 <form id="productsearch-form" autocomplete="off" style="display:inline-block; width:50%;margin-bottom:0%;">
+	  <label for="inputSearch" class="col-2 col-form-label" style="display: inline-block;padding-left:0%;padding-right:0%;font-size:20px;">Barcode</label>
+		<input id="product-filter" class="form-control" type="text" name="barcode" placeholder="Enter barcode" style="height: 34px; margin-top: 1%; display:inline-block; width:35%;">
          &nbsp;
-        <button type="button" class="btn btn-info" id="search-product"><i class="fa fa-search" aria-hidden="true"></i> Filter</button>
-	    <button type="button" class="btn btn-info" id="open-add-product" style="margin-left: 57%;"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+        <button type="button" class="btn btn-info" id="search-product" style="margin-bottom:0.5%"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+        </form>
+	    <button type="button" class="btn btn-info" id="open-add-product" style="margin-left: 33%;"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
 	     &nbsp;
 	    <button type="button" class="btn btn-info" id="upload-data-product"><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
 	 </div>
@@ -172,7 +175,7 @@
 		<a th:href="@{/sample/productSample.tsv}" target="_blank">Download Sample</a>
 		<br>
     Rows: <span id="rowCount">0</span>,
-		Processed: <span id="processCount">0</span>,
+		Success: <span id="processCount">0</span>,
 		Errors: <span id="errorCount">0</span>
       </div>
 

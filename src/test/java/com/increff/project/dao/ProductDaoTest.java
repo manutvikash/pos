@@ -44,7 +44,7 @@ public class ProductDaoTest extends AbstractUnitTest{
 	public void testSelectAll() {
 		
 		List<ProductPojo> product_list = product_dao.selectAll();
-		assertEquals(3,product_list.size());
+		assertEquals(4,product_list.size());
 		
 	}
 	

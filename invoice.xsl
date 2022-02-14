@@ -18,18 +18,14 @@
 				<fo:flow flow-name="xsl-region-body">
 					<fo:block>
 						<fo:table>
-							<fo:table-column column-width="50%" />
-							<fo:table-column column-width="50%" />
+							<fo:table-column column-width="100%" />
+							
 							<fo:table-body>
 								<fo:table-row font-size="18pt" line-height="30px"
 									background-color="#3e73b9" color="white">
-									<fo:table-cell padding-left="6pt">
-										<fo:block>
-											POS
-										</fo:block>
-									</fo:table-cell>
+									
 									<fo:table-cell>
-										<fo:block text-align="right" padding-right="6pt">
+										<fo:block text-align="center" padding-right="6pt">
 											Invoice
 										</fo:block>
 									</fo:table-cell>
@@ -103,7 +99,7 @@
 					<fo:block font-size="16pt" font-family="Helvetica"
 						color="black" font-weight="bold" padding-top="10pt" text-align="right" space-after="5mm">
 						Total: Rs.
-						<xsl:value-of select="total" />
+						<xsl:value-of select="format-number(total, '#.00')" />
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
@@ -130,13 +126,13 @@
 			<fo:table-cell xsl:use-attribute-sets="tableBorder">
 			
 				<fo:block text-align="right">
-					<xsl:value-of select="mrp" />
+					<xsl:value-of select="format-number(mrp, '#.00')" />
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell xsl:use-attribute-sets="tableBorder">
 			
 				<fo:block text-align="right">
-					<xsl:value-of select="mrp * quantity" />
+					<xsl:value-of select="format-number(mrp * quantity, '#.00')" />
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>

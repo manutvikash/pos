@@ -1,13 +1,6 @@
 package com.increff.project.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(indexes= {
@@ -19,13 +12,13 @@ public class ProductPojo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
 	private String barcode;
 	
 	@ManyToOne(optional=false)
 	@JoinColumn(name="brand_category",nullable=false)
 	private BrandPojo brandpojo;
 	private String name;
+	@Column(nullable = false)
 	private double mrp;
 	public int getId() {
 		return id;

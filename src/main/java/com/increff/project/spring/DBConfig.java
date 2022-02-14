@@ -35,6 +35,7 @@ public static final String PACKAGE_POJO = "com.increff.project.pojo";
 	@Value("${hibernate.hbm2ddl.auto}")
 	private String hibernateHbm2ddl;
 	
+	
 	@Bean(name = "dataSource")
 	public DataSource getDataSource() {
 //		logger.info("jdbcDriver: " + jdbcDriver + ", jdbcUrl: " + jdbcUrl + ", jdbcUsername: " + jdbcUsername);
@@ -67,6 +68,7 @@ public static final String PACKAGE_POJO = "com.increff.project.pojo";
 		jpaProperties.put("hibernate.show_sql", hibernateShowSql);
 		jpaProperties.put("hibernate.hbm2ddl.auto", hibernateHbm2ddl);
 		jpaProperties.put("hibernate.hbm2ddl.auto", hibernateHbm2ddl);
+		//jpaProperties.put("hibernate.physicalNamingStrategy", "pom")
 		bean.setJpaProperties(jpaProperties);
 		return bean;
 	}

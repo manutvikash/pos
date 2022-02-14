@@ -64,6 +64,7 @@ public class OrderService {
 	/* Fetch all order items of a particular order */
 	@Transactional
 	public List<OrderItemPojo> getOrderItems(int order_id) throws ApiException {
+		
 		List<OrderItemPojo> lis = order_item_dao.selectOrder(order_id);
 		return lis;
 	}
@@ -159,9 +160,14 @@ public class OrderService {
 	@Transactional
 	public void updateInvoice(int id) {
 		OrderPojo p=order_dao.select(id);
-		p.setInvoiceCreated(1);
+		p.setInvoiceCreated(true);
 	}
-
+//
+//	@Transactional
+//	public void updateInvoive(int id,OrderPojo p) {
+//		OrderPojo newOrderPojo= order_dao.select(id);
+//		//newOrderPojo.setInvoiceCreated(p.getInvoiceCreated());
+//	}
 	/* Updation of inventory when order is created or updated */
 	protected void updateInventory(OrderItemPojo p, int old_qty) throws ApiException {
 		int quantity = p.getQuantity();
@@ -193,6 +199,9 @@ public class OrderService {
 	private void validate1(OrderItemPojo p) throws ApiException {
 		if (p.getQuantity() < 0) {
 			throw new ApiException("Quantity must be positive");
+		}
+		if( p.getSellingPrice()<0) {
+			throw new ApiException("Selling price must be positive");
 		}
 
 	}

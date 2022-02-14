@@ -49,7 +49,7 @@ public class InventoryDaoTest extends AbstractUnitTest {
 	public void testSelectAll() {
 		List<InventoryPojo> inventory_list = inventory_dao.selectAll();
 		
-		assertEquals(2,inventory_list.size());
+		assertEquals(3,inventory_list.size());
 	}
 	
 	private InventoryPojo getInventoryPojo(ProductPojo p) {

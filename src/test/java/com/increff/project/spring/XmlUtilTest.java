@@ -28,22 +28,25 @@ public class XmlUtilTest extends AbstractUnitTest{
 	}
 	
 
-	/* Testing Xml Generation of Sales Report */
+	// Testing Xml Generation of Sales Report
 	@Test
 	public void testXmlSales() throws Exception {
 		SalesFilter sales_filter = new SalesFilter();
 		sales_filter.setBrand("");
 		sales_filter.setCategory("category"+0);
-		sales_filter.setStartDate("2020-01-01");
-		sales_filter.setEndDate("2020-12-31");
+		sales_filter.setStartDate("2022-02-01");
+		sales_filter.setEndDate("2022-02-31");
 		SalesDataList sales_data_list = report_service.generateSalesList(sales_filter);
 		XmlUtil.generateXml(new File("sales_report.xml"), sales_data_list, SalesDataList.class);
 	}
 	
 	
-	/* Testing Pdf Generation */
+	// Testing Pdf Generation
 	@Test
 	public void testPdf() throws Exception {
 		XmlUtil.generatePDF(new File("brand_report.xml"), new StreamSource("brand_report.xsl"));
+		
 	}
+	
+	
 }

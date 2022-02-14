@@ -99,7 +99,7 @@ public class InventoryService {
 		List<InventoryPojo> lis = inventory_dao.selectByProduct(p.getProductPojo());
 		if (lis.size() > 0) {
 			throw new ApiException(
-					"Inventory for this product already exists. You can edit the inventory details if you want to do it");
+					"Inventory for this product already exists.");
 		}
 
 	}

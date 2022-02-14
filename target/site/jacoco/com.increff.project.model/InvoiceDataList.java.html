@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InvoiceDataList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.model</a> &gt; <span class="el_source">InvoiceDataList.java</span></div><h1>InvoiceDataList.java</h1><pre class="source lang-java linenums">package com.increff.project.model;
+
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name=&quot;items&quot;)
+<span class="nc" id="L9">public class InvoiceDataList {</span>
+
+	private int order_id;
+	private String datetime;
+	private double total;
+	private List&lt;InvoiceData&gt; item_list;
+	
+	@XmlElement(name=&quot;order_id&quot;)
+	public int getOrder_id() {
+<span class="nc" id="L18">		return order_id;</span>
+	}
+	public void setOrder_id(int order_id) {
+<span class="nc" id="L21">		this.order_id = order_id;</span>
+<span class="nc" id="L22">	}</span>
+	
+	@XmlElement(name=&quot;datetime&quot;)
+	public String getDatetime() {
+<span class="nc" id="L26">		return datetime;</span>
+	}
+	public void setDatetime(String datetime) {
+<span class="nc" id="L29">		this.datetime = datetime;</span>
+<span class="nc" id="L30">	}</span>
+	
+	@XmlElement(name=&quot;total&quot;)
+	public double getTotal() {
+<span class="nc" id="L34">		return total;</span>
+	}
+	public void setTotal(double total) {
+<span class="nc" id="L37">		this.total = total;</span>
+<span class="nc" id="L38">	}</span>
+	
+	@XmlElement(name=&quot;item&quot;)
+	public List&lt;InvoiceData&gt; getItem_list() {
+<span class="nc" id="L42">		return item_list;</span>
+	}
+	public void setItem_list(List&lt;InvoiceData&gt; item_list) {
+<span class="nc" id="L45">		this.item_list = item_list;</span>
+<span class="nc" id="L46">	}</span>
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

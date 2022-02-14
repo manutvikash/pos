@@ -39,7 +39,20 @@ public class ProductServiceTest extends AbstractUnitTest {
 	}
 
 
-	
+	@Test()
+	public void testAddWrong2() throws ApiException {
+
+		BrandPojo b = brands.get(0);
+		ProductPojo p = getWrongProductPojo(b);
+		p.setName("valid_product");
+		try {
+			product_service.add(p);
+			fail("ApiException did not occur");
+		} catch (ApiException e) {
+			assertEquals(e.getMessage(), "MRP value must be positive");
+		}
+
+	}
 
 
 	/* Testing get by id */
@@ -73,7 +86,7 @@ public class ProductServiceTest extends AbstractUnitTest {
 	@Test
 	public void testGetAll() {
 		List<ProductPojo> product_list = product_service.getAll();
-		assertEquals(3, product_list.size());
+		assertEquals(4, product_list.size());
 	}
 
 
@@ -150,9 +163,8 @@ public class ProductServiceTest extends AbstractUnitTest {
 
 	}
 
-	/*
-	 * Testing validate for an invalid product details pojo. Should throw exception
-	 */
+	
+	// Testing validate for an invalid product details pojo. Should throw exception
 	@Test()
 	public void testValidateWrong() throws ApiException {
 		ProductPojo p = getWrongProductPojo(brands.get(0));
@@ -178,6 +190,17 @@ public class ProductServiceTest extends AbstractUnitTest {
 
 	}
 
+//	@Test()
+//	public void testCheckIfBarcodeExists() throws ApiException{
+//		ProductPojo p=getWrongProductPojo2(brands.get(0));
+//		String oldBarcode=p.getBarcode();
+//		try {
+//			product_service.returnProductPojoCheckBarcode(p.getBarcode(), oldBarcode); 
+//			fail("ApiException did not occur");
+//		}catch(ApiException e){
+//			assertEquals(e.getMessage(), "New Barcode already exist: 123");
+//		}
+//	}
 	private BrandPojo getBrandPojo() throws ApiException {
 		BrandPojo p = new BrandPojo();
 		p.setBrand("Amul");
@@ -196,6 +219,15 @@ public class ProductServiceTest extends AbstractUnitTest {
 
 	private ProductPojo getNewProductPojo(BrandPojo b) throws ApiException {
 		ProductPojo p = new ProductPojo();
+		p.setBrandpojo(b);
+		p.setName("Milk2");
+		p.setMrp(70);
+		return p;
+	}
+	
+	private ProductPojo getWrongProductPojo2(BrandPojo b) throws ApiException {
+		ProductPojo p = new ProductPojo();
+		p.setBarcode("123");
 		p.setBrandpojo(b);
 		p.setName("Milk2");
 		p.setMrp(70);

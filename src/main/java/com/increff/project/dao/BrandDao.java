@@ -23,12 +23,6 @@ public class BrandDao extends AbstractDao {
 	@PersistenceContext
 	EntityManager em;
 	
-	//insert brand
-	@Transactional
-	public void insert(BrandPojo p) {
-		em.persist(p);
-	}
-	
 	//Select By Id
 	public BrandPojo select(int id) {
 		TypedQuery<BrandPojo> query = getQuery(select_id, BrandPojo.class);
@@ -58,11 +52,7 @@ public class BrandDao extends AbstractDao {
 		return query.getResultList();
 
 	}
-	
-	//Update Brand
-	public void update(BrandPojo p) {
-		
-	}
+
 	
 	public List<BrandPojo> selectBrandCategory(String brand, String category) {
 		TypedQuery<BrandPojo> query=getQuery(select_brand_category,BrandPojo.class);

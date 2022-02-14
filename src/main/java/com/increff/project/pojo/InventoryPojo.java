@@ -1,12 +1,6 @@
 package com.increff.project.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import javax.persistence.*;
 
 
 @Entity
@@ -19,7 +13,8 @@ public class InventoryPojo {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "product_id", nullable = false)
 	private ProductPojo productPojo;
-	
+
+	@Column(nullable=false)
 	private int quantity;
 
 	public int getId() {

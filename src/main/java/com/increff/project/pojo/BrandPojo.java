@@ -18,12 +18,9 @@ public class BrandPojo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="brand")
 	private String brand;
-	
-	@Column(name="category")
 	private String category;
+	
 	public int getId() {
 		return id;
 	}

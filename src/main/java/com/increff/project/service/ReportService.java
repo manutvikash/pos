@@ -71,6 +71,7 @@ public class ReportService {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		idl.setDatetime(lis.get(0).getOrderpojo().getDatetime().format(formatter));
 		double total = calculateTotal(idl);
+		OrderPojo orderPojo=order_service.getOrder(order_id);
 		idl.setTotal(total);
 		return idl;
 	}
@@ -83,7 +84,10 @@ public class ReportService {
 		List<OrderItemPojo> filtered_orderitem_list = FilterByDate(sales_filter, order_list);
 		Map<BrandPojo, Integer> quantityPerBrandCategory = getMapQuantity(sales_filter, filtered_orderitem_list);
 		Map<BrandPojo, Double> revenuePerBrandCategory = getMapRevenue(sales_filter, filtered_orderitem_list);
-		return ConversionUtil.convertSalesList(quantityPerBrandCategory, revenuePerBrandCategory);
+		SalesDataList salesDataList=ConversionUtil.convertSalesList(quantityPerBrandCategory, revenuePerBrandCategory);
+		salesDataList.setEndDate(sales_filter.getEndDate());
+		salesDataList.setStartDate(sales_filter.getStartDate());
+		return salesDataList;
 	}
 
 	/*Getting order items based on date */

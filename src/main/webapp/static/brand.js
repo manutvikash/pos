@@ -1,6 +1,6 @@
 function getBrandUrl() {
 	var baseUrl = $("meta[name=baseUrl]").attr("content");
-	console.log(baseUrl);
+	//console.log(baseUrl);
 	return baseUrl + "/api/brand";
 }
 var page = false;
@@ -181,13 +181,7 @@ function displaysearchBrand(data) {
 
 }
 
-function searchBrand(s) {
-	//var brand=$("#enterInputBrand :selected").text();
-	var brand = s;
-	var json = JSON.stringify(brand);
-	console.log(json);
 
-}
 function searchBrandCategory() {
 	var brand = $("#enterInputBrand :selected").text();
 	var category = $("#enterInputCategory :selected").text();
@@ -200,7 +194,7 @@ function searchBrandCategory() {
 		obj.category = "";
 	}
 	var json = JSON.stringify(obj);
-	console.log(json);
+	//console.log(json);
 	var url = getBrandUrl() + "/search";
 	$.ajax({
 		url: url,
@@ -288,7 +282,7 @@ function readFileDataCallback(results) {
 
 function uploadRows() {
 	updateUploadDialog();
-	$("#download-errors").prop("disabled", false);
+	//$("#download-errors").prop("disabled", false);
 
 	if (processCount == fileData.length) {
 		getBrandList();
@@ -318,6 +312,7 @@ function uploadRows() {
 		error: function(response) {
 			row.error = JSON.parse(response.responseText).message
 			errorData.push(row);
+			$("#download-errors").prop("disabled", false);
 			uploadRows();
 		}
 	});
@@ -377,8 +372,8 @@ function getBrandReportUrl(){
 
 function downloadBrandReport(){
 	var url = getBrandReportUrl();
-	console.log(url);
-	console.log("hello");
+	//console.log(url);
+	//console.log("hello");
 	// call api
 	$.ajax({
 		url: url,
@@ -398,10 +393,10 @@ function downloadBrandReport(){
                 var currentdate = new Date();
                 var brandreportname = "brand-report_"+ currentdate.getDate() + "/"
                                  	+ (currentdate.getMonth()+1)  + "/"
-                                 	+ currentdate.getFullYear() + "@"
-                                 	+ currentdate.getHours() + "h_"
+                                 	+ currentdate.getFullYear() + ".tsv"
+                                 	/*+ currentdate.getHours() + "h_"
                                  	+ currentdate.getMinutes() + "m_"
-                                 	+ currentdate.getSeconds()+"s.tsv";
+                                 	+ currentdate.getSeconds()+"s.tsv";*/
                 if (navigator.msSaveBlob) {
                     fileUrl = navigator.msSaveBlob(blob, brandreportname);
                 } else {
@@ -428,8 +423,6 @@ function init() {
 	$('#brandFile').on('change', updateFileName)
 	$('#search-brand').click(searchBrandCategory);
 	$('#brand-report').click(downloadBrandReport);
-
-	//$('#enterInputBrand').on('change',searchBrand);
 }
 
 function pagination() {

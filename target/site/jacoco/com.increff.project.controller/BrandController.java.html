@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BrandController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.controller</a> &gt; <span class="el_source">BrandController.java</span></div><h1>BrandController.java</h1><pre class="source lang-java linenums">package com.increff.project.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.increff.project.dto.BrandDto;
+import com.increff.project.model.BrandData;
+import com.increff.project.model.BrandForm;
+
+import com.increff.project.service.ApiException;
+
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api
+@RestController
+<span class="fc" id="L25">public class BrandController {</span>
+
+	
+	@Autowired
+	private BrandDto brandDto;
+	
+	@ApiOperation(value=&quot;Add Brands&quot;)
+	@RequestMapping(path=&quot;/api/brand&quot;, method=RequestMethod.POST)
+	public void add(@RequestBody BrandForm form) throws ApiException {
+<span class="nc" id="L34">		brandDto.add(form);</span>
+<span class="nc" id="L35">	}</span>
+	
+
+	
+	@ApiOperation(value = &quot;Get Brand details by id&quot;)
+	@RequestMapping(path = &quot;/api/brand/{id}&quot;, method = RequestMethod.GET)
+	public BrandData get(@PathVariable int id) throws ApiException {
+<span class="nc" id="L42">		return brandDto.get(id);</span>
+	}
+
+
+	
+	@ApiOperation(value = &quot;Gets list of Brands&quot;)
+	@RequestMapping(path = &quot;/api/brand&quot;, method = RequestMethod.GET)
+	public List&lt;BrandData&gt; getAll() throws ApiException{
+		//List&lt;BrandPojo&gt; brand_pojo_list = brandService.getAll();
+<span class="nc" id="L51">		return brandDto.getAll();</span>
+	}
+	
+
+	@ApiOperation(value = &quot;Updates a Brand details record&quot;)
+	@RequestMapping(path = &quot;/api/brand/{id}&quot;, method = RequestMethod.PUT)
+	public void update(@PathVariable int id, @RequestBody BrandForm f) throws ApiException {
+<span class="nc" id="L58">		brandDto.update(id, f);</span>
+<span class="nc" id="L59">	}</span>
+	
+	@ApiOperation(value = &quot;Search by Brand and Category&quot;)
+	@RequestMapping(path = &quot;/api/brand/search&quot;, method = RequestMethod.POST)
+	public List&lt;BrandData&gt; search(@RequestBody BrandForm f) throws ApiException {
+<span class="nc" id="L64">		return brandDto.search(f);</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

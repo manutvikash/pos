@@ -5,13 +5,13 @@ public class OrderData {
 	private int id;
 	private String datetime;
 	private double amount;
-	private int invoiceCreated;
+	private boolean invoiceCreated;
 	
 	
-	public int getInvoiceCreated() {
+	public boolean getInvoiceCreated() {
 		return invoiceCreated;
 	}
-	public void setInvoiceCreated(int invoiceCreated) {
+	public void setInvoiceCreated(boolean invoiceCreated) {
 		this.invoiceCreated = invoiceCreated;
 	}
 	public int getId() {

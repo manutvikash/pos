@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductPojo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.pojo</a> &gt; <span class="el_source">ProductPojo.java</span></div><h1>ProductPojo.java</h1><pre class="source lang-java linenums">package com.increff.project.pojo;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(indexes= {
+		//@Index(name = &quot;id&quot;, columnList = &quot;id&quot;),
+		@Index(name = &quot;barcode&quot;, columnList = &quot;barcode&quot;,unique=true)
+})
+<span class="fc" id="L17">public class ProductPojo {</span>
+ 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
+	private String barcode;
+	
+	@ManyToOne(optional=false)
+	@JoinColumn(name=&quot;brand_category&quot;,nullable=false)
+	private BrandPojo brandpojo;
+	private String name;
+	private double mrp;
+	public int getId() {
+<span class="fc" id="L31">		return id;</span>
+	}
+	public void setId(int id) {
+<span class="nc" id="L34">		this.id = id;</span>
+<span class="nc" id="L35">	}</span>
+	public String getBarcode() {
+<span class="fc" id="L37">		return barcode;</span>
+	}
+	public void setBarcode(String barcode) {
+<span class="fc" id="L40">		this.barcode = barcode;</span>
+<span class="fc" id="L41">	}</span>
+	public BrandPojo getBrandpojo() {
+<span class="fc" id="L43">		return brandpojo;</span>
+	}
+	public void setBrandpojo(BrandPojo brandpojo) {
+<span class="fc" id="L46">		this.brandpojo = brandpojo;</span>
+<span class="fc" id="L47">	}</span>
+	public String getName() {
+<span class="fc" id="L49">		return name;</span>
+	}
+	public void setName(String name) {
+<span class="fc" id="L52">		this.name = name;</span>
+<span class="fc" id="L53">	}</span>
+	public double getMrp() {
+<span class="fc" id="L55">		return mrp;</span>
+	}
+	public void setMrp(double mrp) {
+<span class="fc" id="L58">		this.mrp = mrp;</span>
+<span class="fc" id="L59">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

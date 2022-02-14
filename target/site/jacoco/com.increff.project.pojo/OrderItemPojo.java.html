@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderItemPojo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.pojo</a> &gt; <span class="el_source">OrderItemPojo.java</span></div><h1>OrderItemPojo.java</h1><pre class="source lang-java linenums">package com.increff.project.pojo;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(indexes= {
+		@Index(name = &quot;orderid_index&quot;, columnList = &quot;orderId&quot;)
+})
+<span class="fc" id="L17">public class OrderItemPojo {</span>
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	@ManyToOne(optional=false)
+	@JoinColumn(name = &quot;orderId&quot;, nullable = false)
+	private OrderPojo orderpojo;
+	@ManyToOne(optional=false)
+	@JoinColumn(name = &quot;productId&quot;, nullable = false)
+	private ProductPojo productpojo;
+	private int quantity;
+	private double sellingPrice;
+	
+	private double mrp;
+	public double getMrp() {
+<span class="nc" id="L33">		return mrp;</span>
+	}
+	public void setMrp(double mrp) {
+<span class="nc" id="L36">		this.mrp = mrp;</span>
+<span class="nc" id="L37">	}</span>
+	public int getId() {
+<span class="fc" id="L39">		return id;</span>
+	}
+	public void setId(int id) {
+<span class="nc" id="L42">		this.id = id;</span>
+<span class="nc" id="L43">	}</span>
+	public OrderPojo getOrderpojo() {
+<span class="fc" id="L45">		return orderpojo;</span>
+	}
+	public void setOrderpojo(OrderPojo orderpojo) {
+<span class="fc" id="L48">		this.orderpojo = orderpojo;</span>
+<span class="fc" id="L49">	}</span>
+	public ProductPojo getProductpojo() {
+<span class="fc" id="L51">		return productpojo;</span>
+	}
+	public void setProductpojo(ProductPojo productpojo) {
+<span class="fc" id="L54">		this.productpojo = productpojo;</span>
+<span class="fc" id="L55">	}</span>
+	public int getQuantity() {
+<span class="fc" id="L57">		return quantity;</span>
+	}
+	public void setQuantity(int quantity) {
+<span class="fc" id="L60">		this.quantity = quantity;</span>
+<span class="fc" id="L61">	}</span>
+	public double getSellingPrice() {
+<span class="fc" id="L63">		return sellingPrice;</span>
+	}
+	public void setSellingPrice(double sellingPrice) {
+<span class="fc" id="L66">		this.sellingPrice = sellingPrice;</span>
+<span class="fc" id="L67">	}</span>
+	public BrandPojo getBrandPojo() {
+<span class="fc" id="L69">		return productpojo.getBrandpojo();</span>
+	}
+	public double getRevenue() {
+<span class="nc" id="L72">		return quantity*sellingPrice;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

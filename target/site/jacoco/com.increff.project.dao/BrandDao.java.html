@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BrandDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.dao</a> &gt; <span class="el_source">BrandDao.java</span></div><h1>BrandDao.java</h1><pre class="source lang-java linenums">package com.increff.project.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.increff.project.pojo.BrandPojo;
+
+@Repository
+<span class="fc" id="L15">public class BrandDao extends AbstractDao {</span>
+
+<span class="fc" id="L17">	private static String select_all=&quot;Select p from BrandPojo p&quot;;</span>
+<span class="fc" id="L18">	private static String select_brand=&quot;Select p from BrandPojo p where brand=:brand&quot;;</span>
+<span class="fc" id="L19">	private static String select_id=&quot;Select p from BrandPojo p where id=:id&quot;;</span>
+<span class="fc" id="L20">	private static String select_brand_category=&quot;Select p from BrandPojo p where p.brand= :brand and p.category= :category&quot;;</span>
+<span class="fc" id="L21">	private static String Select_Category=&quot;Select p from BrandPojo p where p.category=:category&quot;;</span>
+	
+	@PersistenceContext
+	EntityManager em;
+	
+	//Select By Id
+	public BrandPojo select(int id) {
+<span class="fc" id="L28">		TypedQuery&lt;BrandPojo&gt; query = getQuery(select_id, BrandPojo.class);</span>
+<span class="fc" id="L29">		query.setParameter(&quot;id&quot;, id);</span>
+<span class="fc" id="L30">		return getSingle(query);</span>
+       //return em.find(BrandPojo.class, id);
+	}
+	
+	//Select All
+	public List&lt;BrandPojo&gt; selectAll() {
+<span class="fc" id="L36">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_all,BrandPojo.class);</span>
+<span class="fc" id="L37">		return query.getResultList();</span>
+	}
+	
+	
+	//Select By Brand
+	public List&lt;BrandPojo&gt; selectBrand(String brand) {
+<span class="nc" id="L43">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_brand,BrandPojo.class);</span>
+<span class="nc" id="L44">	    query.setParameter(&quot;brand&quot;, brand);</span>
+<span class="nc" id="L45">		return query.getResultList();</span>
+	}
+
+	//Select by Category
+	public List&lt;BrandPojo&gt; selectCategory(String category){
+<span class="nc" id="L50">		TypedQuery&lt;BrandPojo&gt; query=getQuery(Select_Category,BrandPojo.class);</span>
+<span class="nc" id="L51">	    query.setParameter(&quot;category&quot;, category);</span>
+<span class="nc" id="L52">		return query.getResultList();</span>
+
+	}
+
+	
+	public List&lt;BrandPojo&gt; selectBrandCategory(String brand, String category) {
+<span class="fc" id="L58">		TypedQuery&lt;BrandPojo&gt; query=getQuery(select_brand_category,BrandPojo.class);</span>
+<span class="fc" id="L59">		query.setParameter(&quot;brand&quot;, brand);</span>
+<span class="fc" id="L60">		query.setParameter(&quot;category&quot;, category);</span>
+		
+<span class="fc" id="L62">		return query.getResultList();</span>
+		
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

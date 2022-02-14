@@ -1,6 +1,6 @@
 package com.increff.project.model;
 
-public class SalesData {
+public class SalesData{
 	
 	private String brand;
 	public String getBrand() {

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InventoryService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.service</a> &gt; <span class="el_source">InventoryService.java</span></div><h1>InventoryService.java</h1><pre class="source lang-java linenums">package com.increff.project.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.increff.project.dao.InventoryDao;
+import com.increff.project.dao.ProductDao;
+import com.increff.project.pojo.InventoryPojo;
+import com.increff.project.pojo.ProductPojo;
+
+@Service
+<span class="fc" id="L15">public class InventoryService {</span>
+
+	@Autowired
+	private InventoryDao inventory_dao;
+
+	@Autowired
+	private ProductDao product_dao;
+	/* Adding Inventory */
+	@Transactional
+	public void add(InventoryPojo p) throws ApiException {
+<span class="fc" id="L25">		validate(p);</span>
+<span class="fc" id="L26">		checkIfBarcodePresent(p);</span>
+<span class="fc" id="L27">		inventory_dao.insert(p);</span>
+<span class="fc" id="L28">	}</span>
+
+
+
+	/* Fetch inventory by id */
+	@Transactional
+	public InventoryPojo get(int id) throws ApiException {
+<span class="fc" id="L35">		InventoryPojo p = checkIfExists(id);</span>
+<span class="fc" id="L36">		return p;</span>
+	}
+
+	/* Fetch inventory by product id */
+	@Transactional
+	public InventoryPojo getByProductId(int product_id) throws ApiException {
+<span class="fc" id="L42">		List&lt;InventoryPojo&gt; lis = getAll();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">		for (InventoryPojo ip : lis) {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">			if (ip.getProductPojo().getId() == product_id) {</span>
+<span class="fc" id="L45">				return ip;</span>
+			}
+<span class="fc" id="L47">		}</span>
+<span class="fc" id="L48">		return null;</span>
+	}
+
+	/* Fetch all inventory pojos */
+	@Transactional
+	public List&lt;InventoryPojo&gt; getAll() {
+<span class="fc" id="L54">		return inventory_dao.selectAll();</span>
+	}
+
+	/* Updation of inventory */
+	@Transactional(rollbackFor = ApiException.class)
+	public void update(int id, InventoryPojo p) throws ApiException {
+<span class="fc" id="L60">		validate(p);</span>
+<span class="fc" id="L61">		InventoryPojo ex = checkIfExists(id);</span>
+<span class="fc" id="L62">		ex.setQuantity(p.getQuantity());</span>
+<span class="fc" id="L63">		inventory_dao.update(p);</span>
+<span class="fc" id="L64">	}</span>
+//
+//	@Transactional(rollbackFor=ApiException.class)
+//	public void updatebybarcode(String barcode,InventoryPojo p) throws ApiException{
+//		InventoryPojo ex=checkIfBarcodeExists(barcode);
+//		ex.setQuantity(p.getQuantity());
+//		
+//	}
+	
+//	@Transactional(rollbackFor=ApiException.class)
+//	public InventoryPojo checkIfBarcodeExists(String barcode) throws ApiException{
+//		ProductPojo p= product_dao.select(barcode);
+//		InventoryPojo i=inventory_dao.selectByProductpojo(p);
+//		return i;
+//	}
+	/* Checking if particular inventory pojo exists */
+	@Transactional(rollbackFor = ApiException.class)
+	public InventoryPojo checkIfExists(int id) throws ApiException {
+<span class="fc" id="L82">		InventoryPojo p = inventory_dao.select(id);</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">		if (p == null) {</span>
+<span class="fc" id="L84">			throw new ApiException(&quot;Inventory with given ID does not exist, id: &quot; + id);</span>
+		}
+<span class="fc" id="L86">		return p;</span>
+	}
+
+	/* Validate */
+	protected void validate(InventoryPojo p) throws ApiException {
+<span class="fc bfc" id="L91" title="All 2 branches covered.">		if (p.getQuantity() &lt; 0) {</span>
+<span class="fc" id="L92">			throw new ApiException(&quot;Inventory quantity should be positive&quot;);</span>
+		}
+
+<span class="fc" id="L95">	}</span>
+
+	/* Check if inventory exists or not by barcode */
+	protected void checkIfBarcodePresent(InventoryPojo p) throws ApiException {
+<span class="fc" id="L99">		List&lt;InventoryPojo&gt; lis = inventory_dao.selectByProduct(p.getProductPojo());</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		if (lis.size() &gt; 0) {</span>
+<span class="fc" id="L101">			throw new ApiException(</span>
+					&quot;Inventory for this product already exists.&quot;);
+		}
+
+<span class="fc" id="L105">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

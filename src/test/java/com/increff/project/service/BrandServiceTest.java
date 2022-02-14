@@ -126,7 +126,7 @@ public class BrandServiceTest extends AbstractUnitTest {
 	public void testGetAll() throws ApiException {
 
 		List<BrandPojo> get_brand_list = brand_service.getAll();
-		assertEquals(2, get_brand_list.size());
+		assertEquals(3, get_brand_list.size());
 
 	}
 

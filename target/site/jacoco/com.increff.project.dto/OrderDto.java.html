@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.dto</a> &gt; <span class="el_source">OrderDto.java</span></div><h1>OrderDto.java</h1><pre class="source lang-java linenums">package com.increff.project.dto;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.increff.project.model.OrderData;
+import com.increff.project.model.OrderItemData;
+import com.increff.project.model.OrderItemForm;
+import com.increff.project.pojo.OrderItemPojo;
+import com.increff.project.pojo.OrderPojo;
+import com.increff.project.pojo.ProductPojo;
+import com.increff.project.service.ApiException;
+import com.increff.project.service.OrderService;
+import com.increff.project.service.ProductService;
+import com.increff.project.util.ConversionUtil;
+
+@Component
+<span class="fc" id="L25">public class OrderDto {</span>
+
+	@Autowired
+	private OrderService order_service;
+
+	@Autowired
+	private ProductService product_service;
+	
+	
+	public OrderData add( OrderItemForm[] forms, HttpServletResponse response) throws ApiException{
+<span class="nc" id="L35">		Map&lt;String, ProductPojo&gt; barcode_product = product_service.getAllProductPojosByBarcode();</span>
+<span class="nc" id="L36">		List&lt;OrderItemPojo&gt; orderitem_list = ConversionUtil.convertOrderItemForms(barcode_product, forms);</span>
+<span class="nc" id="L37">		int order_id = order_service.add(orderitem_list);</span>
+<span class="nc" id="L38">		return ConversionUtil.convertOrderPojo(order_service.getOrder(order_id));</span>
+	}
+	
+	public void addOrderItem(int order_id,OrderItemForm f) throws ApiException{
+<span class="nc" id="L42">		ProductPojo product_pojo = product_service.get(f.getBarcode());</span>
+<span class="nc" id="L43">		OrderItemPojo orderitem_pojo = ConversionUtil.convert(product_pojo, f);</span>
+<span class="nc" id="L44">		order_service.addOrderItem(order_id, orderitem_pojo);</span>
+<span class="nc" id="L45">	}</span>
+	
+	public OrderItemData get(int id) throws ApiException{
+<span class="nc" id="L48">		OrderItemPojo orderitem_pojo = order_service.get(id);</span>
+<span class="nc" id="L49">		return ConversionUtil.convert(orderitem_pojo);</span>
+	}
+	
+	public List&lt;OrderItemData&gt; getAll() {
+<span class="nc" id="L53">		List&lt;OrderItemPojo&gt; orderitem_pojo_list = order_service.getAll();</span>
+<span class="nc" id="L54">		return ConversionUtil.convertOrderItemList(orderitem_pojo_list);</span>
+	}
+	
+	public List&lt;OrderData&gt; getAllOrders() {
+<span class="nc" id="L58">		List&lt;OrderPojo&gt; orders_list = order_service.getAllOrders();</span>
+<span class="nc" id="L59">		return ConversionUtil.convertOrderList(orders_list);</span>
+	}
+	
+	public List&lt;OrderItemData&gt; getOrderItemsbyOrderId(@PathVariable int id) throws ApiException {
+<span class="nc" id="L63">		List&lt;OrderItemPojo&gt; orderitem_pojo_list = order_service.getOrderItems(id);</span>
+<span class="nc" id="L64">		return ConversionUtil.convertOrderItemList(orderitem_pojo_list);</span>
+	}
+	
+	public void delete(@PathVariable int id) {
+<span class="nc" id="L68">		order_service.delete(id);</span>
+<span class="nc" id="L69">	}</span>
+	
+	public void update(@PathVariable int id, @RequestBody OrderItemForm f) throws ApiException {
+<span class="nc" id="L72">		ProductPojo product_pojo = product_service.get(f.getBarcode());</span>
+<span class="nc" id="L73">		OrderItemPojo orderitem_pojo = ConversionUtil.convert(product_pojo, f);</span>
+<span class="nc" id="L74">		order_service.update(id, orderitem_pojo);</span>
+<span class="nc" id="L75">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

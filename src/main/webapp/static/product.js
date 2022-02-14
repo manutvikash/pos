@@ -6,14 +6,10 @@ function displayAddProductModal() {
 	$("#add-product-modal").modal('toggle');
 }
 function addProduct(event) {
-	//console.log(event);
-console.log("addproduct");
 	var $form = $("#product-form");
-	console.log($form);
+
 	var json = toJson($form);
-	console.log(json);
 	var url = productUrl();
-	console.log(url);
 	if (validateProduct(json)) {
 		
 		$.ajax({
@@ -88,7 +84,8 @@ function getProductList(){
 
 //UI
 function displayProductList(data){
-	data=data.sort(function(a,b){
+	console.log(data.barcode);
+	/*data=data.sort(function(a,b){
 		if(a.brand===b.brand){
 			if(a.category<b.category){
 				return -1;
@@ -102,11 +99,12 @@ function displayProductList(data){
 			return 1;
 		}
 		}
-	});
+	});*/
 	var $tbody = $('#product-table').find('tbody');
 	$tbody.empty();
 	for(var i in data){
 		var e = data[i];
+		//console.log(e.barcode);
 		var buttonHtml = ' <button type="button" class="btn btn-info" style="border: none;" onclick="displayEditProduct(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>'
 		var row = '<tr>'
 		+ '<td>' + e.barcode + '</td>'
@@ -132,7 +130,27 @@ function displayEditProduct(id){
 	});	
 }
 
+function displayProductList1(data){
+	console.log(data.barcode);
+	
+	var $tbody = $('#product-table').find('tbody');
+	$tbody.empty();
+	
+		var e = data;
+		//console.log(e.barcode);
+		var buttonHtml = ' <button type="button" class="btn btn-info" style="border: none;" onclick="displayEditProduct(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>'
+		var row = '<tr>'
+		+ '<td>' + e.barcode + '</td>'
+		+ '<td>' + e.brand + '</td>'
+		+ '<td>' + e.category + '</td>'
+		+ '<td>' + e.name + '</td>'
+		+ '<td>' + parseFloat(e.mrp).toFixed(2) + '</td>'
+		+ '<td>' + buttonHtml + '</td>'
+		+ '</tr>';
+        $tbody.append(row);
 
+	
+}
 function displayProduct(data){
 	$("#product-edit-form input[name=id]").val(data.id);
 	$("#product-edit-form input[name=brand]").val(data.brand);	
@@ -149,7 +167,7 @@ function editProduct(event){
 	var id=$("#product-edit-form input[name=id]").val();
 	var url = productUrl() + "/" + id;
 	var $form = $("#product-edit-form");
-	console.log($form);
+	//console.log($form);
 	var json = toJson($form);
 
     if(validateProduct(json)){
@@ -296,37 +314,19 @@ function updateFileName(){
 }
 
 
-function productSearch() {
 
-    var value = document.getElementById("product-filter").value;
-    value = value.trim();
-    value = value.toLowerCase();
 
-    console.log(value);
-
-    if(value === '')
-    {
-        getProductList();
-
-        return;
-    }
-
-    $("#product-table-body tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-    });
-}
-
-/*function productSearch(event){
+function productSearch(event){
 
 	//Set the values to update
-	var $form = $("#product-form");
-	//console.log($form);
+	var $form = $("#productsearch-form");
+	console.log($form);
 	var json = toJson($form);
 	console.log(json);
 	var url = productUrl() + '/search';
 	console.log(url);
 console.log(json);
-	var json2 = {barcode: JSON.parse(json).barcode, brand: "", category: "", mrp: 0, name: ""};
+	var json2 = {barcode: JSON.parse(json).barcode};
    console.log(json2);
     if(json2.barcode === "")
     {
@@ -336,7 +336,7 @@ console.log(json);
     }
 
 	json = JSON.stringify(json2);
-console.log(json);
+//console.log(json);
 	$.ajax({
 	   url: url,
 	   type: 'POST',
@@ -345,14 +345,14 @@ console.log(json);
        	'Content-Type': 'application/json'
        },
 	   success: function(data) {
-console.log(data);
-	   		displayProductList(data);
+//console.log(data);
+	   		displayProductList1(data);
 	   },
 	   error: handleAjaxError
 	});
 
 	return false;
-}*/
+}
 
 function init(){
 	$("#open-add-product").click(displayAddProductModal);

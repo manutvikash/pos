@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="sales_items")
-public class SalesDataList {
+public class SalesDataList extends SalesFilter{
 
 	private List<SalesData> sales_list;
 

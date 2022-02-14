@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XmlUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.util</a> &gt; <span class="el_source">XmlUtil.java</span></div><h1>XmlUtil.java</h1><pre class="source lang-java linenums">package com.increff.project.util;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.stream.StreamSource;
+
+import org.apache.fop.apps.Fop;
+import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.MimeConstants;
+
+<span class="nc" id="L20">public class XmlUtil {</span>
+
+
+	//Generate PDF
+	public static byte[] generatePDF(File xml_file, StreamSource xsl_source) throws Exception {
+<span class="fc" id="L25">		FopFactory fopFactory = FopFactory.newInstance(new File(&quot;.&quot;).toURI());</span>
+		// Setup a buffer to obtain the content length
+<span class="fc" id="L27">		ByteArrayOutputStream out = new ByteArrayOutputStream();</span>
+		// Setup FOP
+<span class="fc" id="L29">		Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, out);</span>
+<span class="fc" id="L30">		TransformerFactory factory = TransformerFactory.newInstance();</span>
+<span class="fc" id="L31">		Transformer transformer = factory.newTransformer(xsl_source);</span>
+		// Make sure the XSL transformation's result is piped through to FOP
+<span class="fc" id="L33">		Result res = new SAXResult(fop.getDefaultHandler());</span>
+
+		// Setup input
+<span class="fc" id="L36">		Source src = new StreamSource(xml_file);</span>
+
+		// Start the transformation and rendering process
+<span class="fc" id="L39">		transformer.transform(src, res);</span>
+
+<span class="fc" id="L41">		byte[] bytes = out.toByteArray();</span>
+
+<span class="fc" id="L43">		out.close();</span>
+<span class="fc" id="L44">		out.flush();</span>
+
+<span class="fc" id="L46">		return bytes;</span>
+
+	}
+
+	//Generate XML
+	public static void generateXml(File file,Object list,Class&lt;?&gt; class_type) throws JAXBException {
+<span class="fc" id="L52">		JAXBContext context = JAXBContext.newInstance(class_type);</span>
+<span class="fc" id="L53">		Marshaller m = context.createMarshaller();</span>
+		// for pretty-print XML in JAXB
+<span class="fc" id="L55">		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);</span>
+<span class="fc" id="L56">		m.marshal(list, file);</span>
+		
+<span class="fc" id="L58">	}</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

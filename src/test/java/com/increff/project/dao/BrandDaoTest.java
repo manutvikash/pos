@@ -37,13 +37,28 @@ public class BrandDaoTest extends AbstractUnitTest {
 		
 	}
 	
+	@Test
+	public void testInsert2() {
+		List<BrandPojo> brand_list_before = brand_dao.selectAll();
+		BrandPojo brand = getBrandPojo();
+		brand_dao.insert(brand);
+		
+//		BrandPojo brand2 = getBrandPojo();
+//		brand_dao.insert(brand2);
+		List<BrandPojo> brand_list_after = brand_dao.selectAll();
+		assertEquals(brand_list_before.size()+1,brand_list_after.size());
+		assertEquals("parle",brand_dao.select(brand.getId()).getBrand());
+		assertEquals("biscuits",brand_dao.select(brand.getId()).getCategory());
+		
+	}
+	
 
 	
 	@Test
 	public void testSelectAll() {
 	
 		List<BrandPojo> brand_list = brand_dao.selectAll();
-		assertEquals(2,brand_list.size());
+		assertEquals(3,brand_list.size());
 		
 	}
 	

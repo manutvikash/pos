@@ -10,11 +10,11 @@ public class ProductDataTest extends AbstractUnitTest {
 	@Test
 	public void testProductData() {
 		int id = 1;
-		String brand = "amul";
-		String category = "dairy";
-		String name = "milk";
+		String brand = "adidas";
+		String category = "shoes";
+		String name = "adidas air";
 		double mrp = 70.00;
-		String barcode = "abcdefgh";
+		String barcode = "123";
 		
 		ProductData product = new ProductData();
 		product.setBarcode(barcode);

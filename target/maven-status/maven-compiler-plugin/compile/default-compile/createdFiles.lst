@@ -1,6 +1,7 @@
 com\increff\project\spring\ControllerConfig.class
 com\increff\project\util\IOUtil.class
 com\increff\project\controller\BrandController.class
+com\increff\project\dto\ProductDto.class
 com\increff\project\pojo\OrderItemPojo.class
 com\increff\project\model\BrandList.class
 com\increff\project\spring\WebInitializer.class
@@ -9,13 +10,13 @@ com\increff\project\model\ProductForm.class
 com\increff\project\controller\AppRestControllerAdvice.class
 com\increff\project\model\MessageData.class
 com\increff\project\model\BillData.class
-com\increff\project\util\GenerateXML.class
 com\increff\project\service\BrandService.class
 com\increff\project\model\InvoiceData.class
 com\increff\project\model\ProductSearchForm.class
 com\increff\project\pojo\OrderPojo.class
 com\increff\project\util\ConversionUtil.class
 com\increff\project\pojo\ProductPojo.class
+com\increff\project\util\ConversionGeneric.class
 com\increff\project\model\InventoryData.class
 com\increff\project\dao\InventoryDao.class
 com\increff\project\pojo\InventoryPojo.class
@@ -32,12 +33,15 @@ com\increff\project\spring\SpringConfig.class
 com\increff\project\service\InventoryService.class
 com\increff\project\model\OrderData.class
 com\increff\project\controller\SampleController.class
+com\increff\project\service\AboutAppService.class
 com\increff\project\controller\ReportController.class
 com\increff\project\model\ProductData.class
+com\increff\project\dto\OrderDto.class
 com\increff\project\service\ApiException.class
 com\increff\project\service\OrderService.class
 com\increff\project\controller\UIController.class
 com\increff\project\service\ReportService.class
+com\increff\project\model\ProductFormSearch.class
 com\increff\project\dao\OrderItemDao.class
 com\increff\project\controller\OrderController.class
 com\increff\project\dto\ReportDto.class
@@ -46,6 +50,7 @@ com\increff\project\controller\InventoryController.class
 com\increff\project\model\BrandData.class
 com\increff\project\model\InvoiceDataList.class
 com\increff\project\model\OrderItemData.class
+com\increff\project\dto\BrandDto.class
 com\increff\project\model\InventoryReportData.class
 com\increff\project\model\BrandForm.class
 com\increff\project\util\GeneratePDF.class
@@ -53,4 +58,5 @@ com\increff\project\dao\BrandDao.class
 com\increff\project\model\SalesData.class
 com\increff\project\model\OrderItemForm.class
 com\increff\project\model\SalesDataList.class
+com\increff\project\dto\InventoryDto.class
 com\increff\project\spring\DBConfig.class

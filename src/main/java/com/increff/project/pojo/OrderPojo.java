@@ -14,13 +14,13 @@ public class OrderPojo {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private LocalDateTime datetime;
-
-    private int invoiceCreated;
-    public int getInvoiceCreated() {
+    private boolean invoiceCreated;
+    
+    public boolean getInvoiceCreated() {
 		return invoiceCreated;
 	}
 
-	public void setInvoiceCreated(int invoiceCreated) {
+	public void setInvoiceCreated(boolean invoiceCreated) {
 		this.invoiceCreated = invoiceCreated;
 	}
 

@@ -6,30 +6,101 @@
   <component name="ChangeListManager">
     <list default="true" id="2642ac1c-186a-468a-ba5e-cecbb9b072c9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand.txt" beforeDir="false" afterPath="$PROJECT_DIR$/brand.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.xsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jetty.log" beforeDir="false" afterPath="$PROJECT_DIR$/jetty.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sales_report.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sales_report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales_report.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/sales_report.xsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/BrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderItemForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderItemForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/InvoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/InvoiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/controller/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/dao/AbstractDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/dao/AbstractDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/dao/BrandDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/dao/BrandDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderItemData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/model/OrderItemData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/SalesData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/model/SalesData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/model/SalesDataList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/model/SalesDataList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/BrandPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/BrandPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/InventoryPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/InventoryPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/OrderItemPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/OrderItemPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/OrderPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/OrderPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/ProductPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/pojo/ProductPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/service/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/service/InventoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/service/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/spring/DBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/spring/DBConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/util/ConversionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/increff/project/util/ConversionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/increff/project/util/GenerateXML.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/brand.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/brand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/inventory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/inventory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/order.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/brand.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/brand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/inventory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/static/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/dao/BrandDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/dao/BrandDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/dao/InventoryDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/dao/InventoryDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/dao/ProductDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/dao/ProductDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/model/ProductDataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/model/ProductDataTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/service/BrandServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/service/BrandServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/service/ProductServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/service/ProductServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/spring/AbstractUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/spring/AbstractUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/increff/project/spring/XmlUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/increff/project/spring/XmlUtilTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/BrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/BrandController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InvoiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/InvoiceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/controller/ReportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/AbstractDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/AbstractDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dao/BrandDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dao/BrandDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/dto/ReportDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/dto/ReportDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/OrderItemForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesDataList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/model/SalesDataList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/BrandPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/BrandPojo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderItemPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderItemPojo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderPojo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/pojo/OrderPojo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/BrandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/BrandService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/InventoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/InventoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/service/ReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/service/ReportService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/spring/DBConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/spring/DBConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/test.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/ConversionUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/increff/project/util/ConversionUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/increff/project/util/GenerateXML.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/com.increff.project/project/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.increff.project.dao.BrandDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.increff.project.dao.BrandDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.increff.project.model.ErrorMessageTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.increff.project.model.ErrorMessageTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.increff.project.dao.BrandDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.increff.project.dao.BrandDaoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.increff.project.model.ErrorMessageTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.increff.project.model.ErrorMessageTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/BrandDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/BrandDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/InventoryDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/InventoryDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/OrderDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/OrderDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/OrderItemDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/OrderItemDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/ProductDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/dao/ProductDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/model/BrandDataTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/model/BrandDataTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/model/ErrorMessageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/model/ErrorMessageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/model/ProductDataTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/model/ProductDataTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/service/BrandServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/service/BrandServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/service/ProductServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/service/ProductServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/spring/AbstractUnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/spring/AbstractUnitTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/increff/project/spring/XmlUtilTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/increff/project/spring/XmlUtilTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,16 +136,42 @@
       <recent name="D:\project\src\main\resources\com\increff\project" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in project">
-    <configuration name="All in project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BrandServiceTest">
+    <configuration name="BrandDaoTest and 16 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.increff.project.spring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.increff.project.spring" />
+      <option name="MAIN_CLASS_NAME" value="com.increff.project.spring.AbstractUnitTest" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="com.increff.project.dao.BrandDaoTest" />
+        <pattern testClass="com.increff.project.model.BrandDataTest" />
+        <pattern testClass="com.increff.project.service.BrandServiceTest" />
+        <pattern testClass="com.increff.project.util.ConversionUtilTest" />
+        <pattern testClass="com.increff.project.model.ErrorMessageTest" />
+        <pattern testClass="com.increff.project.dao.InventoryDaoTest" />
+        <pattern testClass="com.increff.project.model.InventoryDataTest" />
+        <pattern testClass="com.increff.project.service.InventoryServiceTest" />
+        <pattern testClass="com.increff.project.dao.OrderDaoTest" />
+        <pattern testClass="com.increff.project.model.OrderDataTest" />
+        <pattern testClass="com.increff.project.dao.OrderItemDaoTest" />
+        <pattern testClass="com.increff.project.model.OrderItemDataTest" />
+        <pattern testClass="com.increff.project.service.OrderServiceTest" />
+        <pattern testClass="com.increff.project.dao.ProductDaoTest" />
+        <pattern testClass="com.increff.project.model.ProductDataTest" />
+        <pattern testClass="com.increff.project.service.ProductServiceTest" />
+        <pattern testClass="com.increff.project.spring.XmlUtilTest" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BrandServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <extension name="coverage">
         <pattern>
@@ -83,13 +180,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.increff.project.service" />
-      <option name="MAIN_CLASS_NAME" value="com.increff.project.service.SampleTest" />
+      <option name="MAIN_CLASS_NAME" value="com.increff.project.service.BrandServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SampleTest.testFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.increff.project in project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.increff.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.increff.project" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.increff.project.service in project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project" />
       <extension name="coverage">
         <pattern>
@@ -98,18 +209,32 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.increff.project.service" />
-      <option name="MAIN_CLASS_NAME" value="com.increff.project.service.SampleTest" />
-      <option name="METHOD_NAME" value="testFiles" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.increff.project.spring in project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.increff.project.spring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.increff.project.spring" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in project" />
-        <item itemvalue="JUnit.SampleTest.testFiles" />
-        <item itemvalue="JUnit.SampleTest" />
+        <item itemvalue="JUnit.BrandServiceTest" />
+        <item itemvalue="JUnit.com.increff.project in project" />
+        <item itemvalue="JUnit.com.increff.project.spring in project" />
+        <item itemvalue="JUnit.com.increff.project.service in project" />
+        <item itemvalue="JUnit.BrandDaoTest and 16 more" />
       </list>
     </recent_temporary>
   </component>
@@ -131,6 +256,15 @@
     <SUITE FILE_PATH="coverage/project$SampleTest_testFiles.ic" NAME="SampleTest.testFiles Coverage Results" MODIFIED="1644423902955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.increff.project.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/project$All_in_project.ic" NAME="All in project Coverage Results" MODIFIED="1644481476033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/project$All_in_project.ic" NAME="All in project Coverage Results" MODIFIED="1644608172848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/project$com_increff_project_in_project.ic" NAME="com.increff.project in project Coverage Results" MODIFIED="1644673086489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.increff.project.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/project$BrandDaoTest_and_16_more.ic" NAME="BrandDaoTest and 16 more Coverage Results" MODIFIED="1644608211223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.increff.project.spring.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/project$BrandServiceTest.ic" NAME="BrandServiceTest Coverage Results" MODIFIED="1644673218399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.increff.project.service.*</FILTER>
+    </SUITE>
   </component>
 </project>

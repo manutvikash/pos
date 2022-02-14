@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.dao</a> &gt; <span class="el_source">ProductDao.java</span></div><h1>ProductDao.java</h1><pre class="source lang-java linenums">package com.increff.project.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+
+import com.increff.project.pojo.BrandPojo;
+import com.increff.project.pojo.ProductPojo;
+
+
+
+@Repository
+<span class="fc" id="L17">public class ProductDao extends AbstractDao {</span>
+  
+	@PersistenceContext
+	EntityManager em;
+	
+<span class="fc" id="L22">	private String select_all=&quot;select p from ProductPojo p&quot;;</span>
+<span class="fc" id="L23">	private String select_bar=&quot;select p from ProductPojo p where barcode=:barcode&quot;;</span>
+<span class="fc" id="L24">	private String select_brandpojo=&quot;select p from ProductPojo p where p.brandPojo=:brandPojo&quot;;</span>
+	
+	public void insert(ProductPojo p) {
+<span class="fc" id="L27">		em.persist(p);</span>
+<span class="fc" id="L28">	}</span>
+	
+	public ProductPojo select(int id) {
+<span class="fc" id="L31">		return em.find(ProductPojo.class, id);</span>
+	}
+	
+	public ProductPojo select(String barcode) {
+<span class="fc" id="L35">		TypedQuery&lt;ProductPojo&gt; query=getQuery(select_bar,ProductPojo.class);</span>
+<span class="fc" id="L36">		query.setParameter(&quot;barcode&quot;, barcode);</span>
+<span class="fc" id="L37">		List&lt;ProductPojo&gt; list=query.getResultList();</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		if(list.size()&gt;0) {</span>
+<span class="fc" id="L39">			ProductPojo p=list.get(0);</span>
+<span class="fc" id="L40">			return p;</span>
+		}
+		else {
+<span class="fc" id="L43">			return null;</span>
+		}
+	}
+	
+	//Selecting all products from DB
+		public List&lt;ProductPojo&gt; selectAll() {
+<span class="fc" id="L49">			TypedQuery&lt;ProductPojo&gt; query = getQuery(select_all,ProductPojo.class);</span>
+<span class="fc" id="L50">			return query.getResultList();	</span>
+		}
+		
+		//Update Product Details
+		public void update(ProductPojo p) {
+			
+<span class="fc" id="L56">		}</span>
+		
+		public List&lt;ProductPojo&gt; selectBrand(String brand) {
+<span class="nc" id="L59">			TypedQuery&lt;ProductPojo&gt; query=getQuery(select_brandpojo,ProductPojo.class);</span>
+<span class="nc" id="L60">		    query.setParameter(&quot;brand&quot;, brand);</span>
+<span class="nc" id="L61">			return query.getResultList();</span>
+		}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

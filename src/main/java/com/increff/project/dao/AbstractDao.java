@@ -3,6 +3,7 @@ package com.increff.project.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 public abstract class AbstractDao {
 	
@@ -21,4 +22,11 @@ public abstract class AbstractDao {
 		return em;
 	}
 
+	@Transactional
+	public <T> void insert(T t) {
+		em.persist(t);
+	}
+	public <T> void update(T t) {
+		
+	}
 }

@@ -1,6 +1,8 @@
 D:\project\src\test\java\com\increff\project\model\BrandDataTest.java
 D:\project\src\test\java\com\increff\project\service\SampleTest.java
 D:\project\src\test\java\com\increff\project\dao\InventoryDaoTest.java
+D:\project\src\test\java\com\increff\project\util\ConversionUtilTest.java
+D:\project\src\test\java\com\increff\project\model\InventoryDataTest.java
 D:\project\src\test\java\com\increff\project\dao\OrderDaoTest.java
 D:\project\src\test\java\com\increff\project\dao\OrderItemDaoTest.java
 D:\project\src\test\java\com\increff\project\spring\AbstractUnitTest.java
@@ -8,7 +10,14 @@ D:\project\src\test\java\com\increff\project\dao\ProductDaoTest.java
 D:\project\src\test\java\com\increff\project\model\ErrorMessageTest.java
 D:\project\src\test\java\com\increff\project\service\ProductServiceTest.java
 D:\project\src\test\java\com\increff\project\dao\BrandDaoTest.java
+D:\project\src\test\java\com\increff\project\model\OrderDataTest.java
+D:\project\src\test\java\com\increff\project\model\OrderItemDataTest.java
+D:\project\src\test\java\com\increff\project\dto\BrandDtoTest.java
+D:\project\src\test\java\com\increff\project\dto\ProductDtoTest.java
+D:\project\src\test\java\com\increff\project\service\OrderServiceTest.java
 D:\project\src\test\java\com\increff\project\spring\QaConfig.java
 D:\project\src\test\java\com\increff\project\service\BrandServiceTest.java
+D:\project\src\test\java\com\increff\project\service\InventoryServiceTest.java
+D:\project\src\test\java\com\increff\project\dto\InventoryDtoTest.java
 D:\project\src\test\java\com\increff\project\spring\XmlUtilTest.java
 D:\project\src\test\java\com\increff\project\model\ProductDataTest.java

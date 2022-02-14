@@ -79,7 +79,7 @@ public class ProductService {
 			throw new ApiException("Product name must not be empty");
 		}
 		if(p.getMrp()<=0) {
-			throw new ApiException("Mrp Value must be positive");
+			throw new ApiException("MRP value must be positive");
 		}
 		
 	}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">com.increff.project.controller</a> &gt; <span class="el_source">OrderController.java</span></div><h1>OrderController.java</h1><pre class="source lang-java linenums">package com.increff.project.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.increff.project.dto.OrderDto;
+import com.increff.project.model.OrderData;
+import com.increff.project.model.OrderItemData;
+import com.increff.project.model.OrderItemForm;
+import com.increff.project.service.ApiException;
+import com.increff.project.service.OrderService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api
+@RestController
+<span class="fc" id="L26">public class OrderController {</span>
+
+	@Autowired
+	private OrderService order_service;
+
+
+	
+	@Autowired
+	private OrderDto orderDto;
+
+	@ApiOperation(value = &quot;Adds Order Details&quot;)
+	@RequestMapping(path = &quot;/api/order&quot;, method = RequestMethod.POST)
+	public OrderData add(@RequestBody OrderItemForm[] forms, HttpServletResponse response)
+			throws ApiException, Exception {
+<span class="nc" id="L40">		return orderDto.add(forms, response);</span>
+
+	}
+
+	@ApiOperation(value = &quot;Adds an OrderItem to an existing order&quot;)
+	@RequestMapping(path = &quot;/api/order_item/{order_id}&quot;, method = RequestMethod.POST)
+	public void addOrderItem(@PathVariable int order_id, @RequestBody OrderItemForm f) throws ApiException {
+<span class="nc" id="L47">		orderDto.addOrderItem(order_id, f);</span>
+<span class="nc" id="L48">	}</span>
+
+	@ApiOperation(value = &quot;Gets a OrderItem details record by id&quot;)
+	@RequestMapping(path = &quot;/api/order_item/{id}&quot;, method = RequestMethod.GET)
+	public OrderItemData get(@PathVariable int id) throws ApiException {
+<span class="nc" id="L53">		return orderDto.get(id);</span>
+	}
+
+	@ApiOperation(value = &quot;Deletes an Order by id&quot;)
+	@RequestMapping(path = &quot;/api/order/{id}&quot;, method = RequestMethod.DELETE)
+	public void deleteOrder(@PathVariable int id) throws ApiException {
+<span class="nc" id="L59">		order_service.deleteOrder(id);</span>
+<span class="nc" id="L60">	}</span>
+
+	@ApiOperation(value = &quot;Gets list of Order Items&quot;)
+	@RequestMapping(path = &quot;/api/order_item&quot;, method = RequestMethod.GET)
+	public List&lt;OrderItemData&gt; getAll() {
+<span class="nc" id="L65">		return orderDto.getAll();</span>
+	}
+
+	@ApiOperation(value = &quot;Gets list of Orders&quot;)
+	@RequestMapping(path = &quot;/api/order&quot;, method = RequestMethod.GET)
+	public List&lt;OrderData&gt; getAllOrders() {
+<span class="nc" id="L71">		return orderDto.getAllOrders();</span>
+	}
+
+	@ApiOperation(value = &quot;Gets list of Order Items of a particular order&quot;)
+	@RequestMapping(path = &quot;/api/order/{id}&quot;, method = RequestMethod.GET)
+	public List&lt;OrderItemData&gt; getOrderItemsbyOrderId(@PathVariable int id) throws ApiException {
+<span class="nc" id="L77">		return orderDto.getOrderItemsbyOrderId(id);</span>
+	}
+
+	@ApiOperation(value = &quot;Deletes Order Item record&quot;)
+	@RequestMapping(path = &quot;/api/order_item/{id}&quot;, method = RequestMethod.DELETE)
+	public void delete(@PathVariable int id) {
+<span class="nc" id="L83">		orderDto.delete(id);</span>
+<span class="nc" id="L84">	}</span>
+	
+	@ApiOperation(value = &quot;Updates a OrderItem record&quot;)
+	@RequestMapping(path = &quot;/api/order_item/{id}&quot;, method = RequestMethod.PUT)
+	public void update(@PathVariable int id, @RequestBody OrderItemForm f) throws ApiException {
+<span class="nc" id="L89">		orderDto.update(id, f);</span>
+<span class="nc" id="L90">	}</span>
+	
+
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
