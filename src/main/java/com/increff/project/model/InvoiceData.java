@@ -4,15 +4,15 @@ import javax.xml.bind.annotation.XmlElement;
 
 public class InvoiceData {
 
-	private int id;
+	private Integer id;
 	private String name;
 	private double mrp;
-	private int quantity;
+	private Integer quantity;
 	@XmlElement
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -33,10 +33,10 @@ public class InvoiceData {
 	}
 	
 	@XmlElement
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	

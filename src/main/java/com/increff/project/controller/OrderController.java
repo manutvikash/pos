@@ -35,27 +35,27 @@ public class OrderController {
 
 	@ApiOperation(value = "Adds Order Details")
 	@RequestMapping(path = "/api/order", method = RequestMethod.POST)
-	public OrderData add(@RequestBody OrderItemForm[] forms, HttpServletResponse response)
+	public OrderData add(@RequestBody OrderItemForm[] orderItemForms, HttpServletResponse response)
 			throws ApiException, Exception {
-		return orderDto.add(forms, response);
+		return orderDto.add(orderItemForms, response);
 
 	}
 
 	@ApiOperation(value = "Adds an OrderItem to an existing order")
 	@RequestMapping(path = "/api/order_item/{order_id}", method = RequestMethod.POST)
-	public void addOrderItem(@PathVariable int order_id, @RequestBody OrderItemForm f) throws ApiException {
-		orderDto.addOrderItem(order_id, f);
+	public void addOrderItem(@PathVariable Integer order_id, @RequestBody OrderItemForm orderItemForm) throws ApiException {
+		orderDto.addOrderItem(order_id, orderItemForm);
 	}
 
 	@ApiOperation(value = "Gets a OrderItem details record by id")
 	@RequestMapping(path = "/api/order_item/{id}", method = RequestMethod.GET)
-	public OrderItemData get(@PathVariable int id) throws ApiException {
+	public OrderItemData get(@PathVariable Integer id) throws ApiException {
 		return orderDto.get(id);
 	}
 
 	@ApiOperation(value = "Deletes an Order by id")
 	@RequestMapping(path = "/api/order/{id}", method = RequestMethod.DELETE)
-	public void deleteOrder(@PathVariable int id) throws ApiException {
+	public void deleteOrder(@PathVariable Integer id) throws ApiException {
 		order_service.deleteOrder(id);
 	}
 
@@ -73,20 +73,20 @@ public class OrderController {
 
 	@ApiOperation(value = "Gets list of Order Items of a particular order")
 	@RequestMapping(path = "/api/order/{id}", method = RequestMethod.GET)
-	public List<OrderItemData> getOrderItemsbyOrderId(@PathVariable int id) throws ApiException {
+	public List<OrderItemData> getOrderItemsbyOrderId(@PathVariable Integer id) throws ApiException {
 		return orderDto.getOrderItemsbyOrderId(id);
 	}
 
 	@ApiOperation(value = "Deletes Order Item record")
 	@RequestMapping(path = "/api/order_item/{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable int id) {
+	public void delete(@PathVariable Integer id) {
 		orderDto.delete(id);
 	}
 	
 	@ApiOperation(value = "Updates a OrderItem record")
 	@RequestMapping(path = "/api/order_item/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable int id, @RequestBody OrderItemForm f) throws ApiException {
-		orderDto.update(id, f);
+	public void update(@PathVariable Integer id, @RequestBody OrderItemForm orderItemForm) throws ApiException {
+		orderDto.update(id, orderItemForm);
 	}
 	
 

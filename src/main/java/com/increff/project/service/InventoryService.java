@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.increff.project.dao.InventoryDao;
 import com.increff.project.dao.ProductDao;
 import com.increff.project.pojo.InventoryPojo;
-import com.increff.project.pojo.ProductPojo;
 
 @Service
 public class InventoryService {
@@ -21,28 +20,28 @@ public class InventoryService {
 	private ProductDao product_dao;
 	/* Adding Inventory */
 	@Transactional
-	public void add(InventoryPojo p) throws ApiException {
-		validate(p);
-		checkIfBarcodePresent(p);
-		inventory_dao.insert(p);
+	public void add(InventoryPojo inventoryPojo) throws ApiException {
+		validate(inventoryPojo);
+		checkIfBarcodePresent(inventoryPojo);
+		inventory_dao.insert(inventoryPojo);
 	}
 
 
 
 	/* Fetch inventory by id */
 	@Transactional
-	public InventoryPojo get(int id) throws ApiException {
-		InventoryPojo p = checkIfExists(id);
-		return p;
+	public InventoryPojo get(Integer id) throws ApiException {
+		InventoryPojo inventoryPojo = checkIfExists(id);
+		return inventoryPojo;
 	}
 
 	/* Fetch inventory by product id */
 	@Transactional
-	public InventoryPojo getByProductId(int product_id) throws ApiException {
-		List<InventoryPojo> lis = getAll();
-		for (InventoryPojo ip : lis) {
-			if (ip.getProductPojo().getId() == product_id) {
-				return ip;
+	public InventoryPojo getByProductId(Integer product_id) throws ApiException {
+		List<InventoryPojo> inventoryPojolist = getAll();
+		for (InventoryPojo inventoryPojo : inventoryPojolist) {
+			if (inventoryPojo.getProductPojo().getId() == product_id) {
+				return inventoryPojo;
 			}
 		}
 		return null;
@@ -56,11 +55,11 @@ public class InventoryService {
 
 	/* Updation of inventory */
 	@Transactional(rollbackFor = ApiException.class)
-	public void update(int id, InventoryPojo p) throws ApiException {
-		validate(p);
+	public void update(Integer id, InventoryPojo inventoryPojo) throws ApiException {
+		validate(inventoryPojo);
 		InventoryPojo ex = checkIfExists(id);
-		ex.setQuantity(p.getQuantity());
-		inventory_dao.update(p);
+		ex.setQuantity(inventoryPojo.getQuantity());
+		inventory_dao.update(inventoryPojo);
 	}
 //
 //	@Transactional(rollbackFor=ApiException.class)
@@ -78,26 +77,26 @@ public class InventoryService {
 //	}
 	/* Checking if particular inventory pojo exists */
 	@Transactional(rollbackFor = ApiException.class)
-	public InventoryPojo checkIfExists(int id) throws ApiException {
-		InventoryPojo p = inventory_dao.select(id);
-		if (p == null) {
+	public InventoryPojo checkIfExists(Integer id) throws ApiException {
+		InventoryPojo inventoryPojo = inventory_dao.select(id);
+		if (inventoryPojo == null) {
 			throw new ApiException("Inventory with given ID does not exist, id: " + id);
 		}
-		return p;
+		return inventoryPojo;
 	}
 
 	/* Validate */
-	protected void validate(InventoryPojo p) throws ApiException {
-		if (p.getQuantity() < 0) {
+	private void validate(InventoryPojo inventoryPojo) throws ApiException {
+		if (inventoryPojo.getQuantity() < 0) {
 			throw new ApiException("Inventory quantity should be positive");
 		}
 
 	}
 
 	/* Check if inventory exists or not by barcode */
-	protected void checkIfBarcodePresent(InventoryPojo p) throws ApiException {
-		List<InventoryPojo> lis = inventory_dao.selectByProduct(p.getProductPojo());
-		if (lis.size() > 0) {
+	protected void checkIfBarcodePresent(InventoryPojo inventoryPojo) throws ApiException {
+		List<InventoryPojo> inventoryPojolist = inventory_dao.selectByProduct(inventoryPojo.getProductPojo());
+		if (inventoryPojolist.size() > 0) {
 			throw new ApiException(
 					"Inventory for this product already exists.");
 		}

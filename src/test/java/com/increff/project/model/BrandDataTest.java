@@ -11,7 +11,7 @@ public class BrandDataTest extends AbstractUnitTest {
 	
 	@Test
 	public void testBrandData() {
-		int id=1;
+		Integer id=1;
 		String brand="nike";
 		String category="shoes";
 		BrandData brandData=new BrandData();

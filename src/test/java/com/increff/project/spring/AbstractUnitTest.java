@@ -22,6 +22,7 @@ import com.increff.project.service.BrandService;
 import com.increff.project.service.InventoryService;
 import com.increff.project.service.OrderService;
 import com.increff.project.service.ProductService;
+import com.increff.project.spring.QaConfig;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -59,7 +60,7 @@ public abstract class AbstractUnitTest {
 		orders = new ArrayList<OrderPojo>();
 		orderitems = new ArrayList<OrderItemPojo>();
 		
-		for(int i=0; i<=2; i++) {
+		for(Integer i=0; i<=2; i++) {
 			BrandPojo brand = new BrandPojo();
 			brand.setBrand("brand");
 			brand.setCategory("category"+i);
@@ -69,7 +70,7 @@ public abstract class AbstractUnitTest {
 			ProductPojo product = new ProductPojo();
 			product.setBrandpojo(brand);
 			product.setName("product"+i);
-			product.setMrp(50);
+			product.setMrp(new Double(50));
 			product.setBarcode("x"+i);
 			product_service.add(product);
 			products.add(product);
@@ -88,17 +89,17 @@ public abstract class AbstractUnitTest {
 		product.setBarcode("y"+1);
 		product.setBrandpojo(brands.get(0));
 		product.setName("product1");
-		product.setMrp(120);
+		product.setMrp(new Double(120));
 		product_service.add(product);
 		products.add(product);
 		products.add(p);
 		
 		List<OrderItemPojo> order_item_list = new ArrayList<OrderItemPojo>();
-		for(int i=0;i<2;i++) {
+		for(Integer i=0;i<2;i++) {
 			OrderItemPojo orderItem=new OrderItemPojo();
 			orderItem.setProductpojo(p);
 			orderItem.setQuantity(2);
-			orderItem.setSellingPrice(10);
+			orderItem.setSellingPrice(new Double(10));
 			order_item_list.add(orderItem);
 		}
 		

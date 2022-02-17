@@ -11,6 +11,7 @@ import com.increff.project.model.BrandForm;
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.service.ApiException;
 import com.increff.project.service.BrandService;
+import com.increff.project.util.ConversionGeneric;
 import com.increff.project.util.ConversionUtil;
 
 @Component
@@ -20,22 +21,25 @@ public class BrandDto {
 	    private BrandService brandService;
 	    
 	    public void add(BrandForm brandForm) throws ApiException{
-	    	BrandPojo brandPojo=ConversionUtil.convert(brandForm);
+//	    	BrandPojo brandPojo=ConversionUtil.convert(brandForm);
+	    	BrandPojo brandPojo= ConversionGeneric.convert(brandForm, BrandPojo.class);
 			brandService.add(brandPojo);
 	    }
 	    
 	    
-	    public BrandData get(int id) throws ApiException{
+	    public BrandData get(Integer id) throws ApiException{
 	    	BrandPojo brand_pojo = brandService.get(id);
-			return ConversionUtil.convert(brand_pojo);
+			//return ConversionUtil.convert(brand_pojo);
+			return ConversionGeneric.convert(brand_pojo, BrandData.class);
 	    }
 	    
 	    public List<BrandData> getAll() throws ApiException{
 	    	List<BrandPojo> brand_pojo_list = brandService.getAll();
 			return ConversionUtil.convert(brand_pojo_list);
+//			return (List<BrandData>) ConversionGeneric.convert(brand_pojo_list, BrandData.class);
 	    }
 	    
-	    public void update(int id,BrandForm brandForm) throws ApiException{
+	    public void update(Integer id, BrandForm brandForm) throws ApiException{
 	    	
 	    	BrandPojo brand_pojo = ConversionUtil.convert(brandForm);
 			brandService.update(brand_pojo,id);

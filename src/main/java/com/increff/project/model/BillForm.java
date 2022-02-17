@@ -3,7 +3,7 @@ package com.increff.project.model;
 public class BillForm {
 
 	public String name;
-	public int quantity;
+	public Integer quantity;
 	public double mrp;
 	public String getName() {
 		return name;
@@ -11,10 +11,10 @@ public class BillForm {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	public double getMrp() {

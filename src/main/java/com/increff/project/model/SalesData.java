@@ -10,24 +10,24 @@ public class SalesData{
 		this.brand = brand;
 	}
 	private String category;
-	private int quantity;
-	private double revenue;
+	private Integer quantity;
+	private Double revenue;
 	public String getCategory() {
 		return category;
 	}
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public double getRevenue() {
+	public Double getRevenue() {
 		return revenue;
 	}
-	public void setRevenue(double revenue) {
+	public void setRevenue(Double revenue) {
 		this.revenue = revenue;
 	}
 

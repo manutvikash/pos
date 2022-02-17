@@ -2,22 +2,22 @@ package com.increff.project.model;
 
 public class OrderData {
 
-	private int id;
+	private Integer id;
 	private String datetime;
 	private double amount;
-	private boolean invoiceCreated;
+	private Boolean invoiceCreated;
 	
 	
-	public boolean getInvoiceCreated() {
+	public Boolean getInvoiceCreated() {
 		return invoiceCreated;
 	}
-	public void setInvoiceCreated(boolean invoiceCreated) {
+	public void setInvoiceCreated(Boolean invoiceCreated) {
 		this.invoiceCreated = invoiceCreated;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getDatetime() {

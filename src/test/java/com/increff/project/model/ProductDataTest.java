@@ -9,7 +9,7 @@ import com.increff.project.spring.AbstractUnitTest;
 public class ProductDataTest extends AbstractUnitTest {
 	@Test
 	public void testProductData() {
-		int id = 1;
+		Integer id = 1;
 		String brand = "adidas";
 		String category = "shoes";
 		String name = "adidas air";
@@ -21,7 +21,7 @@ public class ProductDataTest extends AbstractUnitTest {
 		product.setBrand(brand);
 		product.setCategory(category);
 		product.setId(id);
-		product.setMrp(mrp);
+		product.setMrp(new Double(mrp));
 		product.setName(name);
 		
 		assertEquals(brand,product.getBrand());

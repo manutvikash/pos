@@ -10,9 +10,9 @@ public class OrderDataTest extends AbstractUnitTest {
 
 	@Test
 	public void testOrderData() {
-		int id = 1;
+		Integer id = 1;
 		String datetime = "2022-02-11";
-		int amount=10;
+		Integer amount=10;
 		boolean invoice=true;
 		
 		OrderData order = new OrderData();

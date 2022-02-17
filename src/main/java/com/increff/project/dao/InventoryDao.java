@@ -17,8 +17,8 @@ public class InventoryDao {
 	@PersistenceContext
 	EntityManager em;
 	
-	private static String select_all = "select p from InventoryPojo p";
-	private static String select_product = "select p from InventoryPojo p where p.productPojo=:productpojo";
+	private static String SELECT_ALL = "select p from InventoryPojo p";
+	private static String SELECT_PRODUCT = "select p from InventoryPojo p where p.productPojo=:productpojo";
 	
 	//Insert inventory to DB
 	public void insert(InventoryPojo p) {
@@ -27,13 +27,13 @@ public class InventoryDao {
 	
 	
 	//Select inventory from DB
-	public InventoryPojo select(int id) {
+	public InventoryPojo select(Integer id) {
 		return em.find(InventoryPojo.class, id);
 	}
 	
 	//Select Inventory based on product
 	public List<InventoryPojo> selectByProduct(ProductPojo p) {
-		TypedQuery<InventoryPojo> query = getQuery(select_product);
+		TypedQuery<InventoryPojo> query = getQuery(SELECT_PRODUCT);
 		query.setParameter("productpojo", p);
 		return query.getResultList();
 	}
@@ -45,7 +45,7 @@ public class InventoryDao {
 	
 	//Select All inventory pojos
 	public List<InventoryPojo> selectAll() {
-		TypedQuery<InventoryPojo> query = getQuery(select_all);
+		TypedQuery<InventoryPojo> query = getQuery(SELECT_ALL);
 		return query.getResultList();
 	}
 	

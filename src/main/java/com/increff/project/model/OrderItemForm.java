@@ -3,12 +3,12 @@ package com.increff.project.model;
 public class OrderItemForm {
 
 	private String barcode;
-	private int quantity;
-	private double sellingPrice;
-	public double getSellingPrice() {
+	private Integer quantity;
+	private Double sellingPrice;
+	public Double getSellingPrice() {
 		return sellingPrice;
 	}
-	public void setSellingPrice(double sellingPrice) {
+	public void setSellingPrice(Double sellingPrice) {
 		this.sellingPrice = sellingPrice;
 	}
 	public String getBarcode() {
@@ -17,10 +17,10 @@ public class OrderItemForm {
 	public void setBarcode(String barcode) {
 		this.barcode = barcode;
 	}
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	

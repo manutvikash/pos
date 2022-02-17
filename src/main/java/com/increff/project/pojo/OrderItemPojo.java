@@ -4,14 +4,14 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(indexes= {
+@Table(name="orderitem",indexes= {
 		@Index(name = "orderid_index", columnList = "orderId")
 })
 public class OrderItemPojo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@ManyToOne(optional=false)
 	@JoinColumn(name = "orderId", nullable = false)
 	private OrderPojo orderpojo;
@@ -19,9 +19,9 @@ public class OrderItemPojo {
 	@JoinColumn(name = "productId", nullable = false)
 	private ProductPojo productpojo;
 	@Column(nullable = false)
-	private int quantity;
+	private Integer quantity;
 	@Column(nullable = false)
-	private double sellingPrice;
+	private Double sellingPrice;
 	
 	private double mrp;
 	public double getMrp() {
@@ -30,10 +30,10 @@ public class OrderItemPojo {
 	public void setMrp(double mrp) {
 		this.mrp = mrp;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public OrderPojo getOrderpojo() {
@@ -48,16 +48,16 @@ public class OrderItemPojo {
 	public void setProductpojo(ProductPojo productpojo) {
 		this.productpojo = productpojo;
 	}
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public double getSellingPrice() {
+	public Double getSellingPrice() {
 		return sellingPrice;
 	}
-	public void setSellingPrice(double sellingPrice) {
+	public void setSellingPrice(Double sellingPrice) {
 		this.sellingPrice = sellingPrice;
 	}
 	public BrandPojo getBrandPojo() {

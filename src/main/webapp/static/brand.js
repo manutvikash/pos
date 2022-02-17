@@ -97,6 +97,14 @@ function displayBrandList(data) {
 
 	var $tbody = $('#brand-table').find('tbody');
 	$tbody.empty();
+	if(data.length===0){
+		var row='<tr>'
+		+'<td>'+'</td>'
+		+'<td style="text-align:center;">'+'No Data Available'+'</td>'
+		+'<td>'+'</td>'+
+		'</tr>';
+		$tbody.append(row);
+	}
 	for (var i in data) {
 		var e = data[i];
 		var buttonHtml = ' <button type="button" class="btn btn-info" style="border: none;" onclick="displayEditBrand(' + e.id + ')"><i class="icon-edit editicon"></i> Edit</button>'

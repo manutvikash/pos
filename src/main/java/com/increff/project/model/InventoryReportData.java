@@ -6,7 +6,7 @@ public class InventoryReportData {
 
 	public String brand;
 	public String category;
-	public int quantity;
+	public Integer quantity;
 
 	@XmlElement
 	public String getBrand() {
@@ -27,11 +27,11 @@ public class InventoryReportData {
 	}
 
 	@XmlElement
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 

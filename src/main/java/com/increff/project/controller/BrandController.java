@@ -30,15 +30,15 @@ public class BrandController {
 	
 	@ApiOperation(value="Add Brands")
 	@RequestMapping(path="/api/brand", method=RequestMethod.POST)
-	public void add(@RequestBody BrandForm form) throws ApiException {
-		brandDto.add(form);
+	public void add(@RequestBody BrandForm brandForm) throws ApiException {
+		brandDto.add(brandForm);
 	}
 	
 
 	
 	@ApiOperation(value = "Get Brand details by id")
 	@RequestMapping(path = "/api/brand/{id}", method = RequestMethod.GET)
-	public BrandData get(@PathVariable int id) throws ApiException {
+	public BrandData get(@PathVariable Integer id) throws ApiException {
 		return brandDto.get(id);
 	}
 
@@ -54,14 +54,14 @@ public class BrandController {
 
 	@ApiOperation(value = "Updates a Brand details record")
 	@RequestMapping(path = "/api/brand/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable int id, @RequestBody BrandForm f) throws ApiException {
-		brandDto.update(id, f);
+	public void update(@PathVariable Integer id, @RequestBody BrandForm brandForm) throws ApiException {
+		brandDto.update(id, brandForm);
 	}
 	
 	@ApiOperation(value = "Search by Brand and Category")
 	@RequestMapping(path = "/api/brand/search", method = RequestMethod.POST)
-	public List<BrandData> search(@RequestBody BrandForm f) throws ApiException {
-		return brandDto.search(f);
+	public List<BrandData> search(@RequestBody BrandForm brandForm) throws ApiException {
+		return brandDto.search(brandForm);
 	}
 	
 }

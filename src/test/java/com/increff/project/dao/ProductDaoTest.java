@@ -48,11 +48,12 @@ public class ProductDaoTest extends AbstractUnitTest{
 		
 	}
 	
+	
 	private ProductPojo getProductPojo(BrandPojo b){
 		ProductPojo p = new ProductPojo();
 		p.setBrandpojo(b);
 		p.setName("milk");
-		p.setMrp(50);
+		p.setMrp(50.00);
 		return p;
 	}
 

@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.increff.project.dto.OrderDto;
 import com.increff.project.dto.ReportDto;
 import com.increff.project.model.BrandForm;
+import com.increff.project.model.OrderItemData;
 import com.increff.project.model.SalesFilter;
+import com.increff.project.service.ApiException;
 import com.increff.project.service.ReportService;
 
 import io.swagger.annotations.Api;
@@ -30,6 +33,9 @@ public class ReportController {
 	private ReportService reportService;
 	  @Autowired
 	    private ReportDto reportDto;
+	  
+	  @Autowired
+	  private OrderDto orderDto;
 
 	  @ApiOperation(value = "Gets Brand report")
 	    @RequestMapping(value = "/api/brand-report",method = RequestMethod.GET)
@@ -38,11 +44,16 @@ public class ReportController {
 	    }
 	  @ApiOperation(value = "Gets Sales Report")
 		@RequestMapping(path = "/api/report/sales", method = RequestMethod.POST)
-		public void getSales(@RequestBody SalesFilter sales_filter, HttpServletResponse response) throws Exception {
-			byte[] bytes = reportService.generatePdfResponse("sales", sales_filter);
+		public void getSales(@RequestBody SalesFilter salesFilter, HttpServletResponse response) throws Exception {
+			byte[] bytes = reportService.generatePdfResponse("sales", salesFilter);
 			createPdfResponse(bytes, response);
 		}
 	  
+	  @ApiOperation(value="Get Sales by date ")
+	  @RequestMapping(path="/api/report/date",method=RequestMethod.POST)
+	  public List<OrderItemData> getSalesbydate(@RequestBody SalesFilter salesFilter) throws ApiException{
+		  return orderDto.getBydate(salesFilter.getStartDate(),salesFilter.getEndDate());
+	  }
 
 	public void createPdfResponse(byte[] bytes, HttpServletResponse response) throws IOException {
 		response.setContentType("application/pdf");

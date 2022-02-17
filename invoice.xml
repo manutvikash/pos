@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <items>
-    <datetime>2022-02-14 12:57</datetime>
+    <datetime>2022-02-14 16:36</datetime>
     <item>
-        <id>1</id>
-        <mrp>2345.0</mrp>
-        <name>adidas xt</name>
-        <quantity>2</quantity>
+        <id>3</id>
+        <mrp>10.0</mrp>
+        <name>chicken</name>
+        <quantity>1</quantity>
     </item>
-    <item>
-        <id>2</id>
-        <mrp>34.45</mrp>
-        <name>pavillion</name>
-        <quantity>7</quantity>
-    </item>
-    <order_id>1</order_id>
-    <total>4931.15</total>
+    <order_id>3</order_id>
+    <total>10.0</total>
 </items>

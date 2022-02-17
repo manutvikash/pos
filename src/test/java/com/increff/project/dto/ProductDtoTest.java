@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.increff.project.model.ProductData;
 import com.increff.project.model.ProductForm;
 import com.increff.project.model.ProductFormSearch;
-import com.increff.project.pojo.BrandPojo;
-import com.increff.project.pojo.InventoryPojo;
-import com.increff.project.pojo.ProductPojo;
 import com.increff.project.service.ApiException;
 import com.increff.project.service.InventoryService;
 import com.increff.project.service.ProductService;
@@ -37,7 +34,7 @@ public class ProductDtoTest extends AbstractUnitTest{
 	public void testAdd() throws ApiException {
 		ProductForm productForm=new ProductForm();
 		productForm.setBarcode("123");
-		productForm.setMrp(999);
+		productForm.setMrp(999.00);
 		productForm.setName("air");
 		productForm.setBrand(brands.get(0).getBrand());
 		productForm.setCategory(brands.get(0).getCategory());
@@ -59,7 +56,7 @@ public class ProductDtoTest extends AbstractUnitTest{
 	public void testSearch() throws ApiException{
 		ProductForm productForm=new ProductForm();
 		productForm.setBarcode("123");
-		productForm.setMrp(999);
+		productForm.setMrp(999.00);
 		productForm.setName("air");
 		productForm.setBrand(brands.get(0).getBrand());
 		productForm.setCategory(brands.get(0).getCategory());
@@ -80,7 +77,7 @@ public class ProductDtoTest extends AbstractUnitTest{
 	public void testUpdate() throws ApiException{
 		int id=products.get(0).getId();
 		ProductForm p=new ProductForm();
-		p.setMrp(1000);
+		p.setMrp(1000.00);
 		p.setBrand("brand");
 		p.setCategory("category0");
 		p.setBarcode("12");

@@ -1,17 +1,10 @@
 package com.increff.project.service;
 
 import java.io.File;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,16 +14,11 @@ import javax.xml.transform.stream.StreamSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.increff.project.model.BrandData;
-import com.increff.project.model.BrandList;
-import com.increff.project.model.InventoryData;
-import com.increff.project.model.InventoryReportData;
 import com.increff.project.model.InvoiceData;
 import com.increff.project.model.InvoiceDataList;
 import com.increff.project.model.SalesDataList;
 import com.increff.project.model.SalesFilter;
 import com.increff.project.pojo.BrandPojo;
-import com.increff.project.pojo.InventoryPojo;
 import com.increff.project.pojo.OrderItemPojo;
 import com.increff.project.pojo.OrderPojo;
 import com.increff.project.util.ConversionUtil;
@@ -64,7 +52,7 @@ public class ReportService {
 		}
 	}
 
-	public InvoiceDataList generateInvoiceList(int order_id) throws Exception {
+	public InvoiceDataList generateInvoiceList(Integer order_id) throws Exception {
 		List<OrderItemPojo> lis = order_service.getOrderItems(order_id);
 		InvoiceDataList idl = ConversionUtil.convertToInvoiceDataList(lis);
 		idl.setOrder_id(lis.get(0).getOrderpojo().getId());
@@ -81,9 +69,20 @@ public class ReportService {
 	public SalesDataList generateSalesList(SalesFilter sales_filter) throws Exception {
 
 		List<OrderItemPojo> order_list = order_service.getAll();
-		List<OrderItemPojo> filtered_orderitem_list = FilterByDate(sales_filter, order_list);
-		Map<BrandPojo, Integer> quantityPerBrandCategory = getMapQuantity(sales_filter, filtered_orderitem_list);
-		Map<BrandPojo, Double> revenuePerBrandCategory = getMapRevenue(sales_filter, filtered_orderitem_list);
+		List<OrderItemPojo> orderItem_list=new ArrayList<OrderItemPojo>();
+		List<OrderPojo> orderPojoList=order_service.getByDate(sales_filter.getStartDate(),sales_filter.getEndDate());
+		for(OrderPojo order:orderPojoList) {
+			Integer id=order.getId();
+			List<OrderItemPojo> orderItemPojo=order_service.getOrderItems(id);
+			for(OrderItemPojo orderItem:orderItemPojo) {
+				orderItem_list.add(orderItem);
+			}
+		}
+//		List<OrderItemPojo> filtered_orderitem_list = filterByDate(sales_filter, order_list);
+//		Map<BrandPojo, Integer> quantityPerBrandCategory = getMapQuantity(sales_filter, filtered_orderitem_list);
+//		Map<BrandPojo, Double> revenuePerBrandCategory = getMapRevenue(sales_filter, filtered_orderitem_list);
+		Map<BrandPojo, Integer> quantityPerBrandCategory = getMapQuantity(sales_filter, orderItem_list);
+		Map<BrandPojo, Double> revenuePerBrandCategory = getMapRevenue(sales_filter, orderItem_list);
 		SalesDataList salesDataList=ConversionUtil.convertSalesList(quantityPerBrandCategory, revenuePerBrandCategory);
 		salesDataList.setEndDate(sales_filter.getEndDate());
 		salesDataList.setStartDate(sales_filter.getStartDate());
@@ -91,7 +90,7 @@ public class ReportService {
 	}
 
 	/*Getting order items based on date */
-	private static List<OrderItemPojo> FilterByDate(SalesFilter sales_filter, List<OrderItemPojo> orderitem_list) {
+	private static List<OrderItemPojo> filterByDate(SalesFilter sales_filter, List<OrderItemPojo> orderitem_list) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDateTime startDate = LocalDate.parse(sales_filter.getStartDate(), formatter).atStartOfDay();
 		LocalDateTime endDate = LocalDate.parse(sales_filter.getEndDate(), formatter).atStartOfDay().plusDays(1);
@@ -131,7 +130,7 @@ public class ReportService {
 
 	/*Calculating total cost of order */
 	private static double calculateTotal(InvoiceDataList idl) {
-		double total = 0;
+		Double total = 0.00;
 		for (InvoiceData i : idl.getItem_list()) {
 			total += (i.getMrp() * i.getQuantity());
 		}

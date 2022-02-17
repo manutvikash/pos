@@ -30,13 +30,13 @@ public class InventoryController {
 
 	@ApiOperation(value = "Adds Inventory")
 	@RequestMapping(path = "/api/inventory", method = RequestMethod.POST)
-	public void add(@RequestBody InventoryForm userform) throws ApiException {
-		inventoryDto.add(userform);
+	public void add(@RequestBody InventoryForm inventoryForm) throws ApiException {
+		inventoryDto.add(inventoryForm);
 	}
 
 	@ApiOperation(value = "Gets an Inventory record by id")
 	@RequestMapping(path = "/api/inventory/{id}", method = RequestMethod.GET)
-	public InventoryData get(@PathVariable int id) throws ApiException {
+	public InventoryData get(@PathVariable Integer id) throws ApiException {
 
 		return inventoryDto.get(id);
 	}
@@ -49,16 +49,16 @@ public class InventoryController {
 
 	@ApiOperation(value = "Updates an Inventory record")
 	@RequestMapping(path = "/api/inventory/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable int id, @RequestBody InventoryForm f) throws ApiException {
+	public void update(@PathVariable Integer id, @RequestBody InventoryForm inventoryForm) throws ApiException {
 
-		inventoryDto.update(id, f);
+		inventoryDto.update(id, inventoryForm);
 	}
 
 
 	@ApiOperation(value="Gets Id of the Barcode")
 	@RequestMapping(path="/api/inventory/barcode",method=RequestMethod.POST)
-	public List<InventoryData> getid(@RequestBody InventoryForm f) throws ApiException{
-		return inventoryDto.getid(f);
+	public List<InventoryData> getid(@RequestBody InventoryForm inventoryForm) throws ApiException{
+		return inventoryDto.getid(inventoryForm);
 	}
 	
 

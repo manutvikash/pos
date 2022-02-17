@@ -2,7 +2,7 @@ package com.increff.project.model;
 
 public class InventoryData extends InventoryForm {
 	
-	private int id;
+	private Integer id;
 	private String name;
 	private String brand;
 	private String category;
@@ -19,10 +19,10 @@ public class InventoryData extends InventoryForm {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {

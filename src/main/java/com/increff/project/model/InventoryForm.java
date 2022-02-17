@@ -3,17 +3,17 @@ package com.increff.project.model;
 public class InventoryForm {
 
 	private String barcode;
-	private int quantity;
+	private Integer quantity;
 	public String getBarcode() {
 		return barcode;
 	}
 	public void setBarcode(String barcode) {
 		this.barcode = barcode;
 	}
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 }

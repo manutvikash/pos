@@ -12,23 +12,23 @@ public class OrderPojo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private LocalDateTime datetime;
-    private boolean invoiceCreated;
+    private Boolean invoiceCreated;
     
-    public boolean getInvoiceCreated() {
+    public Boolean getInvoiceCreated() {
 		return invoiceCreated;
 	}
 
-	public void setInvoiceCreated(boolean invoiceCreated) {
+	public void setInvoiceCreated(Boolean invoiceCreated) {
 		this.invoiceCreated = invoiceCreated;
 	}
 
-	public int getId() {
+	public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

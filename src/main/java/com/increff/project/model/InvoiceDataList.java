@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="items")
 public class InvoiceDataList {
 
-	private int order_id;
+	private Integer order_id;
 	private String datetime;
 	private double total;
 	private List<InvoiceData> item_list;
 	
 	@XmlElement(name="order_id")
-	public int getOrder_id() {
+	public Integer getOrder_id() {
 		return order_id;
 	}
-	public void setOrder_id(int order_id) {
+	public void setOrder_id(Integer order_id) {
 		this.order_id = order_id;
 	}
 	

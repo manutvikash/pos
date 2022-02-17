@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sales_items>
-    <endDate>2022-02-14</endDate>
+    <endDate>2022-02-31</endDate>
     <startDate>2022-02-01</startDate>
-    <sales_item>
-        <brand>adidas</brand>
-        <category>shoes</category>
-        <quantity>9</quantity>
-        <revenue>4931.15</revenue>
-    </sales_item>
 </sales_items>

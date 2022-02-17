@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.increff.project.pojo.BrandPojo;
 import com.increff.project.spring.AbstractUnitTest;
@@ -72,7 +71,7 @@ public class BrandServiceTest extends AbstractUnitTest {
 	@Test()
 	public void testGet() throws ApiException {
 
-		int id = brands.get(0).getId();
+		Integer id = brands.get(0).getId();
 		brand_service.get(id);
 		assertEquals(brands.get(0).getBrand(), brand_service.get(id).getBrand());
 		assertEquals(brands.get(0).getCategory(), brand_service.get(id).getCategory());
@@ -83,7 +82,7 @@ public class BrandServiceTest extends AbstractUnitTest {
 	@Test()
 	public void testGetNotExisting() throws ApiException {
 
-		int id = 5;
+		Integer id = 5;
 		try {
 			brand_service.get(id);
 			fail("Api Exception did not occur");
@@ -98,7 +97,7 @@ public class BrandServiceTest extends AbstractUnitTest {
 	public void testUpdate() throws ApiException {
 
 		BrandPojo np = getNewBrandPojo();
-		int id = brands.get(0).getId();
+		Integer id = brands.get(0).getId();
 		brand_service.update(np, id);
 		assertEquals(np.getBrand(), brand_service.get(id).getBrand());
 		assertEquals(np.getCategory(), brand_service.get(id).getCategory());
@@ -111,7 +110,7 @@ public class BrandServiceTest extends AbstractUnitTest {
 
 		BrandPojo np = getWrongBrandPojo();
 
-		int id = brands.get(0).getId();
+		Integer id = brands.get(0).getId();
 		try {
 			brand_service.update(np, id);
 			fail("Api Exception did not occur");
@@ -134,7 +133,7 @@ public class BrandServiceTest extends AbstractUnitTest {
 	@Test()
 	public void testCheckIfExists() throws ApiException {
 
-		int id = brands.get(0).getId();
+		Integer id = brands.get(0).getId();
 		BrandPojo db_brand_pojo = brand_service.checkId(id);
 		assertEquals(brands.get(0).getBrand(), db_brand_pojo.getBrand());
 		assertEquals(brands.get(0).getCategory(), db_brand_pojo.getCategory());
@@ -145,7 +144,7 @@ public class BrandServiceTest extends AbstractUnitTest {
 	@Test()
 	public void testCheckIfExistsNotExisting() throws ApiException {
 
-		int id = 100;
+		Integer id = 100;
 		try {
 			brand_service.checkId(id);
 			fail("Api Exception did not occur");
@@ -169,25 +168,25 @@ public class BrandServiceTest extends AbstractUnitTest {
 
 
 
-	/* Testing normalize */
-	@Test
-	public void testNormalize() throws ApiException {
-		BrandPojo p = getBrandPojo();
-
-		brand_service.normalize(p);
-		assertEquals("parle", p.getBrand());
-		assertEquals("biscuits", p.getCategory());
-	}
-
-	/* Testing Validate */
-	@Test
-	public void testValidate() throws ApiException {
-		BrandPojo p = getBrandPojo();
-
-		brand_service.check(p);
-		assertTrue(!p.getBrand().isEmpty());
-		assertTrue(!p.getCategory().isEmpty());
-	}
+//	/* Testing normalize */
+//	@Test
+//	public void testNormalize() throws ApiException {
+//		BrandPojo p = getBrandPojo();
+//
+//		brand_service.normalize(p);
+//		assertEquals("parle", p.getBrand());
+//		assertEquals("biscuits", p.getCategory());
+//	}
+//
+//	/* Testing Validate */
+//	@Test
+//	public void testValidate() throws ApiException {
+//		BrandPojo p = getBrandPojo();
+//
+//		brand_service.check(p);
+//		assertTrue(!p.getBrand().isEmpty());
+//		assertTrue(!p.getCategory().isEmpty());
+//	}
 
 	private BrandPojo getBrandPojo() {
 		BrandPojo p = new BrandPojo();

@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.increff.project.model.SalesFilter;
 import com.increff.project.pojo.OrderItemPojo;
 import com.increff.project.pojo.OrderPojo;
 import com.increff.project.pojo.ProductPojo;
@@ -108,7 +109,7 @@ public class OrderServiceTest extends AbstractUnitTest{
 	public void testGetOrder() throws ApiException {
 
 		OrderPojo db_order_pojo = order_service.getOrder(order_id);
-		assertEquals(order_id, db_order_pojo.getId());
+		assertEquals(order_id, db_order_pojo.getId(),0.001);
 	}
 	
 	// Testing getting all order items for a particular order 
@@ -142,7 +143,7 @@ public class OrderServiceTest extends AbstractUnitTest{
 
 		order_service.add(lis);
 
-		int id = order_item.getId();
+		Integer id = order_item.getId();
 		List<OrderPojo> order_list_before = order_service.getAllOrders();
 		List<OrderItemPojo> orderitem_list_before = order_service.getAll();
 		order_service.delete(id);
@@ -176,7 +177,7 @@ public class OrderServiceTest extends AbstractUnitTest{
 	@Test
 	public void testUpdateInventoryDuringEdit() throws ApiException {
 		order_service.updateInventory(getOrderItemPojo(products.get(1), 3), 2);
-		assertEquals(19, inventory_service.getByProductId(products.get(1).getId()).getQuantity());
+		assertEquals(19, inventory_service.getByProductId(products.get(1).getId()).getQuantity(),0.001);
 	}
 
 	@Test
@@ -220,7 +221,7 @@ public class OrderServiceTest extends AbstractUnitTest{
 	
 	@Test
 	public void testCheckIfExistsWrong() throws ApiException {
-		int orderitem_id = 5;
+		Integer orderitem_id = 5;
 
 		try {
 			order_service.checkIfExists(orderitem_id);
@@ -246,9 +247,8 @@ public class OrderServiceTest extends AbstractUnitTest{
 		OrderItemPojo order_item = new OrderItemPojo();
 		order_item.setProductpojo(p);
 		order_item.setQuantity(-5);
-		order_item.setSellingPrice(543);
+		order_item.setSellingPrice(543.00);
 		return order_item;
 	}
 
-	
 }

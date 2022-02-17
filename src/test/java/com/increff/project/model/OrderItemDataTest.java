@@ -10,12 +10,12 @@ public class OrderItemDataTest extends AbstractUnitTest {
 
 	@Test
 	public void testOrderItemData() {
-		int id = 1;
+		Integer id = 1;
 		String barcode = "123";
-		int quantity = 2;
+		Integer quantity = 2;
 		String name = "vikash";
-		double price = 800.00;
-		int orderId = 1;
+		Double price = 800.00;
+		Integer orderId = 1;
 		
 		OrderItemData orderitem = new OrderItemData();
 		orderitem.setId(id);
@@ -29,7 +29,7 @@ public class OrderItemDataTest extends AbstractUnitTest {
 		assertEquals(barcode,orderitem.getBarcode());
 		assertEquals(price,orderitem.getSellingPrice(),0.001);
 		assertEquals(name,orderitem.getName());
-		assertEquals(orderId,orderitem.getOrderId());
+		assertEquals(orderId,orderitem.getOrderId(),0.001);
 		assertEquals(quantity,orderitem.getQuantity());
 	}
 }

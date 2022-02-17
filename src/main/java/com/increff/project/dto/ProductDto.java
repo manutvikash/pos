@@ -41,7 +41,7 @@ public class ProductDto {
 	}
 	
 	
-	public ProductData get(int id) throws ApiException{
+	public ProductData get(Integer id) throws ApiException{
 		ProductPojo p=productService.get(id);
 		return ConversionUtil.convert(p);
 	}
@@ -51,7 +51,7 @@ public class ProductDto {
 		return ConversionUtil.convertProductList(product_pojo_list);
 	}
 	
-	public void update(int id, ProductForm productForm) throws ApiException{
+	public void update(Integer id, ProductForm productForm) throws ApiException{
 		BrandPojo brand_pojo = brandService.getByBrandAndCategory(productForm.getBrand(), productForm.getCategory());
 		ProductPojo p = ConversionUtil.convert(brand_pojo,productForm);
 		productService.update(id, p);

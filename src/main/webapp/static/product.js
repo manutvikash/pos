@@ -35,7 +35,7 @@ return false;
 
 function validateProduct(json) {
 	json = JSON.parse(json);
-	console.log(json);
+	//console.log(json);
 	if (isBlank(json.barcode)) {
 		toastr.error("Barcode must not be empty");
 		return false;
@@ -102,6 +102,7 @@ function displayProductList(data){
 	});*/
 	var $tbody = $('#product-table').find('tbody');
 	$tbody.empty();
+	
 	for(var i in data){
 		var e = data[i];
 		//console.log(e.barcode);

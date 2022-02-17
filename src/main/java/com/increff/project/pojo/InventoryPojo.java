@@ -4,24 +4,25 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name="Inventory")
 public class InventoryPojo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "product_id", nullable = false)
 	private ProductPojo productPojo;
 
 	@Column(nullable=false)
-	private int quantity;
+	private Integer quantity;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -33,11 +34,11 @@ public class InventoryPojo {
 		this.productPojo = productPojo;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 

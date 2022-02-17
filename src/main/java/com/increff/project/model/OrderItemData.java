@@ -2,25 +2,25 @@ package com.increff.project.model;
 
 public class OrderItemData extends OrderItemForm {
 
-	private int id;
-	private int orderId;
+	private Integer id;
+	private Integer orderId;
 	private String name;
-	private double mrp;
-	private int realQuantity;
+	private Double mrp;
+	private Integer realQuantity;
 
-	public int getRealQuantity() {
+	public Integer getRealQuantity() {
 		return realQuantity;
 	}
 
-	public void setRealQuantity(int realQuantity) {
+	public void setRealQuantity(Integer realQuantity) {
 		this.realQuantity = realQuantity;
 	}
 
-	public double getMrp() {
+	public Double getMrp() {
 		return mrp;
 	}
 
-	public void setMrp(double mrp) {
+	public void setMrp(Double mrp) {
 		this.mrp = mrp;
 	}
 
@@ -31,19 +31,19 @@ public class OrderItemData extends OrderItemForm {
 //	public void setSellingPrice(double sellingPrice) {
 //		this.sellingPrice = sellingPrice;
 //	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 

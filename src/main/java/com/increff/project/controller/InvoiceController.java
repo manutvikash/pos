@@ -32,7 +32,7 @@ public class InvoiceController {
 	private OrderService order_service;
 	@ApiOperation(value = "Gets Invoice PDF by id")
 	@RequestMapping(path = "/api/invoice/{id}", method = RequestMethod.GET)
-	public void get(@PathVariable int id, HttpServletResponse response) throws Exception {
+	public void get(@PathVariable Integer id, HttpServletResponse response) throws Exception {
 		byte[] bytes = report_service.generatePdfResponse("invoice", id);
 		order_service.updateInvoice(id);
 		//orderData.setInvoiceCreated(true);

@@ -34,7 +34,7 @@ public class InventoryDto {
 		inventory_service.add(inventory_pojo);
 	}
 	
-	public InventoryData get(int id) throws ApiException{
+	public InventoryData get(Integer id) throws ApiException{
 		InventoryPojo inventory_pojo = inventory_service.get(id);
 		return ConversionUtil.convert(inventory_pojo);
 	}
@@ -55,7 +55,7 @@ public class InventoryDto {
 		InventoryPojo i=ConversionUtil.convert(inventoryForm, p);
 		//inventory_service.updatefileData(i);
 		ProductPojo p1=i.getProductPojo();
-		int id=p1.getId();
+		Integer id=p1.getId();
 		InventoryPojo i2=inventory_service.getByProductId(id);
 		//inventory_service.update(id, i2);
 		InventoryData arrayData= ConversionUtil.convert(i2);
@@ -66,7 +66,7 @@ public class InventoryDto {
 
 	}
 	
-	public void update(int id,InventoryForm inventoryForm) throws ApiException{
+	public void update(Integer id, InventoryForm inventoryForm) throws ApiException{
 		ProductPojo product = product_service.get(inventoryForm.getBarcode());
 		InventoryPojo inventory_pojo = ConversionUtil.convert(inventoryForm,product);
 		inventory_service.update(id, inventory_pojo);

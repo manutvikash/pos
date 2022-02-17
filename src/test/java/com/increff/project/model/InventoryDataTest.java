@@ -10,12 +10,12 @@ public class InventoryDataTest extends AbstractUnitTest {
 
 	@Test
 	public void testInventoryData() {
-		int id = 1;
+		Integer id = 1;
 		String barcode = "123";
 		String name="vikash";
 		String brand="adidas";
 		String category="shoes";
-		int quantity = 20;
+		Integer quantity = 20;
 		
 		InventoryData inventory = new InventoryData();
 		inventory.setBarcode(barcode);

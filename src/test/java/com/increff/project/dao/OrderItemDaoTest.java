@@ -69,7 +69,7 @@ public class OrderItemDaoTest extends AbstractUnitTest {
 		return order;
 	}
 
-	private OrderItemPojo getOrderItemPojo(ProductPojo p, int quantity) {
+	private OrderItemPojo getOrderItemPojo(ProductPojo p, Integer quantity) {
 		OrderItemPojo order_item = new OrderItemPojo();
 		order_item.setProductpojo(p);
 		order_item.setQuantity(quantity);

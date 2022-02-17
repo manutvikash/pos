@@ -3,7 +3,7 @@ package com.increff.project.pojo;
 import javax.persistence.*;
 
 @Entity
-@Table(indexes= {
+@Table(name="product",indexes= {
 		//@Index(name = "id", columnList = "id"),
 		@Index(name = "barcode", columnList = "barcode",unique=true)
 })
@@ -11,7 +11,7 @@ public class ProductPojo {
  
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String barcode;
 	
 	@ManyToOne(optional=false)
@@ -19,11 +19,11 @@ public class ProductPojo {
 	private BrandPojo brandpojo;
 	private String name;
 	@Column(nullable = false)
-	private double mrp;
-	public int getId() {
+	private Double mrp;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getBarcode() {
@@ -44,10 +44,10 @@ public class ProductPojo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getMrp() {
+	public Double getMrp() {
 		return mrp;
 	}
-	public void setMrp(double mrp) {
+	public void setMrp(Double mrp) {
 		this.mrp = mrp;
 	}
 	

@@ -9,7 +9,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 
 @Entity
-@Table(indexes= {
+@Table(name="brand",indexes= {
 		@Index(name = "id", columnList = "id"),
 		@Index(name="brand_category_index_unique",columnList="brand,category",unique=true)
 })
@@ -17,14 +17,16 @@ public class BrandPojo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
+	@Column(nullable=false)
 	private String brand;
+	@Column(nullable=false)
 	private String category;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getBrand() {
