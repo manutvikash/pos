@@ -1,3 +1,3 @@
 barcode	brand	category	name	mrp
-112345	puma	shoes	pavillionsx	2000.45
-@223	nike	sneakers	zxy	1000
+13	adidas	shoes	pavillion	2000.45
+14	kfc	food	chicken	300

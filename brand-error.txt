@@ -1,0 +1,2 @@
+brand	category
+brand1	category1
